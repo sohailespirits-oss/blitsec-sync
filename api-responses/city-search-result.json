@@ -1,0 +1,48 @@
+{
+    "success": true,
+    "result": {
+        "locations": [
+            {
+                "cityID": "479",
+                "city": "Coral Gables",
+                "name": "1172 S Dixie Hwy, Coral Gables, FL",
+                "address": "1172 S Dixie Hwy, Coral Gables, FL 33146",
+                "opuslocphone": "3057177626",
+                "id": "758",
+                "premium": "0",
+                "state": "Florida",
+                "state_english": "Florida",
+                "abbr": "FL",
+                "countryid": "1",
+                "opusowned": "0",
+                "showpopular": "0",
+                "point_x": "25.715507",
+                "point_y": "-80.275547",
+                "image": "\/newsite\/wp-content\/themes\/ThemeDec23\/assets\/images\/mailcenter.jpg",
+                "link": "https:\/\/www.opusvirtualoffices.com\/virtual-office\/florida\/coral-gables\/location-758\/",
+                "display": "<h5> <b> Coral Gables, FL <\/b> <\/h5> <p style='text-decoration: none; color: black' class='grey'> 1172 S Dixie Hwy, Coral Gables, FL <\/p> "
+            },
+            {
+                "cityID": "479",
+                "city": "Coral Gables",
+                "name": "1825 Ponce De Leon Blvd., Coral Gables, FL",
+                "address": "1825 Ponce De Leon Blvd., Coral Gables, FL 33134",
+                "opuslocphone": "3059084475",
+                "id": "757",
+                "premium": "0",
+                "state": "Florida",
+                "state_english": "Florida",
+                "abbr": "FL",
+                "countryid": "1",
+                "opusowned": "0",
+                "showpopular": "0",
+                "point_x": "25.7554346",
+                "point_y": "-80.258605",
+                "image": "\/newsite\/wp-content\/themes\/ThemeDec23\/assets\/images\/mailcenter.jpg",
+                "link": "https:\/\/www.opusvirtualoffices.com\/virtual-office\/florida\/coral-gables\/location-757\/",
+                "display": "<h5> <b> Coral Gables, FL <\/b> <\/h5> <p style='text-decoration: none; color: black' class='grey'> 1825 Ponce De Leon Blvd., Coral Gables, FL <\/p> "
+            }
+        ],
+        "opusownedzip": false
+    }
+}
