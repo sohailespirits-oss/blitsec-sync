@@ -1,40 +1,24 @@
 'use client';
 import Link from "next/link";
-import { motion } from "framer-motion";
-
-const fadeInUp = {
-  initial: {
-    y: 60,
-    opacity: 0,
-  },
-  animate: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.6,
-      ease: "easeOut",
-    },
-  },
-};
-
-const staggerContainer = {
-  initial: {},
-  animate: {
-    transition: {
-      staggerChildren: 0.1,
-    },
-  },
-};
+import Image from "next/image";
 
 const popularLocations = [
-  { name: "Atlanta, GA", image: "/atlanta.webp", href: "/virtual-office/georgia/atlanta/location-684/" },
-  { name: "Chicago, IL", image: "/chicago.webp", href: "/virtual-office/illinois/chicago/location-1430/" },
-  { name: "Dallas, TX", image: "/dallas.webp", href: "/virtual-office/texas/dallas/location-1255/" },
-  { name: "Houston, TX", image: "/houston.webp", href: "/virtual-office/texas/houston/location-1323/" },
-  { name: "Los Angeles, CA", image: "/los-angeles.webp", href: "/virtual-office/california/los-angeles/location-1362/" },
-  { name: "Miami, FL", image: "/miami.webp", href: "/virtual-office/florida/miami/location-1285/" },
-  { name: "New York, NY", image: "/new-york.webp", href: "/virtual-office/new-york/new-york/location-1450/" },
-  { name: "Tampa, FL", image: "/tampa.webp", href: "/virtual-office/florida/tampa/location-885/" },
+  { name: "Atlanta, GA", image: "https://api.builder.io/api/v1/image/assets/TEMP/064b6712d95273396330e06c658c4a8af19a9389?width=560", href: "/virtual-office/georgia/atlanta/location-684/" },
+  { name: "Chicago, IL", image: "https://api.builder.io/api/v1/image/assets/TEMP/f1c8b28f46d86dc904f456da3df714aeb96dccdd?width=560", href: "/virtual-office/illinois/chicago/location-1430/" },
+  { name: "Dallas, TX", image: "https://api.builder.io/api/v1/image/assets/TEMP/e4cdb897aef8f15e1674f5b715dbd4d8e72435fc?width=560", href: "/virtual-office/texas/dallas/location-1255/" },
+  { name: "Houston, TX", image: "https://api.builder.io/api/v1/image/assets/TEMP/67646f1366fd0f1dfd149bbdcb819f539d051db6?width=560", href: "/virtual-office/texas/houston/location-1323/" },
+  { name: "Los Angeles, CA", image: "https://api.builder.io/api/v1/image/assets/TEMP/fd1d05e164b2440de176a95ebc109a66d88ca6ec?width=560", href: "/virtual-office/california/los-angeles/location-1362/" },
+  { name: "New York, NY", image: "https://api.builder.io/api/v1/image/assets/TEMP/f4a70289a97c557a7e2d32130973f8c1495a3f90?width=560", href: "/virtual-office/new-york/new-york/location-1450/" },
+  { name: "Miami, FL", image: "https://api.builder.io/api/v1/image/assets/TEMP/2be9576251f6b4eab095d3fd742f7432e530b11d?width=560", href: "/virtual-office/florida/miami/location-1285/" },
+  { name: "Tampa, FL", image: "https://api.builder.io/api/v1/image/assets/TEMP/ea1042815a7dc0862e328858ac5ffed92f00eb5e?width=560", href: "/virtual-office/florida/tampa/location-885/" },
+  { name: "Boca Raton, FL", image: "https://api.builder.io/api/v1/image/assets/TEMP/8e054960d81e7cef9321ad4ae340e5b4941abbe1?width=560", href: "/virtual-office/florida/boca-raton/location-1/" },
+  { name: "Brooklyn, NY", image: "https://api.builder.io/api/v1/image/assets/TEMP/a714754d025d209100be812fd3c2866098c8fda0?width=560", href: "/virtual-office/new-york/brooklyn/location-1/" },
+  { name: "Fort Lauderdale", image: "https://api.builder.io/api/v1/image/assets/TEMP/bda4eb6068060fa789911cfc7a466dcaf9023b5a?width=560", href: "/virtual-office/florida/fort-lauderdale/location-1/" },
+  { name: "Delaware", image: "https://api.builder.io/api/v1/image/assets/TEMP/4c42707606ae0ddda1654859d64dc8d3a3b326cc?width=560", href: "/virtual-office/delaware/location-1/" },
+  { name: "Orlando", image: "https://api.builder.io/api/v1/image/assets/TEMP/84d0d24717470fddbf6389b3891c60ce36acb83f?width=560", href: "/virtual-office/florida/orlando/location-1/" },
+  { name: "Nashville", image: "https://api.builder.io/api/v1/image/assets/TEMP/c02c96d9765bdacc6e54d6ae0c35a3324bfbb268?width=560", href: "/virtual-office/tennessee/nashville/location-1/" },
+  { name: "Austin", image: "https://api.builder.io/api/v1/image/assets/TEMP/b67758d97629820889c55085ca826f58516fbb16?width=560", href: "/virtual-office/texas/austin/location-1/" },
+  { name: "Beverly Hills", image: "https://api.builder.io/api/v1/image/assets/TEMP/c6113db8607520122f0c74ca11ccd76f5bf11139?width=560", href: "/virtual-office/california/beverly-hills/location-1/" },
 ];
 
 interface PopularLocationsProps {
@@ -46,88 +30,59 @@ interface PopularLocationsProps {
 }
 
 export function PopularLocations({
-  title = "Most Popular Locations",
-  description,
-  showViewAllLink = true,
-  count = 8,
-  align = 'center'
+  title = "Most Popular Cities",
+  description = "From the skyscrapers of NYC to the valleys of California, you'll be sure to find the perfect new business address in all major cities across the country.",
+  showViewAllLink = false,
+  count = 16,
+  align = 'left'
 }: PopularLocationsProps) {
   const displayedLocations = popularLocations.slice(0, count);
-  const alignClass = align === 'left' ? 'items-start' : 'items-center';
-  const textAlignClass = align === 'left' ? 'text-left' : 'text-center';
+
+  // When align is 'center', add mx-auto to center the main container
+  const containerClass = align === 'center' ? 'flex max-w-[1280px] w-full px-8 flex-col items-start gap-16 mx-auto' : 'flex max-w-[1280px] w-full px-8 flex-col items-start gap-16';
 
   return (
-    <section className={`w-full ${alignClass} gap-6 sm:gap-8 px-0 py-8 sm:py-10 bg-[#ffffff] flex flex-col`}>
-      <motion.div
-        className={`flex flex-col ${alignClass} gap-6 sm:gap-8 max-w-screen-xl w-full px-4 sm:px-6 md:px-8 py-0 mx-auto`}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true }}
-        variants={fadeInUp}
-      >
-        <div className={`flex flex-col ${alignClass} gap-6 sm:gap-8 w-full`}>
-          <div className={`max-w-screen-md ${alignClass} flex flex-col gap-4 sm:gap-5 w-full`}>
-            <div className={`flex flex-col ${alignClass} gap-3 w-full`}>
-              <h2 className={`font-[number:var(--display-md-semibold-font-weight)] text-gray-900 text-[length:var(--display-md-semibold-font-size)] ${textAlignClass} tracking-[var(--display-md-semibold-letter-spacing)] leading-[var(--display-md-semibold-line-height)] font-display-md-semibold [font-style:var(--display-md-semibold-font-style)] text-2xl sm:text-3xl md:text-4xl`}>
-                {title}
-              </h2>
-              {description && (
-                <p className={`text-gray-600 text-xl leading-[30px] ${textAlignClass} max-w-[768px]`}>
-                  {description}
-                </p>
-              )}
-            </div>
+    <div className="flex w-full py-10 px-0 flex-col items-center bg-white">
+      <div className={containerClass}>
+        <div className="flex flex-col items-start gap-8">
+          <div className="flex max-w-[768px] flex-col items-start gap-5">
+            <h2 className="text-gray-900 text-4xl font-semibold leading-[44px] tracking-[-0.72px]">
+              {title}
+            </h2>
+            <p className="text-gray-600 text-xl font-normal leading-[30px]">
+              {description}
+            </p>
           </div>
         </div>
-      </motion.div>
 
-      <motion.div
-        className="flex flex-col items-center gap-6 max-w-screen-xl w-full px-4 sm:px-6 md:px-8 py-0 mx-auto"
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: true, amount: 0.1 }}
-        variants={staggerContainer}
-      >
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-full">
+        <div className="flex items-start content-start gap-x-8 gap-y-12 w-full flex-wrap">
           {displayedLocations.map((location, index) => (
-            <Link key={index} href={location.href} prefetch={false}>
-              <motion.div
-                className="flex flex-col items-start gap-4 sm:gap-6"
-                data-testid={`location-${index}`}
-                variants={fadeInUp}
-              >
-                <div
-                  className="w-full aspect-square sm:h-[200px] sm:aspect-auto rounded-lg bg-cover bg-center relative overflow-hidden cursor-pointer transition-transform hover:scale-105"
-                  style={{ backgroundImage: `url(${location.image})` }}
-                >
-                  <div className="absolute inset-x-0 bottom-0 flex items-end justify-center sm:justify-start p-3 sm:p-4" style={{ background: 'linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%)' }}>
-                    <h3 className="sm:hidden [font-family:'Inter',Helvetica] font-semibold text-white text-base tracking-[0] leading-normal text-center">
+            <Link
+              key={index}
+              href={location.href}
+              prefetch={false}
+              className="flex min-w-[240px] flex-col items-start gap-6 flex-1 basis-0"
+            >
+              <div className="h-[200px] self-stretch rounded-lg overflow-hidden relative">
+                <img
+                  src={location.image}
+                  alt={location.name}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col items-start gap-6 self-stretch">
+                <div className="flex flex-col items-start gap-4 self-stretch">
+                  <div className="flex flex-col items-start gap-1 self-stretch">
+                    <h3 className="self-stretch text-gray-900 text-xl font-semibold leading-[30px]">
                       {location.name}
                     </h3>
                   </div>
                 </div>
-                <div className="hidden sm:flex flex-col items-start w-full">
-                  <h3 className="[font-family:'Inter',Helvetica] font-semibold text-gray-900 text-lg sm:text-xl tracking-[0] leading-normal hover:text-blue-light400 transition-colors">
-                    {location.name}
-                  </h3>
-                </div>
-              </motion.div>
+              </div>
             </Link>
           ))}
         </div>
-
-        {showViewAllLink && (
-          <div className="max-w-screen-xl justify-center gap-2 px-0 py-0 w-full flex flex-col items-center">
-            <Link href="/premium-virtual-office-locations/" prefetch={false}>
-              <p className="[font-family:'Inter',Helvetica] font-normal text-gray-600 text-base sm:text-lg md:text-xl tracking-[0] leading-relaxed text-center hover:text-blue-light400 transition-colors cursor-pointer">
-                <span className="font-text-xl-regular [font-style:var(--text-xl-regular-font-style)] tracking-[var(--text-xl-regular-letter-spacing)] text-[length:var(--text-xl-regular-font-size)] font-semibold">
-                  View All Premium Locations
-                </span>
-              </p>
-            </Link>
-          </div>
-        )}
-      </motion.div>
-    </section>
+      </div>
+    </div>
   );
 }
