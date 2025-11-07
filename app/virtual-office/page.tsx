@@ -4,6 +4,7 @@ import { Footer } from "@/app/components/Footer";
 import { PopularLocations } from "@/app/components/PopularLocations";
 import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
+import { StatesList } from "@/app/components/StatesList";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -11,20 +12,6 @@ export const metadata: Metadata = {
   title: "Virtual Office Locations - 650+ Locations | Opus Virtual Offices",
   description: "Find your perfect virtual office location across 650+ locations in the USA, Canada, and Puerto Rico. Premium business addresses starting at $99/month.",
 };
-
-const US_STATES = [
-  "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware",
-  "District of Columbia", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa",
-  "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota",
-  "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
-  "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon",
-  "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah",
-  "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
-];
-
-const CANADA_PROVINCES = [
-  "Alberta", "British Columbia", "New Brunswick", "Nova Scotia", "Ontario", "Saskatchewan"
-];
 
 const PREMIUM_LOCATIONS = [
   {
@@ -162,99 +149,8 @@ export default function VirtualOfficePage() {
         </div>
       </section>
 
-      {/* State Selection Section */}
-      <section className="py-10 bg-white">
-        <div className="w-full max-w-[1440px] mx-auto">
-          <div className="max-w-[1280px] mx-auto px-8">
-            <div className="flex flex-col gap-8">
-              {/* United States */}
-              <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    United States - Select Your State
-                  </h2>
-                </div>
-                
-                <div className="flex flex-wrap items-start gap-6">
-                  {US_STATES.map((state) => (
-                    <Link 
-                      key={state} 
-                      href={`/virtual-office/${state.toLowerCase().replace(/\s+/g, '-')}`}
-                      prefetch={false}
-                      className="flex items-center gap-2"
-                    >
-                      <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
-                        {state}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Canada Section */}
-      <section className="py-10 bg-white">
-        <div className="w-full max-w-[1440px] mx-auto">
-          <div className="max-w-[1280px] mx-auto px-8">
-            <div className="flex flex-col gap-8">
-              <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    Canada - Select Your Province
-                  </h2>
-                </div>
-                
-                <div className="flex flex-wrap items-start gap-5">
-                  {CANADA_PROVINCES.map((province) => (
-                    <Link 
-                      key={province} 
-                      href={`/virtual-office/canada/${province.toLowerCase().replace(/\s+/g, '-')}`}
-                      prefetch={false}
-                      className="flex items-center gap-2"
-                    >
-                      <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
-                        {province}
-                      </span>
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Puerto Rico Section */}
-      <section className="py-10 bg-white">
-        <div className="w-full max-w-[1440px] mx-auto">
-          <div className="max-w-[1280px] mx-auto px-8">
-            <div className="flex flex-col gap-8">
-              <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    Puerto Rico - Select Your City
-                  </h2>
-                </div>
-                
-                <div className="flex flex-wrap items-start gap-5">
-                  <Link 
-                    href="/virtual-office/puerto-rico"
-                    prefetch={false}
-                    className="flex items-center gap-2"
-                  >
-                    <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
-                      Puerto Rico
-                    </span>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* State Selection Sections - Loaded from API */}
+      <StatesList />
 
       {/* Top Premium Locations */}
       <section className="py-10 bg-white">
