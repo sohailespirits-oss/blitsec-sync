@@ -71,7 +71,7 @@ export async function fetchTestimonials(limit: number = 4): Promise<Testimonial[
     // Transform API response to component format
     return transformReviews(responseData.data);
   } catch (error) {
-    console.error('Testimonials fetch error:', error);
+    console.error('[Testimonials API] Fetch error:', error);
     throw error;
   }
 }
