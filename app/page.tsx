@@ -12,7 +12,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { FeaturesBox } from "@/app/components/FeaturesBox";
 import { ActionSearchBar, LocationItem } from "@/app/components/ActionSearchBar";
 import { Footer } from "@/app/components/Footer";
-import { PopularLocations } from "@/app/components/PopularLocations";
+import { HomePopularLocations } from "@/app/components/HomePopularLocations";
 import { CTABanner } from "@/app/components/CTABanner";
 import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
@@ -603,7 +603,7 @@ export default function Page() {
           </motion.div>
         </section>
 
-        <PopularLocations />
+        <HomePopularLocations />
 
         <Reviews />
 

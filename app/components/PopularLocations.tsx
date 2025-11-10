@@ -3,22 +3,22 @@ import Link from "next/link";
 import Image from "next/image";
 
 const popularLocations = [
-  { name: "Atlanta, GA", image: "https://api.builder.io/api/v1/image/assets/TEMP/064b6712d95273396330e06c658c4a8af19a9389?width=560", href: "/virtual-office/georgia/atlanta/location-684/" },
-  { name: "Chicago, IL", image: "https://api.builder.io/api/v1/image/assets/TEMP/f1c8b28f46d86dc904f456da3df714aeb96dccdd?width=560", href: "/virtual-office/illinois/chicago/location-1430/" },
-  { name: "Dallas, TX", image: "https://api.builder.io/api/v1/image/assets/TEMP/e4cdb897aef8f15e1674f5b715dbd4d8e72435fc?width=560", href: "/virtual-office/texas/dallas/location-1255/" },
-  { name: "Houston, TX", image: "https://api.builder.io/api/v1/image/assets/TEMP/67646f1366fd0f1dfd149bbdcb819f539d051db6?width=560", href: "/virtual-office/texas/houston/location-1323/" },
-  { name: "Los Angeles, CA", image: "https://api.builder.io/api/v1/image/assets/TEMP/fd1d05e164b2440de176a95ebc109a66d88ca6ec?width=560", href: "/virtual-office/california/los-angeles/location-1362/" },
-  { name: "New York, NY", image: "https://api.builder.io/api/v1/image/assets/TEMP/f4a70289a97c557a7e2d32130973f8c1495a3f90?width=560", href: "/virtual-office/new-york/new-york/location-1450/" },
-  { name: "Miami, FL", image: "https://api.builder.io/api/v1/image/assets/TEMP/2be9576251f6b4eab095d3fd742f7432e530b11d?width=560", href: "/virtual-office/florida/miami/location-1285/" },
-  { name: "Tampa, FL", image: "https://api.builder.io/api/v1/image/assets/TEMP/ea1042815a7dc0862e328858ac5ffed92f00eb5e?width=560", href: "/virtual-office/florida/tampa/location-885/" },
-  { name: "Boca Raton, FL", image: "https://api.builder.io/api/v1/image/assets/TEMP/8e054960d81e7cef9321ad4ae340e5b4941abbe1?width=560", href: "/virtual-office/florida/boca-raton/location-1/" },
-  { name: "Brooklyn, NY", image: "https://api.builder.io/api/v1/image/assets/TEMP/a714754d025d209100be812fd3c2866098c8fda0?width=560", href: "/virtual-office/new-york/brooklyn/location-1/" },
-  { name: "Fort Lauderdale", image: "https://api.builder.io/api/v1/image/assets/TEMP/bda4eb6068060fa789911cfc7a466dcaf9023b5a?width=560", href: "/virtual-office/florida/fort-lauderdale/location-1/" },
-  { name: "Delaware", image: "https://api.builder.io/api/v1/image/assets/TEMP/4c42707606ae0ddda1654859d64dc8d3a3b326cc?width=560", href: "/virtual-office/delaware/location-1/" },
-  { name: "Orlando", image: "https://api.builder.io/api/v1/image/assets/TEMP/84d0d24717470fddbf6389b3891c60ce36acb83f?width=560", href: "/virtual-office/florida/orlando/location-1/" },
-  { name: "Nashville", image: "https://api.builder.io/api/v1/image/assets/TEMP/c02c96d9765bdacc6e54d6ae0c35a3324bfbb268?width=560", href: "/virtual-office/tennessee/nashville/location-1/" },
-  { name: "Austin", image: "https://api.builder.io/api/v1/image/assets/TEMP/b67758d97629820889c55085ca826f58516fbb16?width=560", href: "/virtual-office/texas/austin/location-1/" },
-  { name: "Beverly Hills", image: "https://api.builder.io/api/v1/image/assets/TEMP/c6113db8607520122f0c74ca11ccd76f5bf11139?width=560", href: "/virtual-office/california/beverly-hills/location-1/" },
+  { name: "Atlanta, GA", image: "/atlanta.webp", href: "/virtual-office/georgia/atlanta/location-684/" },
+  { name: "Chicago, IL", image: "/chicago.webp", href: "/virtual-office/illinois/chicago/location-1430/" },
+  { name: "Dallas, TX", image: "/dallas.webp", href: "/virtual-office/texas/dallas/location-1255/" },
+  { name: "Houston, TX", image: "/houston.webp", href: "/virtual-office/texas/houston/location-1323/" },
+  { name: "Los Angeles, CA", image: "/los-angeles.webp", href: "/virtual-office/california/los-angeles/location-1362/" },
+  { name: "New York, NY", image: "/new-york.webp", href: "/virtual-office/new-york/new-york/location-1450/" },
+  { name: "Miami, FL", image: "/miami.webp", href: "/virtual-office/florida/miami/location-1285/" },
+  { name: "Tampa, FL", image: "/tampa.webp", href: "/virtual-office/florida/tampa/location-885/" },
+  { name: "Boca Raton, FL", image: "/boca-raton.webp", href: "/virtual-office/florida/boca-raton/location-776/" },
+  { name: "Brooklyn, NY", image: "/brooklyn.webp", href: "/virtual-office/new-york/brooklyn/location-1477/" },
+  { name: "Fort Lauderdale, FL", image: "/fort-lauderdale.webp", href: "/virtual-office/florida/fort-lauderdale/location-803/" },
+  { name: "Wilmington, DE", image: "/delaware.webp", href: "/virtual-office/delaware/wilmington/location-942/" },
+  { name: "Orlando, FL", image: "/orlando.webp", href: "/virtual-office/florida/orlando/location-1499/" },
+  { name: "Nashville, TN", image: "/nashville.webp", href: "/virtual-office/tennessee/nashville/location-1476/" },
+  { name: "Austin, TX", image: "/austin.webp", href: "/virtual-office/texas/austin/location-1475/" },
+  { name: "Beverly Hills, CA", image: "/beverly-hills.webp", href: "/virtual-office/california/beverly-hills/location-936/" },
 ];
 
 interface PopularLocationsProps {

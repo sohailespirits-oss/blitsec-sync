@@ -13,6 +13,15 @@ export const metadata: Metadata = {
   description: "Find your perfect virtual office location across 650+ locations in the USA, Canada, and Puerto Rico. Premium business addresses starting at $99/month.",
 };
 
+const FEATURES = [
+  "Prestigious Business Address",
+  "Professional Live Call Answering",
+  "Personalized Call Transferring",
+  "Business Phone/Fax Number",
+  "Professional Mail Receipt",
+  "Voicemail/Fax Converted to Email"
+];
+
 const PREMIUM_LOCATIONS = [
   {
     city: "Atlanta, GA",
@@ -42,15 +51,6 @@ const PREMIUM_LOCATIONS = [
     suite: "Suite 2",
     zip: "Los Angeles, CA 90010"
   }
-];
-
-const FEATURES = [
-  "Prestigious Business Address",
-  "Professional Live Call Answering",
-  "Personalized Call Transferring",
-  "Business Phone/Fax Number",
-  "Professional Mail Receipt",
-  "Voicemail/Fax Converted to Email"
 ];
 
 export default function VirtualOfficePage() {
