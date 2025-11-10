@@ -40,7 +40,7 @@ export default async function VirtualOfficePage() {
       {/* Hero Section */}
       <section className="bg-white pt-[96px] lg:pt-[128px] pb-8">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-16">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-[50px]">
             {/* Left Column - Heading and Search */}
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-6">
@@ -56,7 +56,7 @@ export default async function VirtualOfficePage() {
 
               {/* Search Bar */}
               <div className="flex flex-wrap items-center gap-6">
-                <div className="flex flex-1 min-w-[320px] h-[72px] items-center rounded-xl border border-[#E4E7EC] bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] px-4">
+                <div className="flex h-[72px] w-full max-w-[425px] items-center rounded-xl border border-[#E4E7EC] bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] px-4">
                   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#9BA4B5]">
                     <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -67,7 +67,7 @@ export default async function VirtualOfficePage() {
                     className="flex-1 pl-3 text-lg text-gray-600 placeholder:text-gray-500 outline-none"
                   />
                 </div>
-                <button className="h-[72px] px-6 rounded-xl bg-[#36BFFA] text-white font-semibold text-base shadow-[0_1px_2px_rgba(15,23,42,0.1)]">
+                <button className="h-[72px] px-6 min-w-[130px] rounded-xl bg-[#36BFFA] text-white font-semibold text-base shadow-[0_1px_2px_rgba(15,23,42,0.1)]">
                   Sign up
                 </button>
               </div>
