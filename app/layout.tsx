@@ -4,7 +4,6 @@ import './globals.css';
 import { Providers } from './providers';
 import { Toaster } from '@/app/components/ui/toaster';
 import { Navbar } from '@/app/components/Navbar';
-import { NoSurprisePopup } from '@/app/components/NoSurprisePopup';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,7 +33,6 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Toaster />
-          <NoSurprisePopup />
         </Providers>
       </body>
     </html>
