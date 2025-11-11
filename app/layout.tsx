@@ -5,6 +5,7 @@ import { Providers } from './providers';
 import { Toaster } from '@/app/components/ui/toaster';
 import { Navbar } from '@/app/components/Navbar';
 import { NoSurprisePopup } from '@/app/components/NoSurprisePopup';
+import { PromotionPopup } from '@/app/components/PromotionPopup';
 
 const inter = Inter({
   subsets: ['latin'],
