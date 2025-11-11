@@ -21,16 +21,20 @@ function normalizePath(link: string) {
   return link.endsWith('/') ? link : `${link}/`;
 }
 
+const CARD_GAP = 20;
+
 export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
   const sliderLocations = useMemo(() => locations ?? [], [locations]);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
-  const handleScroll = (direction: 'left' | 'right') => {
+  const handleScroll = useCallback((direction: 'left' | 'right') => {
     if (!scrollRef.current) return;
-    const offset = direction === 'left' ? -420 : 420;
+    const card = scrollRef.current.querySelector<HTMLAnchorElement>('[data-location-card]');
+    const cardWidth = card ? card.offsetWidth : 360;
+    const offset = (cardWidth + CARD_GAP) * (direction === 'left' ? -1 : 1);
     scrollRef.current.scrollBy({ left: offset, behavior: 'smooth' });
-  };
+  }, []);
 
   const handleImageError = useCallback((id: string) => {
     setFailedImages((prev) => ({ ...prev, [id]: true }));
@@ -49,42 +53,22 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
   }));
 
   return (
-    <section className="py-10 bg-white">
-      <div className="max-w-[1280px] mx-auto px-8">
-        <div className="flex justify-between items-start flex-wrap gap-8 mb-10">
-          <div className="flex flex-col gap-5 min-w-[320px] max-w-[768px] flex-1">
-            <h2 className="text-[#181D27] text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-              Top Premium Locations
-            </h2>
-            <p className="text-[#535862] text-xl leading-[30px]">
-              Browse our most popular Opus-owned addresses, sourced directly from WordPress.
-            </p>
-          </div>
-          <div className="flex gap-4">
-            <button
-              type="button"
-              aria-label="Scroll left"
-              onClick={() => handleScroll('left')}
-              className="w-14 h-14 flex items-center justify-center rounded-full border border-[#E9EAEB]"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#A4A7AE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-            <button
-              type="button"
-              aria-label="Scroll right"
-              onClick={() => handleScroll('right')}
-              className="w-14 h-14 flex items-center justify-center rounded-full border border-[#E9EAEB]"
-            >
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#A4A7AE" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          </div>
+    <section className="py-12 bg-[#F8F9FC]">
+      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative">
+        <div className="flex flex-col gap-2 mb-8">
+          <h2 className="text-[#181D27] text-[36px] leading-[44px] font-semibold tracking-[-0.72px] font-['Inter',sans-serif]">
+            Top Premium Locations
+          </h2>
+          <p className="text-[#535862] text-xl leading-[30px] font-['Inter',sans-serif]">
+            Browse our most popular prestigious virtual office locations throughout the USA.
+          </p>
         </div>
 
-        <div ref={scrollRef} className="flex items-stretch gap-8 overflow-x-auto pb-4 snap-x snap-mandatory">
+        <div
+          ref={scrollRef}
+          className="slider-container flex gap-5 overflow-x-auto snap-x snap-mandatory pb-4 no-scrollbar"
+          style={{ scrollPadding: '10px', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+        >
           {cards.map((location) => {
             const href = sliderLocations.length ? normalizePath(location.link) : '#';
             const primaryImage = location.location_image_url;
@@ -118,9 +102,10 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
                 key={location.id}
                 href={href}
                 prefetch={false}
-                className="w-[360px] min-w-[360px] h-[480px] rounded-none relative flex-shrink-0 snap-start group"
+                className="location-card w-[360px] min-w-[360px] h-[480px] rounded-[12px] relative flex-shrink-0 snap-start group bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.08)]"
+                data-location-card
               >
-                <div className="w-full h-full rounded-2xl overflow-hidden relative shadow-[0_12px_24px_rgba(15,23,42,0.12)]">
+                <div className="w-full h-full rounded-[12px] overflow-hidden relative">
                   {showImage ? (
                     <img
                       src={primaryImage}
@@ -135,17 +120,18 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
                     </div>
                   )}
                   <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/15 to-black/45" />
-                  <div className="absolute inset-x-0 bottom-0 px-4 pb-4 pt-24">
-                    <div className="text-white">
-                      <div className="backdrop-blur-xl bg-white/40 rounded-2xl p-5 flex flex-col gap-2">
-                        <h3 className="text-2xl font-semibold leading-tight">
+                  <div className="absolute inset-0 flex items-end pb-4 px-4">
+                    <div className="backdrop-blur-md backdrop-filter bg-[rgba(255,255,255,0.3)] relative rounded-[16px] w-full">
+                      <div className="absolute inset-0 border border-[rgba(255,255,255,0.3)] rounded-[16px] pointer-events-none" />
+                      <div className="flex flex-col gap-2 p-5 relative text-white font-['Inter',sans-serif]">
+                        <h3 className="text-2xl font-semibold leading-[32px]">
                           {location.city}{location.state_abbr ? `, ${location.state_abbr}` : ''}
                         </h3>
-                      <div className="text-sm leading-relaxed text-white flex flex-col gap-1">
-                        {streetLine && <span>{streetLine}</span>}
-                        {suiteLine && <span>{suiteLine}</span>}
-                        {cityStateLine && <span>{cityStateLine}</span>}
-                      </div>
+                        <div className="text-sm leading-relaxed flex flex-col gap-1 font-normal">
+                          {streetLine && <span>{streetLine}</span>}
+                          {suiteLine && <span>{suiteLine}</span>}
+                          {cityStateLine && <span>{cityStateLine}</span>}
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -154,7 +140,35 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
             );
           })}
         </div>
+
+        <div className="flex justify-start gap-4 mt-4">
+          <button
+            type="button"
+            aria-label="Scroll left"
+            onClick={() => handleScroll('left')}
+            className="slider-arrow left w-12 h-12 flex items-center justify-center rounded-full border border-[#E9EAEB] bg-white shadow-sm"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#98A2B3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+          <button
+            type="button"
+            aria-label="Scroll right"
+            onClick={() => handleScroll('right')}
+            className="slider-arrow right w-12 h-12 flex items-center justify-center rounded-full border border-[#E9EAEB] bg-white shadow-sm"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="#98A2B3" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
+        </div>
       </div>
+      <style jsx>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 }
