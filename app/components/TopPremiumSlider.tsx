@@ -90,8 +90,28 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
             const primaryImage = location.location_image_url;
             const showImage = !!primaryImage && !failedImages[location.id];
             const addressParts = location.name?.split(',').map((part) => part.trim()).filter(Boolean) ?? [];
-            const primaryLine = addressParts.slice(0, 2).join(', ');
-            const secondaryLine = addressParts.slice(2).join(', ');
+            let streetLine = '';
+            let suiteLine = '';
+            let cityStateLine = '';
+
+            if (addressParts.length) {
+              streetLine = addressParts[0];
+
+              if (addressParts[1] && /suite/i.test(addressParts[1])) {
+                suiteLine = addressParts[1];
+                cityStateLine = addressParts.slice(2).join(', ');
+              } else {
+                if (addressParts[1]) {
+                  streetLine += `, ${addressParts[1]}`;
+                }
+                if (addressParts[2] && /suite/i.test(addressParts[2])) {
+                  suiteLine = addressParts[2];
+                  cityStateLine = addressParts.slice(3).join(', ');
+                } else {
+                  cityStateLine = addressParts.slice(2).join(', ');
+                }
+              }
+            }
 
             return (
               <Link
@@ -121,17 +141,11 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
                         <h3 className="text-2xl font-semibold leading-tight">
                           {location.city}{location.state_abbr ? `, ${location.state_abbr}` : ''}
                         </h3>
-                        {location.name && (
-                          <p className="text-sm leading-relaxed text-white">
-                            {primaryLine}
-                            {secondaryLine && (
-                              <>
-                                <br />
-                                {secondaryLine}
-                              </>
-                            )}
-                          </p>
-                        )}
+                      <div className="text-sm leading-relaxed text-white flex flex-col gap-1">
+                        {streetLine && <span>{streetLine}</span>}
+                        {suiteLine && <span>{suiteLine}</span>}
+                        {cityStateLine && <span>{cityStateLine}</span>}
+                      </div>
                       </div>
                     </div>
                   </div>
