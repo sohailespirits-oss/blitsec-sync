@@ -65,15 +65,16 @@ function ReviewCard({ review, isExpanded, onToggle }: {
   return (
     <motion.div
       key={review.id}
+      className="h-full"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
       <Card
-        className="items-start justify-center gap-3 p-3 bg-gray-50 rounded-lg border-[1.5px] border-solid border-[#eaecf0]"
+        className="h-full flex flex-col items-start justify-between gap-3 p-3 bg-gray-50 rounded-lg border-[1.5px] border-solid border-[#eaecf0]"
         data-testid={`review-${review.id}`}
       >
-        <CardContent className="flex flex-col gap-3 p-0 w-full">
+        <CardContent className="flex flex-col gap-3 p-0 w-full flex-1">
           <div className="flex items-start gap-1 w-full">
             <img
               className="w-[52px] h-[52px]"
@@ -188,7 +189,7 @@ export function Reviews() {
       </motion.div>
 
       <div className="flex max-w-screen-xl items-center gap-[60px] px-4 sm:px-6 md:px-8 py-0 w-full">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full items-stretch">
           {isError ? (
             // Error display
             <div className="col-span-full text-center p-8">
