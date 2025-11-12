@@ -6,7 +6,7 @@ import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
 import { StatesList } from "@/app/components/StatesList";
 import { TopPremiumSlider } from "@/app/components/TopPremiumSlider";
-import { fetchPopularSlider } from "@/app/lib/api/popularSlider";
+import { fetchPopularSlider, PopularSliderLocation } from "@/app/lib/api/popularSlider";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -25,7 +25,7 @@ const FEATURES = [
 ];
 
 export default async function VirtualOfficePage() {
-  let topPremiumLocations = [];
+  let topPremiumLocations: PopularSliderLocation[] = [];
   try {
     const sliderData = await fetchPopularSlider();
     topPremiumLocations = sliderData.data.top_premium;
