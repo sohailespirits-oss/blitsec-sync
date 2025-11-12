@@ -153,7 +153,8 @@ export function PromotionPopup() {
         </button>
 
         {/* Step 1: Promo */}
-        <div className={`${styles.step1} ${currentStep === 1 ? styles.visible : ''}`}>
+        {currentStep === 1 && (
+        <div className={styles.step1}>
           <div className={styles.head}>We are currently running special promotions!</div>
           <ul>
             <li>
@@ -203,9 +204,11 @@ export function PromotionPopup() {
             Click here to find out more
           </button>
         </div>
+        )}
 
         {/* Step 2: Form */}
-        <div className={`${styles.step2} ${currentStep === 2 ? styles.visible : ''}`}>
+        {currentStep === 2 && (
+        <div className={styles.step2}>
           <div className={styles.formContainer}>
             {errorMessage && (
               <div className={styles.errorMessage}>{errorMessage}</div>
@@ -264,9 +267,11 @@ export function PromotionPopup() {
             </form>
           </div>
         </div>
+        )}
 
         {/* Step 3: Thank You */}
-        <div className={`${styles.step3} ${currentStep === 3 ? styles.visible : ''}`}>
+        {currentStep === 3 && (
+        <div className={styles.step3}>
           {successMessage && (
             <div style={{ textAlign: 'center', color: '#333' }}>
               <h2>Thank You!</h2>
@@ -275,6 +280,7 @@ export function PromotionPopup() {
           )}
           {/* TODO: Add video iframe or additional thank you content if needed */}
         </div>
+        )}
       </div>
     </div>
   );

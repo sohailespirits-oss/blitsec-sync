@@ -36,6 +36,7 @@ export default function RootLayout({
           {children}
           <Toaster />
           <NoSurprisePopup />
+          <PromotionPopup />
         </Providers>
       </body>
     </html>
