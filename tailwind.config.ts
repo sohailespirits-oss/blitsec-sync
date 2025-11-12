@@ -69,6 +69,7 @@ const config: Config = {
         },
       },
       fontFamily: {
+        inter: ["var(--font-inter)", "Inter", "sans-serif"],
         "display-md-semibold": "var(--display-md-semibold-font-family)",
         "display-sm-display-md-semibold":
           "var(--display-sm-display-md-semibold-font-family)",
@@ -94,6 +95,8 @@ const config: Config = {
         "text-xs-medium": "var(--text-xs-medium-font-family)",
         "text-xs-regular": "var(--text-xs-regular-font-family)",
         sans: [
+          "var(--font-inter)",
+          "Inter",
           "ui-sans-serif",
           "system-ui",
           "sans-serif",
