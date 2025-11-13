@@ -54,7 +54,7 @@ export default function VirtualOfficePage() {
             </div>
 
             {/* Right Column - Features List */}
-            <div className="w-full max-w-[416px] lg:pl-4">
+            <div className="w-full max-w-[416px] mt-3 lg:mt-0 lg:pl-4">
               <FeaturesBoxLocations features={FEATURES} />
             </div>
           </div>
