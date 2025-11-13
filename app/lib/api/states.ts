@@ -26,8 +26,13 @@ export interface StatesResponse {
  * Fetch all states and provinces grouped by country
  */
 export async function fetchStates(): Promise<StatesResponse> {
-  const response = await fetch('https://njs.opusvirtualoffices.com/wp-json/opus/v1/locations/states/', {
-    cache: 'no-store'
+  const isLocalhost = typeof window !== 'undefined' && window.location.host === 'localhost:5000';
+  const baseUrl = isLocalhost
+    ? 'https://njs.opusvirtualoffices.com'
+    : (typeof window !== 'undefined' ? window.location.origin : '');
+
+  const response = await fetch(`${baseUrl}/jsonapi/all-states`, {
+    next: { revalidate: 3600 } // Cache for 1 hour (states rarely change)
   });
 
   if (!response.ok) {

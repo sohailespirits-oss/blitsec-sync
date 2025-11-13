@@ -13,7 +13,7 @@ export function StatesList() {
   return (
     <>
       {/* State Selection Section */}
-      <section className="py-10 bg-white">
+      <section className="bg-white pt-10 pb-5">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
@@ -53,7 +53,7 @@ export function StatesList() {
       </section>
 
       {/* Canada Section */}
-      <section className="py-10 bg-white">
+      <section className="bg-white py-5">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
@@ -92,7 +92,7 @@ export function StatesList() {
       </section>
 
       {/* Puerto Rico Section */}
-      <section className="py-10 bg-white">
+      <section className="bg-white pt-5 pb-10">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">

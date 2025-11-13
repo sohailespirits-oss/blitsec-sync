@@ -33,27 +33,14 @@ export interface Testimonial {
  */
 export async function fetchTestimonials(limit: number = 4): Promise<Testimonial[]> {
   try {
-    // Use production hostname for localhost development, otherwise use current site
-    const isLocalhost = typeof window !== 'undefined'
-      ? window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-      : false;
-
+    const isLocalhost = typeof window !== 'undefined' && window.location.host === 'localhost:5000';
     const baseUrl = isLocalhost
       ? 'https://njs.opusvirtualoffices.com'
       : (typeof window !== 'undefined' ? window.location.origin : '');
 
-    const url = new URL('/wp-json/opus/v1/reviews', baseUrl);
-
-    // Add query parameters
-    url.searchParams.append('orderby', 'date');
-    url.searchParams.append('order', 'desc');
-    url.searchParams.append('per_page', limit.toString());
-
-    const response = await fetch(url.toString(), {
+    const response = await fetch(`${baseUrl}/jsonapi/reviews4`, {
       method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
+      next: { revalidate: 300 } // Cache for 5 minutes
     });
 
     if (!response.ok) {

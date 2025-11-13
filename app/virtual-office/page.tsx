@@ -1,4 +1,5 @@
-import { Metadata } from "next";
+'use client';
+
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { PopularLocations } from "@/app/components/PopularLocations";
@@ -6,14 +7,7 @@ import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
 import { StatesList } from "@/app/components/StatesList";
 import { TopPremiumSlider } from "@/app/components/TopPremiumSlider";
-import { fetchPopularSlider, PopularSliderLocation } from "@/app/lib/api/popularSlider";
-import Link from "next/link";
-import Image from "next/image";
-
-export const metadata: Metadata = {
-  title: "Virtual Office Locations - 650+ Locations | Opus Virtual Offices",
-  description: "Find your perfect virtual office location across 650+ locations in the USA, Canada, and Puerto Rico. Premium business addresses starting at $99/month.",
-};
+import { SearchWithAction } from "@/app/components/SearchWithAction";
 
 const FEATURES = [
   "Prestigious Business Address",
@@ -24,57 +18,33 @@ const FEATURES = [
   "Voicemail/Fax Converted to Email"
 ];
 
-export default async function VirtualOfficePage() {
-  let topPremiumLocations: PopularSliderLocation[] = [];
-  try {
-    const sliderData = await fetchPopularSlider();
-    topPremiumLocations = sliderData.data.top_premium;
-  } catch (error) {
-    console.error("Failed to fetch top premium locations", error);
-  }
-
+export default function VirtualOfficePage() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-white pt-[96px] lg:pt-[128px] pb-8">
+      <section className="bg-white pt-[96px] lg:pt-[128px] pb-8 [font-family:'Inter',Helvetica]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-[50px]">
             {/* Left Column - Heading and Search */}
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-6">
-                <h1 className="text-[34px] leading-[44px] font-normal tracking-tight text-[#101828]">
+                <h1 className="text-[48px] leading-[60px] font-normal tracking-tight text-[#101828]">
                   <span>Find Your Virtual Office Location:</span>
                   <br />
-                  <span className="font-semibold text-[#0086C9]">650+ Locations</span>
-                  <span> Await – Seamless Virtual Office Solutions at </span>
-                  <span className="font-semibold text-[#17B26A]">$99</span>
-                  <span className="font-semibold text-[#17B26A]">/month</span>
+                  <span className="font-semibold text-[#0086C9]">650+</span>
+                  <span> Locations Await – Seamless Virtual Office Solutions at </span>
+                  <span className="font-semibold text-[#17B26A]">$99/</span>
+                  <span>month</span>
                 </h1>
               </div>
 
-              {/* Search Bar */}
-              <div className="flex flex-wrap items-center gap-6">
-                <div className="flex h-[72px] w-full max-w-[425px] items-center rounded-xl border border-[#E4E7EC] bg-white shadow-[0_10px_40px_rgba(15,23,42,0.06)] px-4">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="text-[#9BA4B5]">
-                    <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                  <input
-                    type="text"
-                    placeholder="Search for Zip, State, or City"
-                    className="flex-1 pl-3 text-lg text-gray-600 placeholder:text-gray-500 outline-none"
-                  />
-                </div>
-                <button className="h-[72px] px-6 min-w-[130px] rounded-xl bg-[#36BFFA] text-white font-semibold text-base shadow-[0_1px_2px_rgba(15,23,42,0.1)]">
-                  Sign up
-                </button>
-              </div>
+              <SearchWithAction className="mt-4" />
             </div>
 
             {/* Right Column - Features List */}
-            <div className="flex flex-col gap-[12px] items-start max-w-[480px] pb-[13px] pl-4">
+            <div className="flex flex-col gap-[12px] items-start max-w-[480px] pb-[13px] pl-4 lg:ml-[32%]">
               <div className="flex py-3 justify-center items-center gap-[6px] rounded-lg">
                 <div className="flex px-[2px] justify-center items-center">
                   <span className="text-[#475467] text-[16px] font-semibold leading-[24px]">
@@ -104,7 +74,7 @@ export default async function VirtualOfficePage() {
       {/* State Selection Sections - Loaded from API */}
       <StatesList />
 
-      <TopPremiumSlider locations={topPremiumLocations} />
+      <TopPremiumSlider />
 
       {/* Most Popular Cities */}
       <PopularLocations

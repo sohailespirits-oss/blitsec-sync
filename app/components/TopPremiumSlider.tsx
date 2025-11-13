@@ -3,10 +3,7 @@
 import { useMemo, useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import type { PopularSliderLocation } from '@/app/lib/api/popularSlider';
-
-interface TopPremiumSliderProps {
-  locations: PopularSliderLocation[];
-}
+import { usePopularSlider } from '@/app/lib/api/usePopularSlider';
 
 function normalizePath(link: string) {
   if (!link) return '/virtual-office/';
@@ -23,9 +20,10 @@ function normalizePath(link: string) {
 
 const CARD_GAP = 20;
 
-export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
+export function TopPremiumSlider() {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const sliderLocations = useMemo(() => locations ?? [], [locations]);
+  const { data, isLoading } = usePopularSlider();
+  const sliderLocations = useMemo(() => data?.data.top_premium ?? [], [data]);
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
   const handleScroll = useCallback((direction: 'left' | 'right') => {
@@ -53,7 +51,7 @@ export function TopPremiumSlider({ locations }: TopPremiumSliderProps) {
   }));
 
   return (
-    <section className="py-12 bg-[#F8F9FC]">
+    <section className="py-12 bg-white">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative">
         <div className="flex flex-col gap-2 mb-8">
           <h2 className="text-[#181D27] text-[36px] leading-[44px] font-semibold tracking-[-0.72px] font-['Inter',sans-serif]">
