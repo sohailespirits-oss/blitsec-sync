@@ -3,7 +3,7 @@ import React from 'react'
 
 export const TextWithImage = ({ reversed = false, title, body, image }: { reversed?: boolean, title: string, body: string, image: string }) => {
     return (
-        <section className={`max-w-screen-xl mx-auto pt-[60px] pb-[30px]`}>
+        <section className={`max-w-screen-xl mx-auto pt-[30px] pb-[30px]`}>
             <div className={`lg:px-[32px] px-[16px] flex flex-col lg:gap-[64px] gap-[32px] ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                 <div className='flex flex-col gap-[24px] w-full'>
                     <span className='font-inter font-semibold lg:text-[36px] text-[30px] leading-[120%] tracking-[-2%] text-[#101828]'>{title}</span>

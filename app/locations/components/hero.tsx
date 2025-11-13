@@ -169,7 +169,7 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
                     </div>
                 </div>
 
-                <div className="flex flex-col lg:flex-row items-start gap-6 md:gap-8 max-w-screen-xl w-full px-4 sm:px-6 md:px-8 py-0">
+                <div className="flex flex-col lg:flex-row gap-6 md:gap-8 max-w-screen-xl w-full px-4 sm:px-6 md:px-8 py-0">
                     <motion.div
                         className="flex lg:flex-col flex-row flex-1 items-start justify-start h-full w-full max-w-[696px] overflow-hidden rounded-[16px]"
                         initial={{ opacity: 1, y: 0 }}
@@ -219,7 +219,7 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
                                 </div>
                             )}
                         </div>
-                        <div className='flex flex-col bg-[#36BFFA] min-h-[214px] lg:px-[32px] px-[12px] py-[12px] justify-between lg:gap-[8px] gap-[12px] w-full'>
+                        <div className='flex flex-col bg-[#36BFFA] min-h-[214px] lg:min-h-fit lg:px-[32px] px-[12px] py-[12px] justify-between lg:gap-[8px] gap-[12px] w-full'>
                             <div className='flex flex-row items-center w-full justify-between gap-[16px]'>
                                 <span className='font-inter font-semibold lg:text-[36px] text-[14px] leading-[120%] tracking-[-2%] text-white'>
                                     {data?.city || ""}, {data?.state || ""}

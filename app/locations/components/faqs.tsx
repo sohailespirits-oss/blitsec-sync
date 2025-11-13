@@ -43,9 +43,9 @@ export const Faqs = ({ data = [] }: FaqsProps) => {
                     <div className="flex-row gap-[20px] items-center lg:flex hidden">
                         <Link
                             href="tel:+18888989868"
-                            className="text-white font-semibold font-inter text-[16px] leading-[100%] tracking-[0] py-[12px] px-[20px] rounded-[8px] bg-[#0086C9] hover:bg-[#026AA2] transition-colors"
+                            className="flex items-center justify-center text-center text-white font-semibold font-inter text-[16px] leading-[100%] tracking-[0] py-[12px] px-[20px] min-h-[48px] rounded-[8px] bg-[#0086C9] hover:bg-[#026AA2] transition-colors"
                         >
-                            Call Us
+                            <span>Call Us</span>
                         </Link>
                         <span className="text-[#475467] font-inter font-semibold leading-[100%] tracking-[0] text-[16px]">
                             1 (888) 898 - 9868

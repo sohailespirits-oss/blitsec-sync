@@ -55,7 +55,7 @@ export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) =>
             className="lg:hidden inline-flex items-center gap-2 text-[#475467] font-semibold text-base hover:text-[#026AA2] transition-colors mt-2"
             data-testid="see-all-features-button"
           >
-            <ChevronDown className="w-[24px] h-[24px] min-w-[24px] min-h-[24px]" />
+            <Image src="/locations/chevron-down-double.svg" alt="Chevron Down" width="24" height="24" className="w-[24px] h-[24px] min-w-[24px] min-h-[24px]" />
             <span>See All Features</span>
           </button>
         )}

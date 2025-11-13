@@ -26,7 +26,7 @@ export const TextWithMaps = ({ data }: TextWithMapsProps) => {
     };
 
     return (
-        <section className="max-w-screen-xl mx-auto pt-[60px] pb-[30px]">
+        <section className="max-w-screen-xl mx-auto py-[60px]">
             <div className="lg:px-[32px] px-[16px] flex flex-col lg:flex-row lg:gap-[64px] gap-[20px]">
                 {/* Left side - Text content */}
                 <div className="flex flex-col gap-[24px] w-full">
