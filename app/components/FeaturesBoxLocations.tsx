@@ -50,7 +50,7 @@ export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) =>
         {hasMoreFeatures && !showAll && (
           <button
             onClick={() => setShowAll(true)}
-            className="see-all-features feature-item lg:hidden flex items-center gap-3 text-[#475467] font-semibold text-base hover:text-[#026AA2] transition-colors mt-[6px]"
+            className="see-all-features feature-item lg:hidden flex items-center gap-3 text-[#475467] text-base font-normal hover:text-[#026AA2] transition-colors"
             data-testid="see-all-features-button"
           >
             <Image

@@ -43,10 +43,10 @@ export default function VirtualOfficePage() {
               <div className="flex flex-col gap-6">
                 <h1 className="text-[24px] leading-[32px] font-normal tracking-tight text-[#101828] lg:text-[48px] lg:leading-[60px]">
                   <span>Find Your Virtual Office Location: </span>
-                  <span className="font-semibold text-[#0086C9]">650+</span>
+                  <span className="font-bold text-[#0BA5EC]">650+</span>
                   <span> Locations Await – Seamless Virtual Office Solutions at </span>
-                  <span className="font-semibold text-[#17B26A]">$99/</span>
-                  <span>month</span>
+                  <span className="text-[#17B26A]">$99/</span>
+                  <span className="text-[#181D27]">month</span>
                 </h1>
               </div>
 
