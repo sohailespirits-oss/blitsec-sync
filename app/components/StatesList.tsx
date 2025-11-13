@@ -20,8 +20,10 @@ export function StatesList() {
               {/* United States */}
               <div>
                 <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    United States - Select Your State
+                  <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+                    <span>United States -</span>
+                    <br className="lg:hidden" />
+                    <span> Select Your State</span>
                   </h2>
                 </div>
 
@@ -59,8 +61,10 @@ export function StatesList() {
             <div className="flex flex-col gap-8">
               <div>
                 <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    Canada - Select Your Province
+                  <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+                    <span>Canada -</span>
+                    <br className="lg:hidden" />
+                    <span> Select Your Province</span>
                   </h2>
                 </div>
 
@@ -98,8 +102,10 @@ export function StatesList() {
             <div className="flex flex-col gap-8">
               <div>
                 <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    Puerto Rico - Select Your City
+                  <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+                    <span>Puerto Rico -</span>
+                    <br className="lg:hidden" />
+                    <span> Select Your City</span>
                   </h2>
                 </div>
 

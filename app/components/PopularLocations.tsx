@@ -76,17 +76,20 @@ export function PopularLocations({
               prefetch={false}
               className="popular-locations-mobile__card"
             >
-              <div className="popular-locations-mobile__image">
+              <div className="relative h-[200px] w-full overflow-hidden rounded-lg flex flex-col justify-end">
                 <Image
                   src={location.image}
                   alt={location.name}
                   fill
                   className="object-cover"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" aria-hidden="true" />
+                <div className="relative z-10 w-full flex flex-col items-center justify-end pb-3 px-3">
+                  <span className="text-white text-base font-bold leading-6 text-center w-full">
+                    {location.name}
+                  </span>
+                </div>
               </div>
-              <span className="text-gray-900 text-lg font-semibold leading-7">
-                {location.name}
-              </span>
             </Link>
           ))}
         </div>

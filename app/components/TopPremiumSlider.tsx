@@ -54,10 +54,10 @@ export function TopPremiumSlider() {
     <section className="py-12 bg-white">
       <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative">
         <div className="flex flex-col gap-2 mb-8">
-          <h2 className="text-[#181D27] text-[36px] leading-[44px] font-semibold tracking-[-0.72px] font-['Inter',sans-serif]">
+          <h2 className="text-[#181D27] text-[30px] leading-[38px] font-semibold tracking-[-0.6px] font-['Inter',sans-serif] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
             Top Premium Locations
           </h2>
-          <p className="text-[#535862] text-xl leading-[30px] font-['Inter',sans-serif]">
+          <p className="text-[#535862] text-lg leading-[28px] font-['Inter',sans-serif]">
             Browse our most popular prestigious virtual office locations throughout the USA.
           </p>
         </div>
