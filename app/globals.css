@@ -331,3 +331,21 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@keyframes global-loading-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.global-loading-spinner {
+  width: 48px;
+  height: 48px;
+  border-radius: 9999px;
+  border: 4px solid #f3f3f3;
+  border-top-color: #026aa2;
+  animation: global-loading-spin 1s linear infinite;
+}

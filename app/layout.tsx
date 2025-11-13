@@ -6,6 +6,7 @@ import { Toaster } from '@/app/components/ui/toaster';
 import { Navbar } from '@/app/components/Navbar';
 import { NoSurprisePopup } from '@/app/components/NoSurprisePopup';
 import { PromotionPopup } from '@/app/components/PromotionPopup';
+import { GlobalLoadingOverlay } from '@/app/components/GlobalLoadingOverlay';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,6 +38,7 @@ export default function RootLayout({
           <Toaster />
           <NoSurprisePopup />
           <PromotionPopup />
+          <GlobalLoadingOverlay />
         </Providers>
       </body>
     </html>

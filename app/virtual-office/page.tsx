@@ -8,6 +8,7 @@ import { Reviews } from "@/app/components/Reviews";
 import { StatesList } from "@/app/components/StatesList";
 import { TopPremiumSlider } from "@/app/components/TopPremiumSlider";
 import { SearchWithAction } from "@/app/components/SearchWithAction";
+import Image from "next/image";
 
 const FEATURES = [
   "Prestigious Business Address",
@@ -25,13 +26,15 @@ export default function VirtualOfficePage() {
 
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-white pt-[96px] lg:pt-[128px] pb-8 [font-family:'Inter',Helvetica]">
-        <div
-          className="absolute inset-0 pointer-events-none opacity-30"
-          style={{
-            backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
-            backgroundSize: '24px 24px'
-          }}
-        />
+        <div className="absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true">
+          <Image
+            src="/dots.svg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
         <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,768px)_1fr] gap-12 lg:gap-[32px]">
             {/* Left Column - Heading and Search */}
