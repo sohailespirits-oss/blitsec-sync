@@ -29,6 +29,21 @@ interface PopularLocationsProps {
   align?: 'left' | 'center';
 }
 
+const mobileLocationOrder = [
+  "Atlanta, GA",
+  "Chicago, IL",
+  "Dallas, TX",
+  "Houston, TX",
+  "Los Angeles, CA",
+  "New York, NY",
+  "Miami, FL",
+  "Tampa, FL",
+];
+
+const mobileLocations = mobileLocationOrder
+  .map((name) => popularLocations.find((location) => location.name === name))
+  .filter((location): location is (typeof popularLocations)[number] => Boolean(location));
+
 export function PopularLocations({
   title = "Most Popular Cities",
   description = "From the skyscrapers of NYC to the valleys of California, you'll be sure to find the perfect new business address in all major cities across the country.",
@@ -43,7 +58,42 @@ export function PopularLocations({
 
   return (
     <div className="flex w-full py-10 px-0 flex-col items-center bg-white">
-      <div className={containerClass}>
+      {/* Mobile layout */}
+      <div className="popular-locations-mobile md:hidden w-full">
+        <div className="flex flex-col gap-4 w-full px-4">
+          <h2 className="text-gray-900 text-2xl font-semibold leading-8 tracking-[-0.48px]">
+            {title}
+          </h2>
+          <p className="text-gray-600 text-base font-normal leading-6">
+            {description}
+          </p>
+        </div>
+        <div className="popular-locations-mobile__list">
+          {mobileLocations.map((location) => (
+            <Link
+              key={location.name}
+              href={location.href}
+              prefetch={false}
+              className="popular-locations-mobile__card"
+            >
+              <div className="popular-locations-mobile__image">
+                <Image
+                  src={location.image}
+                  alt={location.name}
+                  fill
+                  className="object-cover"
+                />
+              </div>
+              <span className="text-gray-900 text-lg font-semibold leading-7">
+                {location.name}
+              </span>
+            </Link>
+          ))}
+        </div>
+      </div>
+
+      {/* Desktop layout */}
+      <div className={`${containerClass} hidden md:flex`}>
         <div className="flex flex-col items-start gap-8">
           <div className="flex max-w-[768px] flex-col items-start gap-5">
             <h2 className="text-gray-900 text-4xl font-semibold leading-[44px] tracking-[-0.72px]">
