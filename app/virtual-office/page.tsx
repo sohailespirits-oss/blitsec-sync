@@ -24,13 +24,13 @@ export default function VirtualOfficePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-white pt-[96px] lg:pt-[128px] pb-8">
+      <section className="bg-white pt-[96px] lg:pt-[128px] pb-8 [font-family:'Inter',Helvetica]">
         <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-[50px]">
             {/* Left Column - Heading and Search */}
             <div className="flex flex-col gap-10">
               <div className="flex flex-col gap-6">
-                <h1 className="text-[34px] leading-[44px] font-normal tracking-tight text-[#101828]">
+                <h1 className="text-[48px] leading-[60px] font-normal tracking-tight text-[#101828]">
                   <span>Find Your Virtual Office Location:</span>
                   <br />
                   <span className="font-semibold text-[#0086C9]">650+</span>
@@ -44,7 +44,7 @@ export default function VirtualOfficePage() {
             </div>
 
             {/* Right Column - Features List */}
-            <div className="flex flex-col gap-[12px] items-start max-w-[480px] pb-[13px] pl-4">
+            <div className="flex flex-col gap-[12px] items-start max-w-[480px] pb-[13px] pl-4 lg:ml-[32%]">
               <div className="flex py-3 justify-center items-center gap-[6px] rounded-lg">
                 <div className="flex px-[2px] justify-center items-center">
                   <span className="text-[#475467] text-[16px] font-semibold leading-[24px]">
