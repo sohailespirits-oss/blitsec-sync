@@ -47,10 +47,10 @@ export default async function VirtualOfficePage() {
                 <h1 className="text-[34px] leading-[44px] font-normal tracking-tight text-[#101828]">
                   <span>Find Your Virtual Office Location:</span>
                   <br />
-                  <span className="font-semibold text-[#0086C9]">650+ Locations</span>
-                  <span> Await – Seamless Virtual Office Solutions at </span>
-                  <span className="font-semibold text-[#17B26A]">$99</span>
-                  <span className="font-semibold text-[#17B26A]">/month</span>
+                  <span className="font-semibold text-[#0086C9]">650+</span>
+                  <span> Locations Await – Seamless Virtual Office Solutions at </span>
+                  <span className="font-semibold text-[#17B26A]">$99/</span>
+                  <span>month</span>
                 </h1>
               </div>
 
