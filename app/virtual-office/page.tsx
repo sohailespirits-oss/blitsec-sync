@@ -24,8 +24,15 @@ export default function VirtualOfficePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-white pt-[96px] lg:pt-[128px] pb-8 [font-family:'Inter',Helvetica]">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
+      <section className="relative overflow-hidden bg-white pt-[96px] lg:pt-[128px] pb-8 [font-family:'Inter',Helvetica]">
+        <div
+          className="absolute inset-0 pointer-events-none opacity-30"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #d1d5db 1px, transparent 1px)',
+            backgroundSize: '24px 24px'
+          }}
+        />
+        <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-[50px]">
             {/* Left Column - Heading and Search */}
             <div className="flex flex-col gap-10">
