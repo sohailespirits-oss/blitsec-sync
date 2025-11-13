@@ -7,9 +7,7 @@ import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
 import { StatesList } from "@/app/components/StatesList";
 import { TopPremiumSlider } from "@/app/components/TopPremiumSlider";
-import { ActionSearchBar } from "@/app/components/ActionSearchBar";
-import Link from "next/link";
-import Image from "next/image";
+import { SearchWithAction } from "@/app/components/SearchWithAction";
 
 const FEATURES = [
   "Prestigious Business Address",
@@ -42,20 +40,7 @@ export default function VirtualOfficePage() {
                 </h1>
               </div>
 
-              {/* Search Bar */}
-              <div className="flex flex-wrap items-center gap-6">
-                <div className="w-full max-w-[425px]">
-                  <ActionSearchBar
-                    placeholder="Search for Zip, State, or City"
-                    onSelect={(location) => {
-                      console.log("Selected location:", location);
-                    }}
-                  />
-                </div>
-                <button className="h-[72px] px-6 min-w-[130px] rounded-xl bg-[#36BFFA] text-white font-semibold text-base shadow-[0_1px_2px_rgba(15,23,42,0.1)]">
-                  Sign up
-                </button>
-              </div>
+              <SearchWithAction className="mt-4" />
             </div>
 
             {/* Right Column - Features List */}

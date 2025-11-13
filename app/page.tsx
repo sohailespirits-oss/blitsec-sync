@@ -10,7 +10,7 @@ import { Separator } from "@/app/components/ui/separator";
 import { Dialog, DialogContent } from "@/app/components/ui/dialog";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/app/components/ui/accordion";
 import { FeaturesBox } from "@/app/components/FeaturesBox";
-import { ActionSearchBar, LocationItem } from "@/app/components/ActionSearchBar";
+import { SearchWithAction } from "@/app/components/SearchWithAction";
 import { Footer } from "@/app/components/Footer";
 import { HomePopularLocations } from "@/app/components/HomePopularLocations";
 import { CTABanner } from "@/app/components/CTABanner";
@@ -197,28 +197,17 @@ export default function Page() {
                   </p>
                 </div>
 
-                <div className="flex flex-col sm:flex-row max-w-[800px] w-full items-start gap-3 sm:gap-4 mt-4 sm:mt-6">
-                  <div className="flex flex-col items-start gap-3 flex-1 w-full sm:max-w-[400px]">
-                    <div className="flex flex-col items-start gap-1.5 w-full">
-                      <ActionSearchBar
-                        placeholder="Search for Zip, State, or City"
-                        onSelect={(location) => {
-                          console.log("Selected location:", location);
-                        }}
-                      />
-                    </div>
-
-                    <Link href="/our-top-locations/" prefetch={false}>
-                      <p className="[font-family:'Inter',Helvetica] font-bold text-gray-600 text-sm tracking-[0] leading-normal hover:text-[#181d27] transition-colors cursor-pointer">
-                        Browse Our Top Locations
-                      </p>
-                    </Link>
-                  </div>
-
-                  <Button className="hidden sm:flex h-[50px] gap-1.5 px-[18px] py-3 w-full sm:w-auto bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)]" data-testid="button-get-started">
-                    Get Started
-                  </Button>
-                </div>
+                <SearchWithAction
+                  className="mt-4 sm:mt-6"
+                  searchContainerClassName="sm:max-w-[394px]"
+                  onSelect={(location) => {
+                    console.log("Selected location:", location);
+                  }}
+                  browseLink={{
+                    href: "/our-top-locations/",
+                    label: "Browse Our Top Locations",
+                  }}
+                />
               </motion.div>
 
               <div className="flex w-full lg:w-auto">
