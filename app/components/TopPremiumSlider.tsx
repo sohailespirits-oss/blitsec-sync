@@ -100,7 +100,7 @@ export function TopPremiumSlider() {
                 key={location.id}
                 href={href}
                 prefetch={false}
-                className="location-card w-[360px] min-w-[360px] h-[480px] rounded-[12px] relative flex-shrink-0 snap-start group bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.08)]"
+                className="location-card w-[287px] min-w-[287px] h-[480px] rounded-[12px] relative flex-shrink-0 snap-start group bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.08)] lg:w-[360px] lg:min-w-[360px]"
                 data-location-card
               >
                 <div className="w-full h-full rounded-[12px] overflow-hidden relative">

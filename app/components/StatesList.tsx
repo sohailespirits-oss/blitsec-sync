@@ -27,7 +27,7 @@ export function StatesList() {
                   </h2>
                 </div>
 
-                <div className="flex flex-wrap items-start gap-[20px]">
+                <div className="flex flex-wrap items-start gap-[20px] lg:gap-6">
                   {statesLoading ? (
                     // Loading skeleton
                     [...Array(50)].map((_, index) => (
