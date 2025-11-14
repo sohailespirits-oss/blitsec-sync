@@ -377,3 +377,8 @@
     overflow: hidden;
   }
 }
+
+.px-8 {
+  padding-left: 1rem !important;
+  padding-right: 1rem !important;
+}
