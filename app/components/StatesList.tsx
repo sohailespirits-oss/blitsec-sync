@@ -13,7 +13,7 @@ export function StatesList() {
   return (
     <>
       {/* State Selection Section */}
-      <section className="bg-white pb-5">
+      <section className="bg-white pt-0 pb-5">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
@@ -96,7 +96,7 @@ export function StatesList() {
       </section>
 
       {/* Puerto Rico Section */}
-      <section className="bg-white pt-5 pb-10">
+      <section className="bg-white pt-5 pb-0">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">

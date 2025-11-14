@@ -57,7 +57,7 @@ export function PopularLocations({
   const containerClass = align === 'center' ? 'flex max-w-[1280px] w-full px-8 flex-col items-start gap-16 mx-auto' : 'flex max-w-[1280px] w-full px-8 flex-col items-start gap-16';
 
   return (
-    <div className="flex w-full py-10 px-0 flex-col items-center bg-white">
+    <div className="flex w-full py-0 px-0 flex-col items-center bg-white">
       {/* Mobile layout */}
       <div className="popular-locations-mobile md:hidden w-full">
         <div className="flex flex-col gap-4 w-full px-4">

@@ -9,6 +9,7 @@ import { StatesList } from "@/app/components/StatesList";
 import { TopPremiumSlider } from "@/app/components/TopPremiumSlider";
 import { SearchWithAction } from "@/app/components/SearchWithAction";
 import { FeaturesBoxLocations } from "@/app/components/FeaturesBoxLocations";
+import { SectionSpacer } from "@/app/components/SectionSpacer";
 import Image from "next/image";
 
 const FEATURES = [
@@ -26,7 +27,7 @@ export default function VirtualOfficePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-[96px] lg:pt-[128px] pb-8 mb-5 [font-family:'Inter',Helvetica]">
+      <section className="relative overflow-hidden bg-white pt-[96px] lg:pt-[128px] pb-0 [font-family:'Inter',Helvetica]">
         <div className="absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true">
           <Image
             src="/dots.svg"
@@ -61,10 +62,16 @@ export default function VirtualOfficePage() {
         </div>
       </section>
 
+      <SectionSpacer />
+
       {/* State Selection Sections - Loaded from API */}
       <StatesList />
 
+      <SectionSpacer />
+
       <TopPremiumSlider />
+
+      <SectionSpacer />
 
       {/* Most Popular Cities */}
       <PopularLocations
@@ -74,11 +81,17 @@ export default function VirtualOfficePage() {
         align="center"
       />
 
+      <SectionSpacer />
+
       {/* Reviews Section */}
       <Reviews />
 
+      <SectionSpacer />
+
       {/* CTA Section */}
       <EbookBanner />
+
+      <SectionSpacer />
 
       <Footer />
     </div>
