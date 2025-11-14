@@ -64,7 +64,7 @@ export function PopularLocations({
           <h2 className="text-gray-900 text-2xl font-semibold leading-8 tracking-[-0.48px]">
             {title}
           </h2>
-          <p className="text-gray-600 text-base font-normal leading-6">
+          <p className="text-gray-600 text-base font-normal leading-6 pb-6">
             {description}
           </p>
         </div>
