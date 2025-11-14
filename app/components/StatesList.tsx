@@ -41,7 +41,7 @@ export function StatesList() {
                         prefetch={false}
                         className="flex items-center gap-2"
                       >
-                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
+                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-[#181d27] transition-colors">
                           {state.state_name}
                         </span>
                       </Link>
