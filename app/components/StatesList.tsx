@@ -19,7 +19,7 @@ export function StatesList() {
             <div className="flex flex-col gap-8">
               {/* United States */}
               <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
+                <div className="flex flex-col gap-5 max-w-[768px] mb-5 lg:mb-10">
                   <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
                     <span>United States -</span>
                     <br className="lg:hidden" />
@@ -60,7 +60,7 @@ export function StatesList() {
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
               <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
+                <div className="flex flex-col gap-5 max-w-[768px] mb-5 lg:mb-10">
                   <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
                     <span>Canada -</span>
                     <br className="lg:hidden" />
@@ -101,7 +101,7 @@ export function StatesList() {
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
               <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
+                <div className="flex flex-col gap-5 max-w-[768px] mb-5 lg:mb-10">
                   <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
                     <span>Puerto Rico -</span>
                     <br className="lg:hidden" />
