@@ -1,0 +1,34 @@
+{
+    "success": true,
+    "result": {
+        "locations": [
+            {
+                "id": "936",
+                "name": "9350 Wilshire Blvd, Suite 203, Beverly Hills, CA",
+                "premium": "1",
+                "opusowned": "1",
+                "city": "Beverly Hills",
+                "state": "California",
+                "point_x": "34.066790",
+                "point_y": "-118.395504",
+                "link": "https:\/\/www.opusvirtualoffices.com\/virtual-office\/california\/beverly-hills\/location-936\/",
+                "display": "<h5> <b> Beverly Hills <\/b> <\/h5> <p style='text-decoration: none; color: black' class='grey'> 9350 Wilshire Blvd, Suite 203, Beverly Hills, CA <\/p> ",
+                "image": "\/wp-content-mgr\/wp-content\/uploads\/Opus-Virtual-Office-Beverly-Hills-9350-Wilshire-Blvd-Classic-Office-Building.webp"
+            },
+            {
+                "id": "1362",
+                "name": "626 Wilshire Blvd, Suite 410, Los Angeles, CA",
+                "premium": "1",
+                "opusowned": "1",
+                "city": "Los Angeles",
+                "state": "California",
+                "point_x": "34.0482582",
+                "point_y": "-118.2570021",
+                "link": "https:\/\/www.opusvirtualoffices.com\/virtual-office\/california\/los-angeles\/location-1362\/",
+                "display": "<h5> <b> Los Angeles <\/b> <\/h5> <p style='text-decoration: none; color: black' class='grey'> 626 Wilshire Blvd, Suite 410, Los Angeles, CA <\/p> ",
+                "image": "\/wp-content-mgr\/wp-content\/uploads\/Opus-Virtual-Office-Los-Angeles-626-Wilshire-Blvd-Modern-Office-Building.webp"
+            }
+        ],
+        "opusownedzip": false
+    }
+}

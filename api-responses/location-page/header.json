@@ -1,0 +1,28 @@
+{
+    "city": "Boca Raton",
+    "state": "FL",
+    "price": 99,
+    "address": {
+        "line1": "1825 NW Corporate Blvd",
+        "suite": "110",
+        "city": "Boca Raton",
+        "state": "FL",
+        "zip": "33431",
+        "phone": "(561) 988-6900"
+    },
+    "images": {
+        "hero": [
+            "\/wp-content-mgr\/wp-content\/uploads\/Boca-Raton-Virtual-Office-Space-1825-NW-Corporate-Blvd-.webp",
+            "\/wp-content-mgr\/wp-content\/uploads\/Elegant-Waiting-Area-at-Boca-Raton-Virtual-Office-1825-NW-Corporate-Blvd.webp",
+            "\/wp-content-mgr\/wp-content\/uploads\/Boca-Raton-Virtual-Office-Meeting-Room-1825-NW-Corporate-Blvd-.webp",
+            "\/wp-content-mgr\/wp-content\/uploads\/Boca-Raton-FL-Virtual-Office-Conference-Room-1825-NW-Corporate-Blvd-.webp",
+            "\/wp-content-mgr\/wp-content\/uploads\/Boca-Raton-Financial-Center-Virtual-Office-1825-NW-Corporate-Blvd-.webp"
+        ]
+    },
+    "features": {
+        "showMailX": 1
+    },
+    "addressOnlyOptionAvailable": 1,
+    "addressOnlyUrl": "\/business-address\/florida\/boca-raton\/location-776\/",
+    "signupUrl": "\/signup\/?locid=776"
+}
