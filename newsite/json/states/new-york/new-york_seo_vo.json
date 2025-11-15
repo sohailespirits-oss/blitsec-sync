@@ -1,0 +1,22 @@
+{
+    "success": true,
+    "page": "virtual-office/new-york",
+    "page_type": "location_state",
+    "view": "state",
+    "seo": {
+        "title": "",
+        "meta_description": "",
+        "canonical": "",
+        "og": {
+            "title": "",
+            "description": "",
+            "url": "",
+            "type": "website",
+            "image": "https://njs.opusvirtualoffices.com/newsite/wp-content/themes/ThemeDec23/assets/images/opus-logo-main.svg"
+        }
+    },
+    "data": {
+        "state": "new york",
+        "mode": "virtual-office"
+    }
+}

@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "page": "services",
+    "seo": {
+        "title": "Best Virtual Office: Live Receptionist & Mailing Address Service",
+        "meta_description": "Boost your business with a virtual office that offers telephone answering service, call forwarding, & a corporate mailing address for your business needs.",
+        "canonical": "https://njs.opusvirtualoffices.com/services/",
+        "og": {
+            "title": "Best Virtual Office: Live Receptionist & Mailing Address Service",
+            "description": "Boost your business with a virtual office that offers telephone answering service, call forwarding, & a corporate mailing address for your business needs.",
+            "url": "https://njs.opusvirtualoffices.com/services/",
+            "type": "website",
+            "image": "https://njs.opusvirtualoffices.com/newsite/wp-content/themes/ThemeDec23/assets/images/opus-logo-main.svg"
+        }
+    }
+}

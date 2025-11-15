@@ -1,0 +1,24 @@
+{
+    "success": true,
+    "page": "business-address/florida/boca-raton/location-776",
+    "page_type": "location_location",
+    "view": "location",
+    "seo": {
+        "title": "Prestigious Business Address 1825 NW Corporate Blvd boca raton | $59/month",
+        "meta_description": "Impress clients with a virtual office at 1825 NW Corporate Blvd boca raton enjoy a prime location mail handling digital alerts and privacy for only $59/month",
+        "canonical": "https://www.opusvirtualoffices.com/business-address/florida/boca-raton/location-776/",
+        "og": {
+            "title": "Prestigious Business Address 1825 NW Corporate Blvd boca raton | $59/month",
+            "description": "Impress clients with a virtual office at 1825 NW Corporate Blvd boca raton enjoy a prime location mail handling digital alerts and privacy for only $59/month",
+            "url": "https://www.opusvirtualoffices.com/business-address/florida/boca-raton/location-776/",
+            "type": "website",
+            "image": "https://njs.opusvirtualoffices.com/wp-content-mgr/wp-content/uploads/Boca-Raton-Virtual-Office-Space-1825-NW-Corporate-Blvd-.webp"
+        }
+    },
+    "data": {
+        "state": "florida",
+        "city": "boca raton",
+        "location_id": "776",
+        "mode": "business-address"
+    }
+}
