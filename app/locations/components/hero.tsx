@@ -1,9 +1,7 @@
 'use client';
 
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from "framer-motion";
-import { Button } from '@/app/components/ui/button';
-import { FeaturesBox } from '@/app/components/FeaturesBox';
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import Image from 'next/image';
