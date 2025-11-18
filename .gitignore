@@ -46,3 +46,9 @@ vite.config.ts.*
 # Logs
 logs
 *.log
+
+# Custom ignores
+agent-images/
+figma/
+scripts/
+*.md
