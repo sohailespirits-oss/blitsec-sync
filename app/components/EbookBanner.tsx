@@ -47,7 +47,7 @@ export function EbookBanner() {
                 6-Steps for Starting a Business
               </h2>
 
-              <p className="[font-family:'Inter',Helvetica] font-[20px] leading-[30px]  text-gray-900 text-base sm:text-lg md:text-xl tracking-normal lg:leading-relaxed">
+              <p className="[font-family:'Inter',Helvetica] font-[20px] leading-[30px]  text-gray-900 text-base sm:text-lg md:text-xl tracking-normal lg:leading-[30px]">
                 Your Complete Guide to Building a Successful Business<br></br>
                 Foundation with Confidence
               </p>

@@ -16,7 +16,7 @@ export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) =>
         When We Say <span className="font-semibold">All-Inclusive,</span><br />We Mean <span className="font-semibold">ALL-INCLUSIVE:</span>
       </p>
 
-      <div className="inline-flex flex-col items-start gap-[8px] lg:gap-3.5 sm:gap-3 w-full py-[8px] lg:py-[0px]">
+      <div className="inline-flex flex-col items-start gap-[8px] lg:gap-3 sm:gap-3 w-full py-[8px] lg:py-[0px]">
         {features.map((feature, index) => {
           // On mobile: hide items after index 2 unless showAll is true
           // On desktop (lg+): always show all items

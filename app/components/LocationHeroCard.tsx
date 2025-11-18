@@ -47,7 +47,7 @@ const getImageUrl = (path: string) => {
   return `https://www.opusvirtualoffices.com${path.startsWith("/") ? path : `/${path}`}`;
 };
 
-export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
+export default function LocationHeroCard({ data, ismailbox }: { data: LocationHeroData, ismailbox?: boolean }) {
   const heroImages = useMemo(
     () => (data.images?.hero?.length ? data.images.hero : ["/new-york-aerial-view_1761593422460.webp"]),
     [data.images?.hero]
@@ -69,52 +69,64 @@ export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
   return (
     <div className="flex flex-col md:flex-row lg:flex-row w-full max-w-[1280px] px-4 sm:px-6 md:px-8 py-0 justify-center items-start gap-5 md:gap-8">
       <motion.div
-        className="flex lg:flex-col flex-row flex-1 items-start justify-start h-full w-full overflow-hidden rounded-[16px] max-w-[696px] sm:h-[240px] md:h-[480px] lg:h-[560px]"
+        className="flex lg:flex-col flex-row flex-1 items-start justify-start h-full w-full overflow-hidden rounded-[16px] max-w-[696px] sm:h-[240px] md:h-[320px] lg:h-[560px] md:flex-col"
         initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0 }}
       >
-        <div className="flex h-[214px] w-[42%] sm:h-[400px] justify-center items-center self-stretch overflow-hidden relative lg:w-full">
-          <Image
-            src={getImageUrl(heroImages[currentImageIndex])}
-            alt={`${data.city} virtual office`}
-            className="object-cover w-full h-[214px] sm:w-[150px] lg:w-[400px] sm:h-[360px] lg:h-[400px]"
-            fill
-            unoptimized
-          />
+        {ismailbox ? (
+          <div className="flex h-[214px] w-[42%] sm:h-[400px] justify-center items-center self-stretch overflow-hidden relative lg:w-full md:w-full">
+            <Image
+              src={getImageUrl(heroImages[0])}
+              alt={`${data.city} virtual office`}
+              className="object-cover w-full h-[214px] sm:w-[150px] lg:w-[400px] sm:h-[360px] lg:h-[400px]"
+              fill
+              unoptimized
+            />
+          </div>
+        ) :
+          <div className="flex w-[42%] h-[214px] md:h-[400px] justify-center items-center self-stretch overflow-hidden relative lg:w-full md:w-full">
 
-          {heroImages.length > 1 && (
-            <>
-              <button
-                onClick={handlePrev}
-                className="lg:flex hidden bg-white w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-full items-center justify-center absolute left-[16px] top-1/2 -translate-y-1/2 z-10 hover:bg-gray-100 transition-colors"
-                aria-label="Previous image"
-              >
-                <ChevronLeft className="w-[20px] h-[20px] text-[#414651]" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="lg:flex hidden bg-white w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-full items-center justify-center absolute right-[16px] top-1/2 -translate-y-1/2 z-10 hover:bg-gray-100 transition-colors"
-                aria-label="Next image"
-              >
-                <ChevronRight className="w-[20px] h-[20px] text-[#414651]" />
-              </button>
+            <Image
+              src={getImageUrl(heroImages[currentImageIndex])}
+              alt={`${data.city} virtual office`}
+              className="object-cover w-full h-[214px] sm:w-[150px] lg:w-[400px] sm:h-[360px] lg:h-[400px]"
+              fill
+              unoptimized
+            />
 
-              <div className="flex flex-row items-center gap-[12px] bg-white rounded-full p-[8px] absolute bottom-[16px] left-1/2 -translate-x-1/2 z-10">
-                {heroImages.map((_, idx) => (
-                  <button
-                    key={idx}
-                    onClick={() => setCurrentImageIndex(idx)}
-                    className={`w-[8px] h-[8px] rounded-full transition-colors ${idx === currentImageIndex ? "bg-[#36BFFA]" : "lg:bg-white bg-gray-300"
-                      }`}
-                    aria-label={`Go to image ${idx + 1}`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
+            {heroImages.length > 1 && (
+              <>
+                <button
+                  onClick={handlePrev}
+                  className="lg:flex hidden bg-white w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-full items-center justify-center absolute left-[16px] top-1/2 -translate-y-1/2 z-10 hover:bg-gray-100 transition-colors"
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft className="w-[20px] h-[20px] text-[#414651]" />
+                </button>
+                <button
+                  onClick={handleNext}
+                  className="lg:flex hidden bg-white w-[36px] h-[36px] min-w-[36px] min-h-[36px] rounded-full items-center justify-center absolute right-[16px] top-1/2 -translate-y-1/2 z-10 hover:bg-gray-100 transition-colors"
+                  aria-label="Next image"
+                >
+                  <ChevronRight className="w-[20px] h-[20px] text-[#414651]" />
+                </button>
 
+                <div className="flex flex-row items-center gap-[12px] bg-white rounded-full p-[8px] absolute bottom-[16px] left-1/2 -translate-x-1/2 z-10">
+                  {heroImages.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => setCurrentImageIndex(idx)}
+                      className={`w-[8px] h-[8px] rounded-full transition-colors ${idx === currentImageIndex ? "bg-[#36BFFA]" : "lg:bg-white bg-gray-300"
+                        }`}
+                      aria-label={`Go to image ${idx + 1}`}
+                    />
+                  ))}
+                </div>
+              </>
+            )}
+          </div>
+        }
         <div className="flex flex-col px-[12px] pt-[12px] pb-[12px] lg:px-[32px] flex-1 min-w-[200px] sm:min-w-[200px] md:min-w-[200px] lg:min-w-[480px] w-full justify-center items-start gap-[12px] md:gap-[8px] self-stretch  border-t border-white/30 bg-[#36BFFA] backdrop-blur-lg">
           <div className="flex flex-row items-center w-full justify-between gap-[16px]">
             <span className="font-inter font-semibold lg:text-[36px] text-[14px] leading-[20px] tracking-normal lg:tracking-[-0.72px] text-white lg:leading-[44px]">
@@ -168,7 +180,7 @@ export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
         <FeaturesBoxLocations features={includedFeatures} />
 
         <span className="hidden sm:inline font-inter font-normal text-[20px] leading-[30px] text-[#475467]">
-          All for only <span className="text-[#36BFFA] font-bold">${data.price || 99}</span>/month
+          All for only <span className="text-[#0086C9] font-bold">${data.price || 99}</span>/month
         </span>
 
 

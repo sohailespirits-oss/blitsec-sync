@@ -13,12 +13,12 @@ export default function OverviewTextWithMap({ overviewData, reversed = false }: 
   return (
     <section className="flex pt-[20px] max-w-[1280px] w-full mx-auto lg:pt-[30px] pb-[30px]">
       <div
-        className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[32px] ${
+        className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[32px] w-full ${
           reversed ? "lg:flex-row-reverse" : "lg:flex-row"
         }`}
       >
         {/* LEFT COLUMN */}
-        <div className="flex flex-col md:max-w-[48%] w-full max-w-[592px]">
+        <div className="w-full max-w-full md:max-w-[48%] lg:max-w-[592px] flex flex-col">
           <span className="font-inter font-semibold lg:text-[36px] pb-[24px] text-[30px] leading-[38px] lg:leading-[44px] lg:tracking-[-0.72px] text-[#101828]">
             {overviewData.heading}
           </span>
@@ -28,7 +28,7 @@ export default function OverviewTextWithMap({ overviewData, reversed = false }: 
         </div>
 
         {/* MAP */}
-        <div className="w-full md:max-w-[48%] max-w-[560px] bg-[#F2F4F7] p-[16px] lg:p-[32px]">
+        <div className="w-full max-w-full md:max-w-[48%] lg:max-w-[560px] flex flex-col bg-[#F2F4F7] p-[16px] lg:p-[32px]">
           <iframe
             title={`Map of ${overviewData.map?.city || overviewData.heading}`}
             className="w-full h-full border-0 sm:min-h-[224px] lg:min-h-[300px]"

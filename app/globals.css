@@ -333,8 +333,14 @@
 }
 
 @media (min-width: 1024px) {
-  body{
+   body{
     padding-top: 104px;
+  }
+   p{
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    letter-spacing: normal;
   }
 }
 @media (max-width:1023px) {

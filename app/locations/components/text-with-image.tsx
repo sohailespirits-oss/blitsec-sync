@@ -12,12 +12,10 @@ export const TextWithImage = ({ reversed = false, title, body, image }: TextWith
   return (
     <section className="flex pt-[20px] max-w-[1280px] w-full mx-auto lg:pt-[30px] pb-[30px]">
       <div
-        className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[32px] ${
-          reversed ? "lg:flex-row-reverse" : "lg:flex-row"
-        }`}
+        className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[32px] w-full ${reversed ? "md:flex-row-reverse" : "md:flex-row"} ${reversed ? "lg:flex-row-reverse" : "lg:flex-row"}`}
       >
         {/* LEFT TEXT */}
-        <div className="flex flex-col md:max-w-[48%] w-full max-w-[592px]">
+          <div className="w-full max-w-full md:max-w-[48%] lg:max-w-[592px] flex flex-col">
           <span className="font-inter font-semibold lg:text-[36px] pb-[24px] text-[30px] leading-[38px] lg:leading-[44px] lg:tracking-[-0.72px] text-[#101828]">
             {title}
           </span>
@@ -27,7 +25,7 @@ export const TextWithImage = ({ reversed = false, title, body, image }: TextWith
         </div>
 
         {/* RIGHT IMAGE */}
-        <div className="w-full max-w-[560px] md:max-w-[48%] bg-[#F2F4F7] p-[16px] lg:p-[32px]">
+        <div className="w-full max-w-full md:max-w-[48%] lg:max-w-[560px] flex flex-col bg-[#F2F4F7] p-[16px] lg:p-[32px]">
           <div className="max-w-[496px] w-full overflow-hidden relative lg:min-h-[312px] min-h-[236px] h-full">
             <Image
               src={image}

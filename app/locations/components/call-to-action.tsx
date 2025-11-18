@@ -112,8 +112,8 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     <div className="ebook-left">
                         <div className="ebook-left-one">
                             <div className="heading-ebook flex flex-col gap-[12px]">
-                                <h2 className="font-semibold text-[#101828] lg:text-[36px] text-[30px] leading-[44px] tracking-[-0.72px]">
-                                    Establish your business presence in {cityName}
+                                <h2 className="font-semibold text-[#101828] lg:text-[36px] text-[30px] leading-[44px] tracking-[-0.72px] pr-[12px]">
+                                    Establish your business presence in <span className='capitalize'>{cityName}</span>
                                 </h2>
                                 <p className="font-normal lg:text-[20px] text-[18px] leading-[30px] tracking-[0] text-[#535862]">
                                     All-Inclusive Virtual Office Services for <strong>Only ${price}</strong>

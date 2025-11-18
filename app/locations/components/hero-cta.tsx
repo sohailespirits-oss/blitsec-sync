@@ -13,7 +13,7 @@ export const HeroCta = () => {
                 <Link
                     href="#"
                     className='py-[12px] px-[20px] w-full lg:w-auto items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white hover:bg-[#026AA2]
-                            font-inter font-semibold text-[16px] leading-[24px] tracking-[0]'>
+                            font-inter font-semibold text-[16px] leading-[24px] tracking-[0] md:w-auto'>
                     Select This Location
                 </Link>
             </div>

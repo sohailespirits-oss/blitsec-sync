@@ -11,12 +11,13 @@ import { InteractiveCardsGrid } from "@/app/components/InteractiveCardsGrid";
 import { HeroCta } from '@/app/locations/components/hero-cta';
 import { FaqSection } from '@/app/components/FaqSection';
 import faq from '@/api-responses/location-page/faq.json';
-import repeaterData from "@/api-responses/location-page/repeater.json"
+import repeaterData from "@/api-responses/location-page/repeater.json";
 import { RepeaterItem, RepeaterSection } from '@/app/components/RepeaterSection';
 import { EbookBanner } from '@/app/components/EbookBanner';
 import Spacing from '@/app/components/Spacing';
 import overviewData from '@/api-responses/location-page/overview.json';
 import { Reviews } from '@/app/components/Reviews';
+import PremiumSection from '@/app/components/PremiumSection';
 
 type LocationPageParams = {
   state: string;
@@ -62,13 +63,16 @@ const interactiveCards = [
 export default async function LocationPage({ params }: { params: Promise<LocationPageParams> }) {
   const { state, city, location } = await params;
   const locId = headerData.signupUrl.match(/locid=(\d+)/)?.[1] || '776';
-
+  const isPremiumNearby = headerData.nearbypremium === 1;
+  const ismailbox = headerData.nearbypopular === 1;
   return (
     <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
       <LocationBreadcrumb city={city ?? ""} state={state ?? ""} />
-      <LocationHeroCard data={headerData} />
-      <Spacing top={40} />
+      <LocationHeroCard data={headerData} ismailbox={ismailbox}/>
       <InteractiveCardsGrid interactiveCards={interactiveCards} />
+      {isPremiumNearby && (
+        <PremiumSection href='/' />
+      )}
       <div className='pt-[104px] pb-[24px] lg:pt-[48px] lg:pb-[48px] w-full'>
         <HeroCta />
       </div>
@@ -81,7 +85,9 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
         price={headerData.price}
       />
       <FaqSection data={faq} />
-      <Reviews />
+      {!isPremiumNearby && (
+        <Reviews />
+      )}
       <EbookBanner />
     </main>
   );
