@@ -16,6 +16,7 @@ import { HomePopularLocations } from "@/app/components/HomePopularLocations";
 import { CTABanner } from "@/app/components/CTABanner";
 import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
+import { SectionSpacer } from "@/app/components/SectionSpacer";
 import { motion } from "framer-motion";
 
 const officeBuildingImg = "/office-building_1761587957783.webp";
@@ -594,6 +595,8 @@ export default function Page() {
         <HomePopularLocations />
 
         <Reviews />
+
+        <SectionSpacer />
 
         <EbookBanner />
 
