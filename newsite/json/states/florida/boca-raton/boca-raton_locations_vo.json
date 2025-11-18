@@ -1,0 +1,46 @@
+{
+    "success": true,
+    "count": 2,
+    "state": "florida",
+    "mode": "virtual-office",
+    "data": [
+        {
+            "id": 776,
+            "location_name": "1825 NW Corporate Blvd, Suite 110, Boca Raton, FL 33431",
+            "city": "Boca Raton",
+            "state": "Florida",
+            "state_abbr": "FL",
+            "address": "1825 NW Corporate Blvd, Suite 110, Boca Raton, FL 33431",
+            "premium": 1,
+            "showpopular": 1,
+            "opusowned": 1,
+            "point_x": 26.3715128,
+            "point_y": -80.12234099,
+            "image": {
+                "url": "/wp-content-mgr/wp-content/uploads/Boca-Raton-Virtual-Office-Space-1825-NW-Corporate-Blvd-.webp",
+                "alttext": "Modern Boca Raton FL Virtual Office Building at 1825 NW Corporate Blvd"
+            },
+            "url": "https://njs.opusvirtualoffices.com/virtual-office/florida/boca-raton/location-776/",
+            "phone": "5619886900"
+        },
+        {
+            "id": 10,
+            "location_name": "18503 Pines Boulevard, Pembroke Pines, FL 33029",
+            "city": "Boca Raton",
+            "state": "Florida",
+            "state_abbr": "FL",
+            "address": "22873 La Corniche Way",
+            "premium": 1,
+            "showpopular": 0,
+            "opusowned": 0,
+            "point_x": 26.0108091,
+            "point_y": -80.396025,
+            "image": {
+                "url": "/wp-content-mgr/wp-content/uploads/1037-building-5.jpg",
+                "alttext": null
+            },
+            "url": "https://njs.opusvirtualoffices.com/virtual-office/florida/pembroke-pines/location-1037/",
+            "phone": "9546919362"
+        }
+    ]
+}
