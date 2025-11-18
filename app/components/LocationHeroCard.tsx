@@ -67,14 +67,14 @@ export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
   );
 
   return (
-    <div className="flex flex-col lg:flex-row w-full max-w-[1280px] px-4 sm:px-6 md:px-8 py-0 justify-center items-start gap-5 md:gap-8">
+    <div className="flex flex-col md:flex-row lg:flex-row w-full max-w-[1280px] px-4 sm:px-6 md:px-8 py-0 justify-center items-start gap-5 md:gap-8">
       <motion.div
-        className="flex lg:flex-col flex-row flex-1 items-start justify-start h-full w-full overflow-hidden rounded-[16px] lg:h-[560px] max-w-[696px]"
+        className="flex lg:flex-col flex-row flex-1 items-start justify-start h-full w-full overflow-hidden rounded-[16px] max-w-[696px] sm:h-[240px] md:h-[480px] lg:h-[560px]"
         initial={{ opacity: 1, y: 0 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0 }}
       >
-        <div className="flex h-[214px] w-[42%] sm:h-[400px]  justify-center items-center self-stretch overflow-hidden relative lg:w-full">
+        <div className="flex h-[214px] w-[42%] sm:h-[400px] justify-center items-center self-stretch overflow-hidden relative lg:w-full">
           <Image
             src={getImageUrl(heroImages[currentImageIndex])}
             alt={`${data.city} virtual office`}
@@ -105,7 +105,7 @@ export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
                   <button
                     key={idx}
                     onClick={() => setCurrentImageIndex(idx)}
-                    className={`w-[8px] h-[8px] rounded-full transition-colors ${idx === currentImageIndex ? "bg-[#0086C9]" : "lg:bg-white bg-gray-300"
+                    className={`w-[8px] h-[8px] rounded-full transition-colors ${idx === currentImageIndex ? "bg-[#36BFFA]" : "lg:bg-white bg-gray-300"
                       }`}
                     aria-label={`Go to image ${idx + 1}`}
                   />
@@ -117,7 +117,7 @@ export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
 
         <div className="flex flex-col px-[12px] pt-[12px] pb-[12px] lg:px-[32px] flex-1 min-w-[200px] sm:min-w-[200px] md:min-w-[200px] lg:min-w-[480px] w-full justify-center items-start gap-[12px] md:gap-[8px] self-stretch  border-t border-white/30 bg-[#36BFFA] backdrop-blur-lg">
           <div className="flex flex-row items-center w-full justify-between gap-[16px]">
-            <span className="font-inter font-semibold lg:text-[36px] text-[14px] leading-[20px] tracking-normal lg:tracking-[-0.72px] text-white">
+            <span className="font-inter font-semibold lg:text-[36px] text-[14px] leading-[20px] tracking-normal lg:tracking-[-0.72px] text-white lg:leading-[44px]">
               {data.city}, {data.state}
             </span>
             <div className="lg:flex hidden flex-row items-center gap-[4px]">
@@ -157,24 +157,24 @@ export default function LocationHeroCard({ data }: { data: LocationHeroData }) {
 
           <Link
             href={data.signupUrl || "#"}
-            className="lg:hidden leading-[20px] text-nowrap flex py-[8px] px-[12px] w-full items-center text-[#414651] justify-center text-center rounded-[8px] bg-white font-inter font-semibold text-[14px] leading-[100%] transition-colors border border-[#D5D7DA]"
+            className="lg:hidden text-nowrap flex py-[8px] px-[12px] w-full items-center text-[#414651] justify-center text-center rounded-[8px] bg-white font-inter font-semibold text-[14px] leading-[100%] hover:bg-[#026AA2] transition-colors border border-[#D5D7DA]"
           >
             Select this location
           </Link>
         </div>
       </motion.div>
 
-      <div className="flex flex-col justify-between items-start w-full lg:flex-1 lg:max-w-[488px] self-stretch gap-8">
+      <div className="flex flex-col md:h-[auto] justify-between items-start w-full lg:flex-1 md:max-w-[46%] lg:max-w-[488px] self-stretch gap-8">
         <FeaturesBoxLocations features={includedFeatures} />
 
         <span className="hidden sm:inline font-inter font-normal text-[20px] leading-[30px] text-[#475467]">
-          All for only <span className="text-[#0086C9] font-bold">${data.price || 99}</span>/month
+          All for only <span className="text-[#36BFFA] font-bold">${data.price || 99}</span>/month
         </span>
 
 
         <Link
           href={data.signupUrl || "#"}
-          className="lg:flex tracking-[100%] hidden h-[60px] px-[32px] w-full items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white font-inter font-semibold text-[18px] leading-[100%] hover:bg-[#2ea8d9] transition-colors"
+          className="lg:flex  tracking-[100%] hidden h-[60px] md:py-[22px] px-[32px] w-full items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white font-inter font-semibold text-[18px] leading-[100%] hover:bg-[#026AA2] transition-colors"
         >
           Select This Location
         </Link>

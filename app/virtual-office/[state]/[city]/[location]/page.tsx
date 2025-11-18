@@ -8,13 +8,15 @@ const cashHandsHoldingBg = "/cash-hands-holding_1761593304143.webp";
 const multipleProfessionalsBg = "/multiple-professionals_1761593320843.webp";
 const businessAddressBg = "/business-address-bg_1761590800705.webp";
 import { InteractiveCardsGrid } from "@/app/components/InteractiveCardsGrid";
-import { Spacing } from '@/app/components/Spacing';
 import { HeroCta } from '@/app/locations/components/hero-cta';
 import { FaqSection } from '@/app/components/FaqSection';
 import faq from '@/api-responses/location-page/faq.json';
 import repeaterData from "@/api-responses/location-page/repeater.json"
-import { RepeaterSection } from '@/app/components/RepeaterSection';
+import { RepeaterItem, RepeaterSection } from '@/app/components/RepeaterSection';
 import { EbookBanner } from '@/app/components/EbookBanner';
+import Spacing from '@/app/components/Spacing';
+import overviewData from '@/api-responses/location-page/overview.json';
+import { Reviews } from '@/app/components/Reviews';
 
 type LocationPageParams = {
   state: string;
@@ -62,38 +64,24 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
   const locId = headerData.signupUrl.match(/locid=(\d+)/)?.[1] || '776';
 
   return (
-    <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center pt-[72px] lg:pt-[60px] sm:pt-[104px]">
-
-      <div className="hidden sm:block">
-        <Spacing size={40} />
-      </div>
+    <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
       <LocationBreadcrumb city={city ?? ""} state={state ?? ""} />
       <LocationHeroCard data={headerData} />
-      <div className="block sm:hidden">
-        <Spacing size={12} />
-      </div>
-
-      <div className="hidden sm:block">
-        <Spacing size={40} />
-      </div>
-
-
+      <Spacing top={40} />
       <InteractiveCardsGrid interactiveCards={interactiveCards} />
-
-      <div className='pt-[93px] lg:pt-[48px] lg:pb-[48px] w-full'>
+      <div className='pt-[104px] pb-[24px] lg:pt-[48px] lg:pb-[48px] w-full'>
         <HeroCta />
       </div>
-      <Spacing size={64} />
-
+      <Spacing top={30} />
       <RepeaterSection
-        items={repeaterData}
+        items={repeaterData as RepeaterItem[]}
+        overviewData={overviewData}
         cityName={city}
         locId={locId}
         price={headerData.price}
       />
-      <Spacing size={60} />
       <FaqSection data={faq} />
-
+      <Reviews />
       <EbookBanner />
     </main>
   );

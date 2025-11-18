@@ -4,7 +4,6 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { CirclePlus, MinusCircle } from "lucide-react";
 import Link from "next/link";
-import { Spacing } from "./Spacing";
 
 export interface FAQItem {
   question: string;
@@ -23,10 +22,10 @@ export function FaqSection({ data = [] }: FaqSectionProps) {
   };
 
   return (
-    <section className="flex flex-col w-full max-w-[1280px] px-4 sm:px-8 py-0 justify-center items-center gap-6 md:gap-8">
-      <div className="flex flex-col lg:flex-row lg:gap-[64px] gap-[20px] w-full">
+    <section className="flex pt-[64px] flex-col w-full max-w-[1280px] sm:px-8 py-0 justify-center items-center gap-6 md:gap-8 px-[16px] lg:px-[32px] lg:pt-[126px] pb-[24px] lg:pb-[96px]">
+      <div className="flex flex-col lg:flex-row lg:gap-[64px] gap-[48px] w-full">
         {/* Left side */}
-        <div className="w-full flex flex-col gap-[20px]">
+        <div className="w-full flex flex-col gap-[16px] lg:gap-[20px]">
           <div className="flex flex-col gap-[12px]">
             <span className="font-semibold font-inter lg:text-[16px] text-[14px] text-[#026AA2] leading-[24px] tracking-[0]">
               Curious About Renting a Virtual Office?
@@ -43,7 +42,7 @@ export function FaqSection({ data = [] }: FaqSectionProps) {
           <div className="flex-row gap-[20px] items-center lg:flex hidden">
             <Link
               href="tel:+18888989868"
-              className="flex items-center justify-center text-center text-white font-semibold font-inter text-[16px] leading-[100%] tracking-[0] py-[12px] px-[20px] min-h-[48px] rounded-[8px] bg-[#0086C9] hover:bg-[#026AA2] transition-colors"
+              className="flex items-center justify-center text-center text-white font-semibold font-inter text-[16px] leading-[100%] tracking-[0] py-[12px] px-[20px] min-h-[48px] rounded-[8px] bg-[#36BFFA] hover:bg-[#026AA2] transition-colors"
             >
               <span>Call Us</span>
             </Link>
@@ -102,7 +101,7 @@ export function FaqSection({ data = [] }: FaqSectionProps) {
         <div className="flex-col gap-[20px] items-center lg:hidden flex">
           <Link
             href="tel:+18888989868"
-            className="text-white w-full justify-center text-center font-semibold font-inter text-[16px] leading-[100%] tracking-[0] py-[12px] px-[20px] rounded-[8px] bg-[#0086C9] hover:bg-[#026AA2] transition-colors"
+            className="text-white w-full justify-center text-center font-semibold font-inter text-[16px] leading-[100%] tracking-[0] py-[12px] px-[20px] rounded-[8px] bg-[#36BFFA] hover:bg-[#026AA2] transition-colors"
           >
             Call Us
           </Link>

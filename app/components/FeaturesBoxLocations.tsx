@@ -1,15 +1,12 @@
 'use client';
 import { useState } from "react";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
-
 interface FeaturesBoxLocationsProps {
   features: string[];
 }
 
 export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) => {
   const [showAll, setShowAll] = useState(false);
-
   // Check if there are more than 3 features to show the button
   const hasMoreFeatures = features.length > 3;
 

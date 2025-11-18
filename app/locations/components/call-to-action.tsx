@@ -66,6 +66,12 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     width: auto;
                     max-width: 500px;
                 }
+                    @media (min-width:768px) and (max-width: 1023px) {
+                    .free-ebook-main.wrapper-ebook-main .ebook-right-img {
+                    padding-top: 0;
+                    display: none;
+                }
+            }
                 @media (max-width: 767px) {
                     .free-ebook-main.wrapper-ebook-main {
                         border-radius: 16px;
@@ -116,7 +122,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                             <div className="loc-wrapper-ebook-btn">
                                 <Link
                                     href={signupUrl}
-                                    className="btn-brand-blue bg-[#0086C9] hover:bg-[#026AA2] text-white rounded-lg transition-colors"
+                                    className="btn-brand-blue bg-[#36BFFA] hover:bg-[#026AA2] text-white rounded-lg transition-colors"
                                 >
                                     Get started with this location
                                 </Link>

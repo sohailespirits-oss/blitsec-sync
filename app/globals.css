@@ -331,3 +331,23 @@
     font-feature-settings: "rlig" 1, "calt" 1;
   }
 }
+
+@media (min-width: 1024px) {
+  body{
+    padding-top: 104px;
+  }
+}
+@media (max-width:1023px) {
+  body{
+    padding-top: 72px;
+  }
+}
+@media (max-width:767px) {
+.h-\[214px\] {
+    height: 214px !important;
+}
+.max-w-\[592px\], .max-w-\[560px\] , .max-w-\[496px\]{
+    max-width: 100%;
+}
+}
+

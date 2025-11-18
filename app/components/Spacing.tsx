@@ -1,34 +1,43 @@
-"use client";
-
-import clsx from "clsx";
+// components/ui/Spacing.tsx
+import React from "react";
 
 type SpacingProps = {
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | number;
-  horizontal?: boolean;
-  className?: string;
+  /** Same vertical spacing for top & bottom */
+  vertical?: number;
+
+  /** Same horizontal spacing for left & right */
+  horizontal?: number;
+
+  /** Individual side spacing overrides */
+  top?: number;
+  right?: number;
+  bottom?: number;
+  left?: number;
+
+  /** Optional: render as block, inline-block, etc */
+  display?: React.CSSProperties["display"];
 };
 
-const sizeMap: Record<Exclude<SpacingProps["size"], number>, string> = {
-  xs: "h-2 w-2",
-  sm: "h-4 w-4",
-  md: "h-6 w-6",
-  lg: "h-8 w-8",
-  xl: "h-12 w-12",
-};
-
-export function Spacing({ size = "md", horizontal = false, className }: SpacingProps) {
-  const isNumber = typeof size === "number";
-  const dimensionClass = isNumber ? undefined : sizeMap[size];
-  const style = isNumber ? { [horizontal ? "width" : "height"]: `${size}px` } : undefined;
-
+const Spacing: React.FC<SpacingProps> = ({
+  vertical,
+  horizontal,
+  top,
+  right,
+  bottom,
+  left,
+  display = "block",
+}) => {
   return (
     <div
-      aria-hidden
-      className={clsx(
-        dimensionClass,
-        className
-      )}
-      style={style ?? (horizontal ? { width: "100%", height: "1px" } : { height: "100%", width: "1px" })}
+      style={{
+        display,
+        marginTop: top ?? vertical ?? 0,
+        marginBottom: bottom ?? vertical ?? 0,
+        marginLeft: left ?? horizontal ?? 0,
+        marginRight: right ?? horizontal ?? 0,
+      }}
     />
   );
-}
+};
+
+export default Spacing;

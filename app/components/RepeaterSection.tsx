@@ -4,6 +4,7 @@ import React from "react";
 import { TextWithImage } from "@/app/locations/components/text-with-image";
 import LocationsContent from "@/app/locations/components/content";
 import CallToAction from "@/app/locations/components/call-to-action";
+import OverviewTextWithMap from "./OverviewTextWithMap";
 
 export interface RepeaterItem {
   title?: string;
@@ -14,13 +15,14 @@ export interface RepeaterItem {
 }
 
 interface RepeaterProps {
+  overviewData?: any;
   items: RepeaterItem[];
   cityName: string;
   locId: string;
   price?: number;
 }
 
-export function RepeaterSection({ items, cityName, locId, price = 99 }: RepeaterProps) {
+export function RepeaterSection({ overviewData, items, cityName, locId, price = 99 }: RepeaterProps) {
   if (!items || items.length === 0) return null;
 
   return (
@@ -57,6 +59,17 @@ export function RepeaterSection({ items, cityName, locId, price = 99 }: Repeater
           );
         }
 
+
+        if (item.layout === "image_text" && index === 0) {
+          return (
+            <OverviewTextWithMap
+              key={`overview-${index}`}
+              overviewData={overviewData}
+              reversed={false}
+            />
+          );
+        }
+
         if (item.layout === "image_text" && item.title && item.body && item.image) {
           const reversed = item.imageAlignment !== "right";
 
@@ -78,7 +91,6 @@ export function RepeaterSection({ items, cityName, locId, price = 99 }: Repeater
             />
           );
         }
-
         return null;
       })}
     </>

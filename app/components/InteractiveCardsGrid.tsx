@@ -23,7 +23,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
   const [isVideoDialogOpen, setIsVideoDialogOpen] = useState(false);
 
   return (
-    <div className="flex flex-col items-start justify-center gap-2 w-full py-[11px]">
+    <div className="flex flex-col items-start justify-center gap-2 w-full lg:h-[152px]">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-[1280px] w-full px-4 sm:px-6 md:px-8 mx-auto">
         {interactiveCards.map((card, index) => {
           const cardContent = (
@@ -44,7 +44,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
                 />
               )}
               <div className="absolute inset-x-0 bottom-0 flex items-center justify-center h-[42px] px-2 z-10">
-                <p className="font-text-sm-text-md-bold font-[number:var(--text-sm-text-md-bold-font-weight)] text-[#ffffff] text-[length:var(--text-sm-text-md-bold-font-size)] text-center tracking-[var(--text-sm-text-md-bold-letter-spacing)] leading-[var(--text-sm-text-md-bold-line-height)] [font-style:var(--text-sm-text-md-bold-font-style)] text-xs sm:text-sm">
+                <p className="font-text-sm-text-md-bold font-[number:var(--text-sm-text-md-bold-font-weight)] text-[#ffffff] text-[length:var(--text-sm-text-md-bold-font-size)] text-center tracking-[var(--text-sm-text-md-bold-letter-spacing)] leading-[var(--text-sm-text-md-bold-line-height)] [font-style:var(--text-sm-text-md-bold-font-style)] text-xs sm:text-sm sm:text-[12px]">
                   {card.text}
                 </p>
               </div>
@@ -109,7 +109,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
 
               {/* Mobile version - always visible */}
               <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-1">
-                <p className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-4xl">
+                <p className="[font-family:'Inter',Helvetica] font font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-4xl">
                   $99/mo
                 </p>
                 <p className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-xs">
@@ -129,7 +129,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
                 transition={{ duration: 0.3 }}
               >
                 <motion.p
-                  className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px]"
+                  className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px] sm:text-[40px]"
                   variants={{
                     rest: { y: 0 },
                     hover: { y: 4 }
