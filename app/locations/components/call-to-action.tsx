@@ -95,6 +95,8 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     .heading-ebook p {
                         text-align: center;
                     }
+                    .free-ebook-main.wrapper-ebook-main .ebook-left-one{
+                    padding-right: 0 !important;}
                 }
             `
             }} />
