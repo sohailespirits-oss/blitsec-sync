@@ -51,4 +51,5 @@ logs
 agent-images/
 figma/
 scripts/
+.claude/
 *.md
