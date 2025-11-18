@@ -1,12 +1,13 @@
 'use client';
 import { useEffect, useState } from 'react';
 import styles from './PromotionPopup.module.css';
+import { useLoading } from '@/app/components/GlobalLoadingOverlay';
 
 const SESSION_KEY = 'promotion-popup-shown';
-// TODO: Replace with actual Gravity Forms endpoint when provided
-const GRAVITY_FORMS_ENDPOINT = '/wp-json/gf/v2/forms/27/submissions';
 
 type Step = 1 | 2 | 3;
+
+const PROMO_CODE = 'promo14';
 
 export function PromotionPopup() {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,6 +15,7 @@ export function PromotionPopup() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const { showLoading, hideLoading } = useLoading();
 
   useEffect(() => {
     // Check if popup was already shown in this session
@@ -86,36 +88,35 @@ export function PromotionPopup() {
     event.preventDefault();
     setIsSubmitting(true);
     setErrorMessage('');
+    showLoading();
 
     const formData = new FormData(event.currentTarget);
-    const name = formData.get('name') as string;
     const email = formData.get('email') as string;
-    const phone = formData.get('phone') as string;
 
     try {
-      // TODO: Replace this with actual Gravity Forms API integration
-      // For now, this is a placeholder that needs WordPress endpoint details
+      // Determine the base URL - use staging URL for localhost, relative URL for staging/production
+      const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      const baseUrl = isLocalhost ? 'https://njs.opusvirtualoffices.com' : '';
 
-      // Placeholder API call structure:
-      const response = await fetch(GRAVITY_FORMS_ENDPOINT, {
+      const response = await fetch(`${baseUrl}/wp-json/opus/v1/forms/popup-promo/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          // TODO: Map these fields to Gravity Forms field IDs
-          name,
-          email,
-          phone,
-          form_id: 27, // From original HTML
+          email
         }),
       });
 
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Invalid response from server');
+      }
+
       const result = await response.json();
 
-      // TODO: Adjust success check based on actual Gravity Forms API response format
-      if (response.ok && result.success) {
-        setSuccessMessage(result.message || 'Thank you! Your promo code has been sent to your email.');
+      if (result.success) {
         setCurrentStep(3);
         // Reset form
         (event.target as HTMLFormElement).reset();
@@ -127,6 +128,7 @@ export function PromotionPopup() {
       setErrorMessage('An error occurred. Please try again later.');
     } finally {
       setIsSubmitting(false);
+      hideLoading();
     }
   };
 
@@ -272,13 +274,37 @@ export function PromotionPopup() {
         {/* Step 3: Thank You */}
         {currentStep === 3 && (
         <div className={styles.step3}>
-          {successMessage && (
-            <div style={{ textAlign: 'center', color: '#333' }}>
-              <h2>Thank You!</h2>
-              <p>{successMessage}</p>
-            </div>
-          )}
-          {/* TODO: Add video iframe or additional thank you content if needed */}
+          <div className={styles.head}>Your special promotion code is:</div>
+          <p style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px' }}>
+            <b style={{ fontSize: '26px', color: '#333' }}>{PROMO_CODE}</b>
+            <br /><br />
+            <span style={{ color: '#666' }}>Enter this code at checkout to waive $100 setup fee.</span>
+          </p>
+          <a
+            id="gosignup"
+            href={`/signup/?btn=88&acode=${PROMO_CODE}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              margin: '0 auto',
+              padding: '20px',
+              display: 'block',
+              background: 'rgb(23, 182, 42)',
+              color: '#fff',
+              border: 'none',
+              borderRadius: '5px',
+              marginTop: '20px',
+              textAlign: 'center',
+              fontSize: '20px',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              fontFamily: '"Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif',
+              width: '307px',
+              textDecoration: 'none'
+            }}
+          >
+            Click here to <b>Sign up</b>
+          </a>
         </div>
         )}
       </div>

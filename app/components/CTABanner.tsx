@@ -42,7 +42,7 @@ export function CTABanner({
       viewport={{ once: true, amount: 0.3 }}
       variants={fadeInUp}
     >
-      <h2 className="[font-family:'Inter',Helvetica] font-semibold text-[#181d27] text-[30px] leading-[38px] sm:text-2xl sm:leading-tight md:text-3xl tracking-[0] text-center">
+      <h2 className="font-semibold text-[#181d27] text-[30px] leading-[38px] sm:text-2xl sm:leading-tight md:text-3xl tracking-[0] text-center">
         {title}
       </h2>
 

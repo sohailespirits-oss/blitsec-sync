@@ -39,7 +39,7 @@ export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) =>
                 height="22"
                 loading="eager"
               />
-              <span className="[font-family:'Inter',Helvetica] font-normal text-gray-600 text-base sm:text-sm md:text-[18px] leading-normal">
+              <span className="font-normal text-gray-600 text-base sm:text-sm md:text-[18px] leading-normal">
                 {feature}
               </span>
             </div>

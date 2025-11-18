@@ -1,5 +1,5 @@
-'use client';
-
+import type { Metadata } from 'next';
+import { getSeoMetadata } from '@/app/lib/seo';
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { PopularLocations } from "@/app/components/PopularLocations";
@@ -21,13 +21,21 @@ const FEATURES = [
   "Voicemail/Fax Converted to Email"
 ];
 
+// Force dynamic rendering to fetch SEO on every request
+export const dynamic = 'force-dynamic';
+
+// Fetch SEO metadata from virtual-office.json
+export async function generateMetadata(): Promise<Metadata> {
+  return getSeoMetadata('virtual-office');
+}
+
 export default function VirtualOfficePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[72px] lg:pt-[104px]">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-[96px] lg:pt-[128px] pb-0 [font-family:'Inter',Helvetica]">
+      <section className="relative overflow-hidden bg-white pt-6 sm:pt-8 md:pt-10 pb-0">
         <div className="absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true">
           <Image
             src="/dots.svg"

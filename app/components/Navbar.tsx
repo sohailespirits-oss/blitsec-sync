@@ -1,10 +1,14 @@
 'use client';
+import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Button } from "@/app/components/ui/button";
 import { Sheet, SheetContent, SheetTitle, SheetDescription, SheetTrigger } from "@/app/components/ui/sheet";
 import { Menu } from "lucide-react";
 
 export function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   return (
     <nav 
       className="fixed top-0 left-0 right-0 w-full bg-white border-b border-gray-200 shadow-sm z-50" 
@@ -131,7 +135,7 @@ export function Navbar() {
             </Link>
 
             {/* Hamburger Menu */}
-            <Sheet>
+            <Sheet open={isMenuOpen} onOpenChange={setIsMenuOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="ghost"
@@ -150,28 +154,28 @@ export function Navbar() {
                 <div className="flex flex-col gap-6 mt-4">
                   {/* Navigation Links */}
                   <div className="flex flex-col gap-2">
-                    <Link href="/" data-testid="link-nav-home-mobile">
+                    <Link href="/" data-testid="link-nav-home-mobile" onClick={() => setIsMenuOpen(false)}>
                       <div className="px-4 py-3 rounded-lg">
                         <span className="font-semibold text-lg text-[#414651] hover:text-[#181d27] transition-colors">
                           Home
                         </span>
                       </div>
                     </Link>
-                    <Link href="/services/" prefetch={false} data-testid="link-nav-services-mobile">
+                    <Link href="/services/" prefetch={false} data-testid="link-nav-services-mobile" onClick={() => setIsMenuOpen(false)}>
                       <div className="px-4 py-3 rounded-lg">
                         <span className="font-semibold text-lg text-[#414651] hover:text-[#181d27] transition-colors">
                           Services
                         </span>
                       </div>
                     </Link>
-                    <Link href="/virtual-office/" prefetch={false} data-testid="link-nav-locations-mobile">
+                    <Link href="/virtual-office/" prefetch={false} data-testid="link-nav-locations-mobile" onClick={() => setIsMenuOpen(false)}>
                       <div className="px-4 py-3 rounded-lg">
                         <span className="font-semibold text-lg text-[#414651] hover:text-[#181d27] transition-colors">
                           Locations
                         </span>
                       </div>
                     </Link>
-                    <Link href="/faq/" prefetch={false} data-testid="link-nav-faq-mobile">
+                    <Link href="/faq/" prefetch={false} data-testid="link-nav-faq-mobile" onClick={() => setIsMenuOpen(false)}>
                       <div className="px-4 py-3 rounded-lg">
                         <span className="font-semibold text-lg text-[#414651] hover:text-[#181d27] transition-colors">
                           FAQ
@@ -195,7 +199,7 @@ export function Navbar() {
 
                   {/* Login Button */}
                   <div className="px-4">
-                    <Link href="/portal/" prefetch={false} className="block">
+                    <Link href="/portal/" prefetch={false} className="block" onClick={() => setIsMenuOpen(false)}>
                       <Button
                         variant="outline"
                         className="w-full px-4 py-3 rounded-lg font-semibold text-base text-[#535862] hover:bg-transparent hover:text-[#181d27] transition-colors"
@@ -208,7 +212,7 @@ export function Navbar() {
 
                   {/* Signup Button */}
                   <div className="px-4">
-                    <Link href="/signup/?btn=901" prefetch={false} className="block">
+                    <Link href="/signup/?btn=901" prefetch={false} className="block" onClick={() => setIsMenuOpen(false)}>
                       <Button
                         className="w-full h-auto gap-1.5 px-4 py-3 bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)]"
                         data-testid="button-signup-mobile-menu"

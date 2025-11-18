@@ -22,7 +22,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                 .free-ebook-main.wrapper-ebook-main {
                     align-items: center;
                     border-radius: 16px;
-                    background: url(/newsite/wp-content/themes/ThemeDec23/assets/images/vos-cta-bg-dsk.webp) center center / cover no-repeat, #fff;
+                    background: url(/vos-cta-bg-dsk.webp) center center / cover no-repeat, #fff;
                     box-shadow: 0 4px 8px -2px rgba(16, 24, 40, 0.10), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
                 }
                 .free-ebook-main.wrapper-ebook-main .ebook-left {
@@ -68,7 +68,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                 @media (max-width: 767px) {
                     .free-ebook-main.wrapper-ebook-main {
                         border-radius: 16px;
-                        background: url(/newsite/wp-content/themes/ThemeDec23/assets/images/vos-mobile.webp) center center / cover no-repeat, #fff;
+                        background: url(/vos-mobile.webp) center center / cover no-repeat, #fff;
                         box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.10), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
                     }
                     .free-ebook-main.wrapper-ebook-main .ebook-left {
@@ -124,7 +124,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     {/* Right side - Image */}
                     <div className="ebook-right-img flex items-center justify-center">
                         <Image
-                            src="https://www.opusvirtualoffices.com/newsite/wp-content/themes/ThemeDec23/assets/images/vos-cta-img.webp"
+                            src="/vos-cta-img.webp"
                             alt="Call to Action"
                             width={500}
                             height={500}

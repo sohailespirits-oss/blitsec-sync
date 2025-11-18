@@ -7,6 +7,7 @@ import { Navbar } from '@/app/components/Navbar';
 import { NoSurprisePopup } from '@/app/components/NoSurprisePopup';
 import { PromotionPopup } from '@/app/components/PromotionPopup';
 import { GlobalLoadingOverlay } from '@/app/components/GlobalLoadingOverlay';
+import { getSeoMetadata } from '@/app/lib/seo';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -14,15 +15,13 @@ const inter = Inter({
   display: 'swap',
 });
 
-export const metadata: Metadata = {
-  title: 'Opus Virtual Offices - Professional Business Solutions',
-  description: 'Discover premium virtual office solutions with Opus VO. Get a prestigious business address, professional live call answering, and more.',
-  openGraph: {
-    title: 'Opus Virtual Offices - Professional Business Solutions',
-    description: 'Discover premium virtual office solutions with Opus VO. Get a prestigious business address, professional live call answering, and more.',
-    type: 'website',
-  },
-};
+// Force dynamic rendering to fetch SEO on every request
+export const dynamic = 'force-dynamic';
+
+// Fetch SEO metadata from homepage.json
+export async function generateMetadata(): Promise<Metadata> {
+  return getSeoMetadata('homepage');
+}
 
 export default function RootLayout({
   children,
@@ -33,12 +32,13 @@ export default function RootLayout({
     <html lang="en" className={inter.variable}>
       <body>
         <Providers>
-          <Navbar />
-          {children}
-          <Toaster />
-          <NoSurprisePopup />
-          <PromotionPopup />
-          <GlobalLoadingOverlay />
+          <GlobalLoadingOverlay>
+            <Navbar />
+            {children}
+            <Toaster />
+            <NoSurprisePopup />
+            <PromotionPopup />
+          </GlobalLoadingOverlay>
         </Providers>
       </body>
     </html>

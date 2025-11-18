@@ -17,7 +17,6 @@ import { CTABanner } from "@/app/components/CTABanner";
 import { EbookBanner } from "@/app/components/EbookBanner";
 import { Reviews } from "@/app/components/Reviews";
 import { motion } from "framer-motion";
-import { Autour_One } from "next/font/google";
 
 const officeBuildingImg = "/office-building_1761587957783.webp";
 const businessAddressBg = "/business-address-bg_1761590800705.webp";
@@ -192,7 +191,7 @@ export default function Page() {
                     <span className="text-[#101828]">/month.</span>
                   </h1>
 
-                  <p className="[font-family:'Inter',Helvetica] font-normal text-gray-600 text-base sm:text-lg md:text-xl tracking-[0] leading-relaxed">
+                  <p className="font-normal text-gray-600 text-[18px] md:text-[20px] tracking-[0] leading-relaxed">
                     With 650+ locations throughout the USA
                   </p>
                 </div>
@@ -294,17 +293,17 @@ export default function Page() {
                         hover: { opacity: 1 }
                       }}
                     >
-                      <p className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-xs sm:text-sm text-center tracking-[0] leading-normal whitespace-nowrap">
+                      <p className="font-medium text-[#ffffff] text-xs sm:text-sm text-center tracking-[0] leading-normal whitespace-nowrap">
                         ALL-INCLUSIVE
                       </p>
                     </motion.div>
                     
                     {/* Mobile version - always visible */}
                     <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-1">
-                      <p className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-4xl">
+                      <p className="font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-4xl">
                         $99/mo
                       </p>
-                      <p className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-xs">
+                      <p className="font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-xs">
                         No Hidden Fees
                       </p>
                     </div>
@@ -320,8 +319,8 @@ export default function Page() {
                       
                       transition={{ duration: 0.3 }}
                     >
-                      <motion.p 
-                        className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px]"
+                      <motion.p
+                        className="font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px]"
                         variants={{
                           rest: { y: 0 },
                           hover: { y: 4 }
@@ -330,8 +329,8 @@ export default function Page() {
                       >
                         $99/mo
                       </motion.p>
-                      <motion.p 
-                        className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-sm"
+                      <motion.p
+                        className="font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-sm"
                         variants={{
                           rest: { opacity: 0, height: "0px", y: 0 },
                           hover: { opacity: 1, height: "auto", y: -4 }
@@ -597,7 +596,9 @@ export default function Page() {
         <Reviews />
 
         <EbookBanner />
-        
+
+        <div className="py-6 sm:py-8 md:py-10"></div>
+
         <Footer />
       </div>
 

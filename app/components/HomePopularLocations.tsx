@@ -101,13 +101,13 @@ export function HomePopularLocations({
                   style={{ backgroundImage: `url(${location.image})` }}
                 >
                   <div className="absolute inset-x-0 bottom-0 flex items-end justify-center sm:justify-start p-3 sm:p-4" style={{ background: 'linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0) 100%)' }}>
-                    <h3 className="sm:hidden [font-family:'Inter',Helvetica] font-semibold text-white text-base tracking-[0] leading-normal text-center">
+                    <h3 className="sm:hidden font-semibold text-white text-base tracking-[0] leading-normal text-center">
                       {location.name}
                     </h3>
                   </div>
                 </div>
                 <div className="hidden sm:flex flex-col items-start w-full">
-                  <h3 className="[font-family:'Inter',Helvetica] font-semibold text-gray-900 text-lg sm:text-xl tracking-[0] leading-normal hover:text-blue-light400 transition-colors">
+                  <h3 className="font-semibold text-gray-900 text-lg sm:text-xl tracking-[0] leading-normal hover:text-blue-light400 transition-colors">
                     {location.name}
                   </h3>
                 </div>
@@ -119,7 +119,7 @@ export function HomePopularLocations({
         {showViewAllLink && (
           <div className="max-w-screen-xl justify-center gap-2 px-0 py-0 w-full flex flex-col items-center">
             <Link href="/premium-virtual-office-locations/" prefetch={false}>
-              <p className="[font-family:'Inter',Helvetica] font-normal text-gray-600 text-base sm:text-lg md:text-xl tracking-[0] leading-relaxed text-center hover:text-blue-light400 transition-colors cursor-pointer">
+              <p className="font-normal text-gray-600 text-base sm:text-lg md:text-xl tracking-[0] leading-relaxed text-center hover:text-blue-light400 transition-colors cursor-pointer">
                 <span className="font-text-xl-regular [font-style:var(--text-xl-regular-font-style)] tracking-[var(--text-xl-regular-letter-spacing)] text-[length:var(--text-xl-regular-font-size)] font-semibold">
                   View All Premium Locations
                 </span>

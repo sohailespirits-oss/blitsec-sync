@@ -54,10 +54,10 @@ export function TopPremiumSlider() {
     <section className="py-0 bg-white">
       <div className="max-w-[1280px] mx-auto px-4 lg:px-8 relative">
         <div className="flex flex-col gap-[16px] lg:gap-[32px] mb-12 lg:mb-16">
-          <h2 className="text-[#181D27] text-[30px] leading-[38px] font-semibold tracking-[-0.6px] font-['Inter',sans-serif] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+          <h2 className="text-[#181D27] text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
             Top Premium Locations
           </h2>
-          <p className="text-[#535862] text-lg leading-[28px] font-['Inter',sans-serif]">
+          <p className="text-[#535862] text-lg leading-[28px]">
             Browse our most popular prestigious virtual office locations throughout the USA.
           </p>
         </div>
@@ -121,7 +121,7 @@ export function TopPremiumSlider() {
                   <div className="absolute inset-0 flex items-end pb-4 px-4">
                     <div className="backdrop-blur-md backdrop-filter bg-[rgba(255,255,255,0.3)] relative rounded-[16px] w-full">
                       <div className="absolute inset-0 border border-[rgba(255,255,255,0.3)] rounded-[16px] pointer-events-none" />
-                      <div className="flex flex-col gap-2 p-5 relative text-white font-['Inter',sans-serif]">
+                      <div className="flex flex-col gap-2 p-5 relative text-white">
                         <h3 className="text-2xl font-semibold leading-[32px]">
                           {location.city}{location.state_abbr ? `, ${location.state_abbr}` : ''}
                         </h3>
