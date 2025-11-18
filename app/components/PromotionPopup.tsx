@@ -91,20 +91,25 @@ export function PromotionPopup() {
     showLoading();
 
     const formData = new FormData(event.currentTarget);
+    const name = formData.get('name') as string;
     const email = formData.get('email') as string;
+    const phone = formData.get('phone') as string;
 
     try {
       // Determine the base URL - use staging URL for localhost, relative URL for staging/production
       const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
       const baseUrl = isLocalhost ? 'https://njs.opusvirtualoffices.com' : '';
 
-      const response = await fetch(`${baseUrl}/wp-json/opus/v1/forms/popup-promo/`, {
+      // Form 27 - Promo Popup
+      const response = await fetch(`${baseUrl}/wp-json/opus/v1/forms/submit/27`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email
+          'input_3.3': name,
+          'input_4': email,
+          'input_5': phone || ''
         }),
       });
 
