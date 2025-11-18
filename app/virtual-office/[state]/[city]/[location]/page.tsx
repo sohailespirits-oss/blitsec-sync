@@ -12,7 +12,6 @@ import { Spacing } from '@/app/components/Spacing';
 import { HeroCta } from '@/app/locations/components/hero-cta';
 import { FaqSection } from '@/app/components/FaqSection';
 import faq from '@/api-responses/location-page/faq.json';
-import { RepeaterItem } from '@/app/locations/components/repeater';
 import repeaterData from "@/api-responses/location-page/repeater.json"
 import { RepeaterSection } from '@/app/components/RepeaterSection';
 import { EbookBanner } from '@/app/components/EbookBanner';
@@ -74,7 +73,6 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
         <Spacing size={12} />
       </div>
 
-      {/* sm and above */}
       <div className="hidden sm:block">
         <Spacing size={40} />
       </div>
@@ -83,7 +81,6 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
       <InteractiveCardsGrid interactiveCards={interactiveCards} />
 
       <div className='pt-[40px] lg:pt-[48px] lg:pb-[48px] w-full'>
-        {/* <Spacing size={64} /> */}
         <HeroCta />
       </div>
       <Spacing size={64} />
