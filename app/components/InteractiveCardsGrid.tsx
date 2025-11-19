@@ -23,7 +23,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
   const [isVideoDialogOpen, setIsVideoDialogOpen] = useState(false);
 
   return (
-    <div className="flex flex-col items-start justify-center gap-2 w-full lg:h-[152px] pt-[12px] lg:pt[40px]">
+    <div className="flex flex-col items-start justify-center gap-2 w-full lg:h-[152px] mt-[12px] lg:mt-[40px]">
       <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 md:gap-6 max-w-[1280px] w-full px-4 sm:px-6 md:px-8 mx-auto">
         {interactiveCards.map((card, index) => {
           const cardContent = (
