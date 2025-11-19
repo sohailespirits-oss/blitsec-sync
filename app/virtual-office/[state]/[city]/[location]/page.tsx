@@ -19,6 +19,7 @@ import overviewData from '@/api-responses/location-page/overview.json';
 import { Reviews } from '@/app/components/Reviews';
 import PremiumSection from '@/app/components/PremiumSection';
 import Padding from '@/app/components/ui/Padding';
+import { Footer } from '@/app/components/Footer';
 
 type LocationPageParams = {
   state: string;
@@ -89,6 +90,7 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
         <Reviews />
       )}
       <EbookBanner />
+       <Footer />
     </main>
   );
 }
