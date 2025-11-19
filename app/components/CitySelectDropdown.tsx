@@ -32,40 +32,37 @@ export default function CitySelectDropdown({
   }, []);
 
   return (
-    <div ref={ref} className="relative w-[514.009px]">
+    <div ref={ref} className="relative w-full max-w-sm lg:max-w-[514px]">
 
       {/* Button */}
       <button
         type="button"
         onClick={() => setOpen(!open)}
         className="
-          w-full h-11
-          flex items-center justify-between
-          px-3
-          rounded-xl
-          border border-[#D5D8E0]
-          bg-white
-          text-[15px] font-medium
-          text-[#1A1F36]
-          hover:bg-gray-50
-        "
+    flex items-center justify-between
+    w-full 
+    px-[22.488px] py-[16.063px]
+    gap-[12.85px]
+    rounded-[12.85px]
+    border-[1.606px] border-[#D0D5DD]
+    bg-white
+    shadow-[0_1.606px_3.213px_rgba(16,24,40,0.05)]
+    text-[15px] font-medium text-[#1A1F36]
+  "
       >
         <div className="flex items-center gap-2">
-          {/* Location icon (lucide) */}
           <MapPin className="w-5 h-5 text-[#5A6474]" />
-
           <span className={value ? "text-[#1A1F36]" : "text-[#5A6474]"}>
             {value || placeholder}
           </span>
         </div>
 
-        {/* Chevron icon */}
         <ChevronDown
-          className={`w-5 h-5 text-[#5A6474] transition-transform ${
-            open ? "rotate-180" : ""
-          }`}
+          className={`w-5 h-5 text-[#5A6474] transition-transform ${open ? "rotate-180" : ""
+            }`}
         />
       </button>
+
 
       {/* Dropdown Menu */}
       {open && (

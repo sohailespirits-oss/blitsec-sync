@@ -18,6 +18,7 @@ import Spacing from '@/app/components/Spacing';
 import overviewData from '@/api-responses/location-page/overview.json';
 import { Reviews } from '@/app/components/Reviews';
 import PremiumSection from '@/app/components/PremiumSection';
+import Padding from '@/app/components/ui/Padding';
 
 type LocationPageParams = {
   state: string;
@@ -68,15 +69,14 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
   return (
     <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
       <LocationBreadcrumb city={city ?? ""} state={state ?? ""} />
-      <LocationHeroCard data={headerData} ismailbox={ismailbox}/>
+      <LocationHeroCard data={headerData} ismailbox={ismailbox} />
       <InteractiveCardsGrid interactiveCards={interactiveCards} />
       {isPremiumNearby && (
         <PremiumSection href='/' />
       )}
-      <div className='pt-[104px] pb-[24px] lg:pt-[48px] lg:pb-[48px] w-full'>
+      <div className='pt-[20px] pb-[0px] lg:pt-[0px] lg:pb-[0px] w-full'>
         <HeroCta />
       </div>
-      <Spacing top={30} />
       <RepeaterSection
         items={repeaterData as RepeaterItem[]}
         overviewData={overviewData}

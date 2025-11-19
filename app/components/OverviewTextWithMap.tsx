@@ -11,7 +11,7 @@ export default function OverviewTextWithMap({ overviewData, reversed = false }: 
   const lng = overviewData.map?.lng ?? -81.3789;
 
   return (
-    <section className="flex pt-[20px] max-w-[1280px] w-full mx-auto lg:pt-[30px] pb-[30px]">
+    <section className="flex pt-[20px] max-w-[1280px] w-full mx-auto lg:pt-[0px] pb-[30px]">
       <div
         className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[32px] w-full ${
           reversed ? "lg:flex-row-reverse" : "lg:flex-row"

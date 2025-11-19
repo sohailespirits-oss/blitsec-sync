@@ -5,9 +5,9 @@ interface PopularCitiesProps {
 
 export default function PopularCities({ state, cities }: PopularCitiesProps) {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-[24px] py-[20px] lg:py-[32px]">
       {/* Heading */}
-      <h2 className="text-[#101828] text-[20px] font-semibold leading-[30px]">
+      <h2 className="font-inter text-[#101828] text-[20px] font-semibold leading-[24px]">
         Popular Cities in {state}
       </h2>
 
@@ -17,19 +17,21 @@ export default function PopularCities({ state, cities }: PopularCitiesProps) {
           <span
             key={idx}
             className="
-              px-3 py-1
-              border border-[#D0D5DD]
-              rounded-full
-              text-[#344054]
-              text-[14px]
-              font-medium
-              leading-[20px]
-            "
+        flex items-center
+        px-[12px] py-[4px]
+        rounded-[16px]
+        border-[1.5px] border-[#475467]
+        text-[#344054]
+        text-[14px]
+        font-medium
+        leading-[20px]
+      "
           >
             {city}
           </span>
         ))}
       </div>
+
     </div>
   );
 }

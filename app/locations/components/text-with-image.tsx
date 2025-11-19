@@ -10,13 +10,13 @@ type TextWithImageProps = {
 
 export const TextWithImage = ({ reversed = false, title, body, image }: TextWithImageProps) => {
   return (
-    <section className="flex pt-[20px] max-w-[1280px] w-full mx-auto lg:pt-[30px] pb-[30px]">
+    <section className="flex max-w-[1280px] w-full mx-auto pb-[30px] lg:pb-[40px]">
       <div
-        className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[32px] w-full ${reversed ? "md:flex-row-reverse" : "md:flex-row"} ${reversed ? "lg:flex-row-reverse" : "lg:flex-row"}`}
+        className={`lg:px-[32px] md:flex-row px-[16px] flex flex-col lg:gap-[64px] gap-[24px] w-full ${reversed ? "md:flex-row-reverse" : "md:flex-row"} ${reversed ? "lg:flex-row-reverse" : "lg:flex-row"}`}
       >
         {/* LEFT TEXT */}
-          <div className="w-full max-w-full md:max-w-[48%] lg:max-w-[592px] flex flex-col">
-          <span className="font-inter font-semibold lg:text-[36px] pb-[24px] text-[30px] leading-[38px] lg:leading-[44px] lg:tracking-[-0.72px] text-[#101828]">
+        <div className="w-full max-w-full md:max-w-[48%] lg:max-w-[592px] flex flex-col">
+          <span className="font-inter font-semibold lg:text-[36px] pb-[16px] lg:pb-[24px] text-[30px] leading-[38px] lg:leading-[44px] lg:tracking-[-0.72px] text-[#101828]">
             {title}
           </span>
           <p className="font-inter font-normal lg:text-[18px] text-[18px] leading-[28px] text-[#535862]">

@@ -140,7 +140,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
           </div>
 
           <div className="flex lg:flex-row flex-col items-center w-full justify-between gap-[2px]">
-            <span className="font-inter pr-[20px] lg:font-semibold font-normal lg:text-[18px] text-[12px] text-white leading-[18px] lg:leading-[28px] w-full whitespace-pre-line max-w-[472px]">
+            <span className="font-inter pr-[20px] lg:font-semibold font-normal lg:text-[18px] text-[12px] text-white leading-[18px] lg:leading-[28px] w-full whitespace-pre-line max-w-[472px] lg:pb-[0px] pb-[12px]">
               {formatAddress(data.address)}
               {data.address.phone ? `\n${data.address.phone}` : ""}
             </span>
@@ -158,11 +158,14 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
                   <Star key={i} fill="white" className="w-[8.8px] h-[8.8px] text-white" />
                 ))}
               </div>
-              <div className="flex-row items-end flex">
-                <span className="font-inter font-bold text-[20px] lg:text-[48px] leading-[100%] text-white tracking-[0.96px] lg:tracking-[-0.96px]">
+              <div className="flex items-end justify-end gap-1 text-right">
+                <span className="font-inter font-bold text-white text-[20px] lg:text-[48px] leading-[30px] tracking-normal lg:tracking-[-0.96px]">
                   ${data.price || 99}
                 </span>
-                <span className="font-inter font-bold text-[20px] lg:text-[36px] leading-[100%] text-white tracking-[0.72px] lg:tracking-[-0.72px]">/mo</span>
+
+                <span className="font-inter font-bold text-white text-[20px] lg:text-[36px] leading-[30px] tracking-normal lg:tracking-[-0.72px]">
+                  /mo
+                </span>
               </div>
             </div>
           </div>

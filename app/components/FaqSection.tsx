@@ -22,8 +22,8 @@ export function FaqSection({ data = [] }: FaqSectionProps) {
   };
 
   return (
-    <section className="flex pt-[64px] flex-col w-full max-w-[1280px] sm:px-8 py-0 justify-center items-center gap-6 md:gap-8 px-[16px] lg:px-[32px] lg:pt-[126px] pb-[24px] lg:pb-[96px]">
-      <div className="flex flex-col lg:flex-row lg:gap-[64px] gap-[48px] w-full">
+    <section className="flex pt-[0px] flex-col w-full max-w-[1280px] sm:px-8 py-0 justify-center items-center gap-6 md:gap-8 px-[16px] lg:px-[32px] lg:pt-[0px] pb-[0px] lg:pb-[0px]">
+      <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[64px] w-full">
         {/* Left side */}
         <div className="w-full flex flex-col gap-[16px] lg:gap-[20px]">
           <div className="flex flex-col gap-[12px]">
@@ -53,7 +53,7 @@ export function FaqSection({ data = [] }: FaqSectionProps) {
         </div>
 
         {/* Right side (FAQ list) */}
-        <div className="w-full flex flex-col gap-[32px]">
+        <div className="w-full flex flex-col gap-[24px] lg:gap-[32px]">
           {data.length === 0 ? (
             <p className="text-[#475467] font-normal font-inter text-[16px] leading-[140%] tracking-[0]">
               No FAQs available at this time.

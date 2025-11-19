@@ -25,7 +25,7 @@ const man_holding_tablet = "/man-holding-tablet.webp";
 
 export function EbookBanner() {
   return (
-    <section className="flex flex-col w-full items-center justify-center gap-8 sm:gap-12 md:gap-16 px-0 py-10 sm:py-12 md:py-[60px] bg-basewhite">
+    <section className="flex flex-col w-full items-center justify-center gap-8 sm:gap-12 md:gap-16 px-0 py-[30px] sm:py-12 md:py-[40px] lg:py-[40px] bg-basewhite">
       <motion.div
         className="items-center justify-center flex max-w-screen-xl w-full px-4 sm:px-6 md:px-8 py-0"
         initial="initial"

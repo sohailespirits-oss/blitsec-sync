@@ -50,25 +50,27 @@ export function RepeaterSection({ overviewData, items, cityName, locId, price = 
           }
 
           return (
+            <div className={`${index == 0 ? 'pt-[40px]' : 'none'} w-full`}>
             <LocationsContent
               key={`text-only-${index}`}
               heading={item.title || ""}
               description={firstColumn}
               body={secondColumn}
             />
+            </div>
           );
         }
 
 
-        if (item.layout === "image_text" && index === 0) {
-          return (
-            <OverviewTextWithMap
-              key={`overview-${index}`}
-              overviewData={overviewData}
-              reversed={false}
-            />
-          );
-        }
+        // if (item.layout === "image_text" && index === 0) {
+        //   return (
+        //     <OverviewTextWithMap
+        //       key={`overview-${index}`}
+        //       overviewData={overviewData}
+        //       reversed={false}
+        //     />
+        //   );
+        // }
 
         if (item.layout === "image_text" && item.title && item.body && item.image) {
           const reversed = item.imageAlignment !== "right";
@@ -82,13 +84,15 @@ export function RepeaterSection({ overviewData, items, cityName, locId, price = 
           };
 
           return (
-            <TextWithImage
-              key={`image-text-${index}`}
-              title={item.title}
-              body={item.body}
-              image={getImageUrl(item.image)}
-              reversed={reversed}
-            />
+            <div className={`${index == 0 ? 'pt-[30px] lg:pt-[40px]' : 'none'} w-full`}>
+              <TextWithImage
+                key={`image-text-${index}`}
+                title={item.title}
+                body={item.body}
+                image={getImageUrl(item.image)}
+                reversed={reversed}
+              />
+            </div>
           );
         }
         return null;
