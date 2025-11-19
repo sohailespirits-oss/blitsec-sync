@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { getSeoMetadata } from '@/app/lib/seo';
+'use client';
+
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { PopularLocations } from "@/app/components/PopularLocations";
@@ -20,14 +20,6 @@ const FEATURES = [
   "Professional Mail Receipt",
   "Voicemail/Fax Converted to Email"
 ];
-
-// Force dynamic rendering to fetch SEO on every request
-export const dynamic = 'force-dynamic';
-
-// Fetch SEO metadata from virtual-office.json
-export async function generateMetadata(): Promise<Metadata> {
-  return getSeoMetadata('virtual-office');
-}
 
 export default function VirtualOfficePage() {
   return (
@@ -54,7 +46,7 @@ export default function VirtualOfficePage() {
                   <span>Find Your Virtual Office Location: </span>
                   <span className="font-bold text-[#0BA5EC]">650+</span>
                   <span> Locations Await – Seamless Virtual Office Solutions at </span>
-                  <span className="text-[#17B26A]">$99/</span>
+                  <span className="font-bold tracking-[-0.72px] text-[#17B26A]">$99/</span>
                   <span className="text-[#181D27]">month</span>
                 </h1>
               </div>
