@@ -14,7 +14,7 @@ export default function LocationBreadcrumb({ city, state }: BreadcrumbProps) {
 
   return (
     <div className="flex flex-col lg:flex-row w-full lg:gap-[32px] px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto mb-[8px] sm:mb-4 items-start lg:items-center justify-between mt-30 md:flex-row">
-      <div className="flex w-full lg:w-[50%] flex-col sm:py-[12px] lg:py-[0] py-[8px] gap-[8px] max-w-[762px] md:w-[50%]">
+      <div className="flex w-full lg:w-[50%] flex-col sm:py-[12px] lg:py-[0] py-[20px] gap-[8px] max-w-[762px] md:w-[50%]">
        <div className="flex flex-row items-center gap-[6px] lg:gap-[8px]">
           <span className="font-inter  font-semibold text-[14px] leading-[20px] text-[#717680]">Locations</span>
           <ChevronRight className="w-[16px] h-[16px] min-w-[16px] min-h-[16px] text-[#A4A7AE]" />
