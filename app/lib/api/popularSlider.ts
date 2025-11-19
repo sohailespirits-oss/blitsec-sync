@@ -77,15 +77,11 @@ function normalizeResponse(
  * Fetch enhanced slider payload (with_flagged=true ensures images + top premium data).
  */
 export async function fetchPopularSlider(): Promise<PopularSliderPayload> {
-  const isLocalhost = typeof window !== 'undefined' && window.location.host === 'localhost:5000';
-  const baseUrl = isLocalhost
-    ? 'https://njs.opusvirtualoffices.com'
-    : (typeof window !== 'undefined' ? window.location.origin : '');
+  // Use internal Next.js API route that reads from filesystem
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
 
-  const apiUrl = `${baseUrl}/jsonapi/toppremium`;
-  const response = await fetch(apiUrl, {
-    next: { revalidate: 300 } // Cache for 5 minutes
-  });
+  const apiUrl = `${baseUrl}/api/json/toppremium`;
+  const response = await fetch(apiUrl);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch popular slider data: ${response.statusText}`);

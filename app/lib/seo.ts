@@ -1,4 +1,6 @@
 import type { Metadata } from 'next';
+import { readFile } from 'fs/promises';
+import path from 'path';
 
 interface SeoData {
   success: boolean;
@@ -32,27 +34,23 @@ interface SeoData {
  */
 export async function getSeoMetadata(jsonPath: string): Promise<Metadata> {
   try {
-    // Determine base URL based on environment
-    // During build time, we need to use the full URL
-    const isProduction = process.env.NODE_ENV === 'production';
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://njs.opusvirtualoffices.com';
+    // Read JSON file directly from filesystem (server-side only)
+    // Path: /web/newsite/json/{jsonPath}.json
+    // From Next.js running in /web/.next, we go up to /web then into newsite/json
+    const jsonFilePath = path.join(process.cwd(), 'newsite', 'json', `${jsonPath}.json`);
 
-    // Build the full URL to the JSON file
-    const jsonUrl = `${baseUrl}/newsite/json/${jsonPath}.json`;
-
-    const response = await fetch(jsonUrl, {
-      cache: 'no-store' // Always fetch fresh data on every request
-    });
-
-    if (!response.ok) {
-      console.warn(`Failed to fetch SEO data from ${jsonUrl}, using defaults`);
+    let fileContent: string;
+    try {
+      fileContent = await readFile(jsonFilePath, 'utf-8');
+    } catch (fileError) {
+      console.warn(`Failed to read SEO file from ${jsonFilePath}, using defaults`);
       return getDefaultMetadata();
     }
 
-    const data: SeoData = await response.json();
+    const data: SeoData = JSON.parse(fileContent);
 
     if (!data.success || !data.seo) {
-      console.warn(`Invalid SEO data structure from ${jsonUrl}, using defaults`);
+      console.warn(`Invalid SEO data structure from ${jsonFilePath}, using defaults`);
       return getDefaultMetadata();
     }
 

@@ -33,14 +33,11 @@ export interface Testimonial {
  */
 export async function fetchTestimonials(limit: number = 4): Promise<Testimonial[]> {
   try {
-    const isLocalhost = typeof window !== 'undefined' && window.location.host === 'localhost:5000';
-    const baseUrl = isLocalhost
-      ? 'https://njs.opusvirtualoffices.com'
-      : (typeof window !== 'undefined' ? window.location.origin : '');
+    // Use internal Next.js API route that reads from filesystem
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
 
-    const response = await fetch(`${baseUrl}/jsonapi/reviews4`, {
+    const response = await fetch(`${baseUrl}/api/json/reviews4`, {
       method: 'GET',
-      next: { revalidate: 300 } // Cache for 5 minutes
     });
 
     if (!response.ok) {
