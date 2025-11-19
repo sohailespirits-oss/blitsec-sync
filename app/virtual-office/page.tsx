@@ -27,8 +27,8 @@ export default function VirtualOfficePage() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-white pt-6 sm:pt-8 md:pt-10 pb-0">
-        <div className="absolute inset-0 opacity-40 pointer-events-none" aria-hidden="true">
+      <section className="relative bg-white pt-6 sm:pt-8 md:pt-10 pb-0 overflow-visible">
+        <div className="absolute inset-0 opacity-40 pointer-events-none overflow-hidden" aria-hidden="true">
           <Image
             src="/dots.svg"
             alt=""
