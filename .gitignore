@@ -53,3 +53,5 @@ figma/
 scripts/
 .claude/
 *.md
+api-responses/
+app/locations/
