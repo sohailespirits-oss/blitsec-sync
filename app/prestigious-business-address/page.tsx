@@ -34,15 +34,15 @@ export default function PrestigiousBusinessAddress() {
     <div className="w-full flex pt-[72px] lg:pt-[104px]">
       <div className="flex w-full h-full flex-col items-start">
         {/* Business Address Hero */}
-        <section className="flex w-full bg-white py-6 sm md lg:pt-[40px] lg:pb-[60px]">
-          <div className="flex w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
+        <section className="flex w-full bg-white pt-[40px] pb-[40px] lg:pt-[40px] lg:pb-[60px]">
+          <div className="flex w-full max-w-[1280px] mx-auto px-4 md:px-8">
             <div className="flex flex-col lg:flex-row w-full gap-[64px] items-start">
               {/* Left Section - Text and UI Elements */}
-              <div className="flex w-full lg:w-[613px] py-12 md:py-16 lg:py-0 lg:justify-end">
+              <div className="flex w-full lg:w-[613px] py-0 lg:justify-start">
                 <div className="flex flex-col">
                   {/* Headline with Price */}
                   <div className="flex flex-col">
-                    <h2 className="text-[28px] sm:text-[32px] md:text-[40px] lg:text-[48px] font-medium leading-[60px] tracking-[-1px] text-[#101828] mb-[12px]  ">
+                    <h2 className="text-[30px] md:text-[36px] lg:text-[48px] font-medium lg:tracking-[-0.96px] text-[#101828] mb-[12px] leading-[38px] md:leading-[44px] lg:leading-[60px]">
                       Establish your corporate presence with a Business Address-Only {" "}
                       <span className="text-[#0086C9]">
                         $59
@@ -51,8 +51,8 @@ export default function PrestigiousBusinessAddress() {
                   </div>
 
                   {/* Description */}
-                  <p className="w-auto max-w-[560px] text-[16px] md:text-[18px] lg:text-[20px] font-normal leading-[30px] text-[#475467] mb-[32px]">
-                    Secure a premier address for your business, boosting  <br /> its image and privacy without sacrificing your convenience or security. No hidden fees.
+                  <p className="w-auto lg:max-w-[560px] text-[20px] font-normal leading-[30px] text-[#475467] mb-[32px]">
+                    Secure a premier address for your business, boosting  <br /> its image and privacy without sacrificing your convenience < br className="block md:hidden" /> or security. No hidden fees.
                   </p>
 
                   {/* Features List */}
@@ -104,20 +104,20 @@ export default function PrestigiousBusinessAddress() {
         <MostPopularCities />
 
         {/* Prestigious Corporate Business Address */}
-        <section className="flex w-full bg-white py-6 sm:py-8 md:py-10 lg:py-[60px]">
-          <div className="flex w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
+        <section className="flex w-full bg-white py-[20px] md:py-[40px] lg:py-[60px]">
+          <div className="flex w-full max-w-[1280px] mx-auto px-4 md:px-8">
             <div className="flex flex-col w-full">
               <h2 className="font-semibold text-[36px] leading-[44px] tracking-[-0.72px] text-[#101828] mb-[20px]">
                Prestigious Corporate Business Address
               </h2>
               <div className="flex flex-col gap-[18px]">
-                <p className="font-normal text-[18px] leading-[28px] tracking-[0%] text-[#475467]">
+                <p className="font-normal text-[18px] leading-[28px] text-[#475467]">
                   A prestigious business address is ideal for businesses wanting to project a professional image to clients and partners. With a prestigious business address, flexibility is key. You can choose the location you want. Whether it's a Brickell penthouse by the beach in Miami, or a towering skyscraper in New York, a prestigious business address gives your business the legitimacy and safety that a home or PO box address doesn't. Having an elegant space associated with your business enhances your company's image, and it can positively impact how others perceive your business.
                 </p>
-                <p className="font-normal text-[18px] leading-[28px] tracking-[0%] text-[#475467]">
+                <p className="font-normal text-[18px] leading-[28px] text-[#475467]">
                   Safety and privacy are key when running a business. Using your home address as your business address opens your home to unwanted visitors, unhappy clients, process servers, or even porch pirates looking for a quick score. You also won't have to worry about your mailbox being stuffed with scams and junk mail. All of your business-related mail and packages will be delivered and will be kept safe and secure. In the event your business gets sued, your home and assets can become vulnerable. With a prestigious business address, your home, mail, and personal assets are safe.
                 </p>
-                <p className="font-normal text-[18px] leading-[28px] tracking-[0%] text-[#475467]">
+                <p className="font-normal text-[18px] leading-[28px] text-[#475467]">
                  A prestigious business address will also save you thousands in overhead costs. With a prestigious business address, there’s no lease payments and no utility or maintenance payments. The money you save can then be allocated into growing and expanding your business. You’ll also save time commuting as you won’t need to travel to your office every day. A prestigious business address gives you and your employees the freedom and flexibility to work from anywhere without being stuck in a back-and-forth commute.
                 </p>
               </div>
@@ -126,9 +126,9 @@ export default function PrestigiousBusinessAddress() {
         </section>
 
         {/* Features Section */}
-        <section className="flex w-full bg-white py-6 sm:py-8 md:py-10 lg:py-[60px]">
-          <div className="flex w-full max-w-[1280px] mx-auto px-4 sm:px-6 md:px-8">
-            <div className="flex flex-col w-full gap-8 sm:gap-12 lg:gap-[32px]">
+        <section className="flex w-full bg-white py-[20px] md:py-[40px] lg:py-[60px]">
+          <div className="flex w-full max-w-[1280px] mx-auto px-4 md:px-8">
+            <div className="flex flex-col w-full gap-[32px] lg:gap-[32px]">
               {/* Feature 1: Prestigious Business Address */}
               <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-[64px] items-center justify-between">
                 {/* Content */}
@@ -141,10 +141,10 @@ export default function PrestigiousBusinessAddress() {
                       width={56}
                       />
                   </div>
-                  <h3 className="font-semibold text-[24px] sm:text-[28px] lg:text-[30px] leading-[32px] sm:leading-[36px] lg:leading-[38px] tracking-[0px] text-[#101828] lg:mt-[24px] lg:mb-[16px]">
+                  <h3 className="font-semibold text-[30px] leading-[38px] tracking-[0px] text-[#101828] mt-[24px] mb-[16px]">
                     Prestigious Business Address
                   </h3>
-                  <p className="font-normal text-[18px] sm:text-[19px] lg:text-[20px] leading-[28px] sm:leading-[29px] lg:leading-[30px] tracking-[0px] text-[#475467]">
+                  <p className="font-normal text-[20px] leading-[30px] tracking-[0px] text-[#475467]">
                     Select one of our prestigious locations as your primary business address and use it to receive all your mail and packages.
                   </p>
                 </div>
@@ -174,10 +174,10 @@ export default function PrestigiousBusinessAddress() {
                       width={56}
                       />
                   </div>
-                  <h3 className="font-semibold text-[24px] sm:text-[28px] lg:text-[30px] leading-[32px] sm:leading-[36px] lg:leading-[38px] tracking-[0px] text-[#101828] lg:mt-[24px] lg:mb-[16px]">
+                  <h3 className="font-semibold text-[30px] leading-[38px] tracking-[0px] text-[#101828] mt-[24px] mb-[16px]">
                     Professional Mail Receipt
                   </h3>
-                  <p className="font-normal text-[18px] sm:text-[19px] lg:text-[20px] leading-[28px] sm:leading-[29px] lg:leading-[30px] tracking-[0px] text-[#475467]">
+                  <p className="font-normal text-[20px] leading-[30px] tracking-[0px] text-[#475467]">
                    Never Miss A Delivery - Our receptionists are there for you to receive any mail or packages, even when a signature is required.
                   </p>
                 </div>
@@ -207,10 +207,10 @@ export default function PrestigiousBusinessAddress() {
                       width={56}
                       />
                   </div>
-                  <h3 className="font-semibold text-[24px] sm:text-[28px] lg:text-[30px] leading-[32px] sm:leading-[36px] lg:leading-[38px] tracking-[0px] text-[#101828] lg:mt-[24px] lg:mb-[16px]">
+                  <h3 className="font-semibold text-[30px] leading-[38px] tracking-[0px] text-[#101828] mt-[24px] mb-[16px]">
                     Asset Protection
                   </h3>
-                  <p className="font-normal text-[18px] sm:text-[19px] lg:text-[20px] leading-[28px] sm:leading-[29px] lg:leading-[30px] tracking-[0px] text-[#475467]">
+                  <p className="font-normal text-[20px] leading-[30px] tracking-[0px] text-[#475467]">
                    Using your home address as your business address could leave your home vulnerable if the business is sued and a judge deems it appropriate to pierce the corporate veil.
                   </p>
                 </div>
