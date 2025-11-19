@@ -138,9 +138,9 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
 
     return (
         <section className="flex flex-col items-center w-full bg-basewhite pt-[72px] lg:pt-[104px]">
-            <div className="flex flex-col w-full items-center gap-4 sm:gap-6 md:gap-8 px-0 py-6 sm:py-8 md:pb-10">
-                <div className='flex flex-col lg:flex-row w-full lg:gap-[32px] gap-[8px] px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto'>
-                    <div className='flex flex-col py-[12px] gap-[8px] w-full'>
+            <div className="flex flex-col w-full items-center gap-4 sm:gap-4 md:gap-4 px-0 py-6 sm:py-8 md:pb-10">
+                <div className='flex flex-col lg:flex-row w-full lg:gap-[40px] gap-[8px] px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto'>
+                    <div className='flex flex-col py-0 gap-[8px] w-full pb-[12px]'>
                         <div className='flex flex-row items-center gap-[8px]'>
                             <span className='font-inter font-semibold text-[14px] leading-[100%] text-[#717680]'>Locations</span>
                             <ChevronRight className='w-[16px] h-[16px] min-w-[16px] min-h-[16px] text-[]' />
