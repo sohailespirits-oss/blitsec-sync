@@ -143,7 +143,7 @@ export default function LocationResultsWithMap({
 		<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full lg:w-[1280px] px-4 md:px-8">
 			{/* Locations Column */}
 			<div
-				className="flex flex-col w-full md:max-h-[924px] gap-6 overflow-y-auto no-scrollbar location-scroll-container"
+				className="flex flex-col w-full md:max-h-[948px] gap-6 overflow-y-auto no-scrollbar location-scroll-container"
 				style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
 				onMouseLeave={handleMouseLeave}
 			>

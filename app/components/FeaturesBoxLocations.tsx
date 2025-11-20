@@ -32,7 +32,7 @@ export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) =>
               data-testid={`feature-${index}`}
             >
               <Image
-                className="feature-icon w-[22px] h-[22px] flex-shrink-0 object-contain opacity-100"
+                className="feature-icon w-6 h-6 flex-shrink-0 object-contain opacity-100 md:w-8 md:h-8"
                 alt="Check icon"
                 src="/figmaAssets/check-icon.svg"
                 width="22"

@@ -37,7 +37,7 @@ export function StatesList() {
                     usaData?.states.map((state) => (
                       <Link
                         key={state.state_id}
-                        href={`/virtual-office/${state.state_name.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={`/state-search/${state.state_name.toLowerCase().replace(/\s+/g, '-')}`}
                         prefetch={false}
                         className="flex items-center gap-2"
                       >

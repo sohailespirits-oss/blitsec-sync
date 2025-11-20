@@ -50,9 +50,9 @@ export default function CitySelectDropdown({
     text-[15px] font-medium text-[#1A1F36]
   "
       >
-        <div className="flex items-center gap-2">
-          <MapPin className="w-5 h-5 text-[#5A6474]" />
-          <span className={value ? "text-[#1A1F36]" : "text-[#5A6474]"}>
+        <div className="flex items-center gap-3">
+          <MapPin className="w-8 h-8 text-[#5A6474]" />
+          <span className={`text-[25px] ${value ? "text-[#1A1F36]" : "text-[#5A6474]"}`}>
             {value || placeholder}
           </span>
         </div>
