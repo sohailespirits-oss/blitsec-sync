@@ -1,7 +1,12 @@
 /**
  * Testimonials API Service
- * Connects to WordPress REST API for testimonials
+ * Reads testimonials from local JSON files
  */
+
+'use server';
+
+import { readFile } from 'fs/promises';
+import path from 'path';
 
 // WordPress API Response Types
 export interface WordPressReview {
@@ -28,34 +33,25 @@ export interface Testimonial {
 }
 
 /**
- * Fetch testimonials from WordPress API
+ * Fetch testimonials from local JSON file
  * @param limit - Number of testimonials to fetch (default: 4)
  */
 export async function fetchTestimonials(limit: number = 4): Promise<Testimonial[]> {
   try {
-    // Use internal Next.js API route that reads from filesystem
-    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+    const jsonFilePath = path.join(process.cwd(), 'newsite', 'json', 'reviews4.json');
+    const fileContent = await readFile(jsonFilePath, 'utf-8');
+    const responseData: WordPressReviewResponse = JSON.parse(fileContent);
 
-    const response = await fetch(`${baseUrl}/api/json/reviews4`, {
-      method: 'GET',
-    });
-
-    if (!response.ok) {
-      throw new Error(`API request failed: ${response.status} ${response.statusText}`);
-    }
-
-    const responseData: WordPressReviewResponse = await response.json();
-
-    // Check if the API call was successful and has data
+    // Check if the data is valid
     if (!responseData.success || !responseData.data) {
-      console.warn('API returned unsuccessful response or no data');
+      console.warn('JSON file returned unsuccessful response or no data');
       return [];
     }
 
     // Transform API response to component format
     return transformReviews(responseData.data);
   } catch (error) {
-    console.error('[Testimonials API] Fetch error:', error);
+    console.error('[Testimonials API] Read error:', error);
     throw error;
   }
 }

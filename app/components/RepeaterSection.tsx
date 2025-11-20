@@ -10,7 +10,7 @@ export interface RepeaterItem {
   title?: string;
   body?: string;
   image?: string;
-  layout: "image_text" | "text_only" | "cta_block";
+  layout?: "image_text" | "text_only" | "cta_block";
   imageAlignment?: "left" | "right";
 }
 
@@ -50,9 +50,8 @@ export function RepeaterSection({ overviewData, items, cityName, locId, price = 
           }
 
           return (
-            <div className={`${index == 0 ? 'pt-[40px]' : 'none'} w-full`}>
+            <div key={`text-only-${index}`} className={`${index == 0 ? 'pt-[40px]' : 'none'} w-full`}>
             <LocationsContent
-              key={`text-only-${index}`}
               heading={item.title || ""}
               description={firstColumn}
               body={secondColumn}
@@ -72,8 +71,12 @@ export function RepeaterSection({ overviewData, items, cityName, locId, price = 
         //   );
         // }
 
-        if (item.layout === "image_text" && item.title && item.body && item.image) {
-          const reversed = item.imageAlignment !== "right";
+        // Handle explicit image_text layout OR default for items with image/title/body but no layout
+        if ((item.layout === "image_text" || !item.layout) && item.title && item.body && item.image) {
+          // If imageAlignment specified, use it; otherwise alternate (even=right, odd=left)
+          const reversed = item.imageAlignment
+            ? item.imageAlignment !== "right"
+            : index % 2 !== 0;
 
           const getImageUrl = (imagePath: string) => {
             if (!imagePath) return "";
@@ -84,9 +87,8 @@ export function RepeaterSection({ overviewData, items, cityName, locId, price = 
           };
 
           return (
-            <div className={`${index == 0 ? 'pt-[30px] lg:pt-[40px]' : 'none'} w-full`}>
+            <div key={`image-text-${index}`} className={`${index == 0 ? 'pt-[30px] lg:pt-[40px]' : 'none'} w-full`}>
               <TextWithImage
-                key={`image-text-${index}`}
                 title={item.title}
                 body={item.body}
                 image={getImageUrl(item.image)}
