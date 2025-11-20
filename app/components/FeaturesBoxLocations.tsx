@@ -14,12 +14,12 @@ export const FeaturesBoxLocations = ({ features }: FeaturesBoxLocationsProps) =>
   const hasMoreFeatures = features.length > 3;
 
   return (
-    <div className="inline-flex flex-col w-full lg:max-w-[418px] self-stretch items-start gap-3 sm:gap-2.5 pl-0 pr-0 py-0">
+    <div className="inline-flex flex-col w-full lg:max-w-[418px] self-stretch items-start gap-3 sm:gap-3 pl-0 pr-0 py-0">
       <p className="font-text-sm-text-md-regular font-[number:var(--text-sm-text-md-regular-font-weight)] text-gray-600 text-[length:var(--text-sm-text-md-regular-font-size)] tracking-[var(--text-sm-text-md-regular-letter-spacing)] leading-[var(--text-sm-text-md-regular-line-height)] [font-style:var(--text-sm-text-md-regular-font-style)]">
         When We Say <span className="font-semibold">All-Inclusive,</span><br />We Mean <span className="font-semibold">ALL-INCLUSIVE:</span>
       </p>
 
-      <div className="features-list flex flex-col gap-[14px] mt-[10px] w-full">
+      <div className="features-list flex flex-col gap-[8px] lg:gap-[12px] w-full py-[8px] lg:py-[0px]">
         {features.map((feature, index) => {
           // On mobile: hide items after index 2 unless showAll is true
           // On desktop (lg+): always show all items

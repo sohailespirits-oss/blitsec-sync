@@ -6,6 +6,7 @@ import PopularCities from './ui/PopularCities';
 import LocationSection from './LocationSection';
 import type { LocationResult, LocationMap } from './LocationResultsWithMap';
 import Padding from './ui/Padding';
+import allcities from './../../api-responses/city-search-result.json'
 
 interface LocationData {
     state: string;
@@ -13,24 +14,14 @@ interface LocationData {
     locations?: LocationResult[];
     map?: LocationMap;
 }
-const cities = [
-    "Atlanta",
-    "Savannah",
-    "Augusta",
-    "Columbus",
-    "Macon",
-    "Athens",
-    "Albany",
-    "Sandy Springs",
-    "Roswell",
-];
+
 function StateSearch({ data }: { data: LocationData }) {
     const { image, state, locations = [], map } = data;
     const [city, setCity] = useState("");
-    console.log("data:", data);
+    const cities = allcities.result.locations.map(loc => loc.city);
 
     return (
-        <section className="flex flex-col items-center justify-center w-full bg-basewhite px-4 sm:px-6 lg:px-8 max-w-[767px] sm:max-w-[767px] md:max-w-[1023px] lg:max-w-[1280px] mx-auto lg:pt-[104px]">
+        <section className="flex flex-col items-center justify-center w-full bg-basewhite">
             <Padding mobile="20px" desktop="40px" />
             <LocationSection
                 state={state}

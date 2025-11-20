@@ -97,7 +97,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                 }
             `
             }} />
-            <div className="max-w-screen-xl mx-auto py-[30px] px-4 sm:px-6 md:px-8">
+            <div className="max-w-screen-xl w-full mx-auto py-[30px] px-4 sm:px-6 md:px-8">
                 <div className="free-ebook-main wrapper-ebook-main flex flex-col md:flex-row">
                     {/* Left side - Content */}
                     <div className="ebook-left">

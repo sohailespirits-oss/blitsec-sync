@@ -32,29 +32,37 @@ export default function CitySelectDropdown({
   }, []);
 
   return (
-    <div ref={ref} className="relative w-full max-w-sm lg:max-w-[514px]">
-
+    <div ref={ref} className="relative w-full max-w-full lg:max-w-[514px]">
       {/* Button */}
       <button
         type="button"
         onClick={() => setOpen(!open)}
         className="
-    flex items-center justify-between
-    w-full 
-    px-[22.488px] py-[16.063px]
-    gap-[12.85px]
-    rounded-[12.85px]
-    border-[1.606px] border-[#D0D5DD]
-    bg-white
-    shadow-[0_1.606px_3.213px_rgba(16,24,40,0.05)]
-    text-[15px] font-medium text-[#1A1F36]
-  "
-      >
+  flex items-center
+  w-full justify-between
+  px-[16.194px] py-[11.567px]
+  gap-[9.254px]
+  rounded-[9.254px]
+  border-[1.157px] border-[#D0D5DD]
+  bg-white
+  shadow-[0_1.157px_2.313px_rgba(16,24,40,0.05)]
+  text-[15px] font-medium text-[#1A1F36]
+" >
+
         <div className="flex items-center gap-3">
-          <MapPin className="w-8 h-8 text-[#5A6474]" />
-          <span className={`text-[25px] ${value ? "text-[#1A1F36]" : "text-[#5A6474]"}`}>
+          <MapPin className="w-6 lg:w-8 h-6 lg:h-8 text-[#5A6474]" />
+          <span
+            className={`
+    font-inter
+    text-[20.821px]
+    font-medium
+    leading-[32.388px]
+    ${value ? "text-[#101828]" : "text-[#5A6474]"}
+  `}
+          >
             {value || placeholder}
           </span>
+
         </div>
 
         <ChevronDown

@@ -140,112 +140,112 @@ export default function LocationResultsWithMap({
 
 	return (
 		<>
-		<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full lg:w-[1280px] px-4 md:px-8">
-			{/* Locations Column */}
-			<div
-				className="flex flex-col w-full md:max-h-[948px] gap-6 overflow-y-auto no-scrollbar location-scroll-container"
-				style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-				onMouseLeave={handleMouseLeave}
-			>
-				<div className="w-full flex gap-6 flex-col">
-					{popularLocations.length > 0 && (
-						<>
-							<SectionHeading>
-								Most Popular Virtual Office Location in {state}
-							</SectionHeading>
-							{popularLocations.map((location) => (
-								<div
-									key={location.id ?? `${location.city}-${location.address}`}
-									onMouseEnter={handleLocationHover(location)}
-									className="w-full"
-								>
-									<ImageCard
-										imageSrc={normalizeImageSrc(location.image)}
-										imageAlt={`Virtual office in ${location.city}, ${state}`}
-										cityName={`${location.city}${location.abbr ? `, ${location.abbr}` : ''}`}
-										address={location.name ?? location.address ?? ''}
-										subAddress={location.address}
-										isHighlight
-									/>
-								</div>
-							))}
-						</>
-					)}
+			<div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full lg:w-[1280px] px-4 md:px-8">
+				{/* Locations Column */}
+				<div
+					className="flex flex-col w-full md:max-h-[948px] gap-6 overflow-y-auto no-scrollbar location-scroll-container"
+					style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+					onMouseLeave={handleMouseLeave}
+				>
+					<div className="w-full flex gap-6 flex-col">
+						{popularLocations.length > 0 && (
+							<>
+								<SectionHeading>
+									Most Popular Virtual Office Location in {state}
+								</SectionHeading>
+								{popularLocations.map((location) => (
+									<div
+										key={location.id ?? `${location.city}-${location.address}`}
+										onMouseEnter={handleLocationHover(location)}
+										className="w-full h-auto lg:h-[184px]"
+									>
+										<ImageCard
+											imageSrc={normalizeImageSrc(location.image)}
+											imageAlt={`Virtual office in ${location.city}, ${state}`}
+											cityName={`${location.city}${location.abbr ? `, ${location.abbr}` : ''}`}
+											address={location.name ?? location.address ?? ''}
+											subAddress={location.address}
+											isHighlight
+										/>
+									</div>
+								))}
+							</>
+						)}
 
-					{additionalLocations.length > 0 && (
-						<>
-							<SectionHeading>
-								Additional Virtual Office Locations in {state}
-							</SectionHeading>
-							{additionalLocations.map((location) => (
-								<div
-									key={location.id ?? `${location.city}-${location.address}`}
-									onMouseEnter={handleLocationHover(location)}
-									className="w-full"
-								>
-									<ImageCard
-										imageSrc={normalizeImageSrc(location.image)}
-										imageAlt={`Virtual office in ${location.city}, ${state}`}
-										cityName={`${location.city}${location.abbr ? `, ${location.abbr}` : ''}`}
-										address={location.name ?? location.address ?? ''}
-										subAddress={location.address}
-									/>
-								</div>
-							))}
-						</>
-					)}
-				</div>
-			</div>
-
-			{/* Map Column */}
-			<div className="flex flex-col gap-8 w-full h-full">
-				<div className="relative hidden md:block">
-					<iframe
-						src={mapSrc}
-						width="100%"
-						height="600"
-						style={{ border: 0 }}
-						allowFullScreen
-						loading="lazy"
-						referrerPolicy="no-referrer-when-downgrade"
-						title={`Map of ${state}`}
-						className="w-full min-h-[214px] h-[600px]"
-					/>
-
-					{mapOverlayLocation && (
-						<div className="absolute top-6 left-6 bg-white rounded-[16px] shadow-xl border border-[#EAECF0] max-w-[260px] overflow-hidden">
-							<div className="relative w-full h-[150px]">
-								<Image
-									src={normalizeImageSrc(mapOverlayLocation.image)}
-									alt={`Virtual office in ${mapOverlayLocation.city}`}
-									fill
-									className="object-cover"
-								/>
-							</div>
-							<div className="flex flex-col gap-2 p-4">
-								<div className="flex flex-col gap-1">
-									<span className="text-[16px] font-semibold text-[#101828] leading-[24px]">
-										{mapOverlayLocation.city}
-									</span>
-									<p className="text-[13px] text-[#475467] leading-[18px]">
-										{mapOverlayLocation.name ?? mapOverlayLocation.address}
-									</p>
-								</div>
-								<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full w-fit">
-									<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
-										Premium
-									</span>
-									<span className="text-[#067647] capitalize">location</span>
-								</div>
-							</div>
-						</div>
-					)}
+						{additionalLocations.length > 0 && (
+							<>
+								<SectionHeading>
+									Additional Virtual Office Locations in {state}
+								</SectionHeading>
+								{additionalLocations.map((location) => (
+									<div
+										key={location.id ?? `${location.city}-${location.address}`}
+										onMouseEnter={handleLocationHover(location)}
+										className="w-full h-auto lg:h-[184px]"
+									>
+										<ImageCard
+											imageSrc={normalizeImageSrc(location.image)}
+											imageAlt={`Virtual office in ${location.city}, ${state}`}
+											cityName={`${location.city}${location.abbr ? `, ${location.abbr}` : ''}`}
+											address={location.name ?? location.address ?? ''}
+											subAddress={location.address}
+										/>
+									</div>
+								))}
+							</>
+						)}
+					</div>
 				</div>
 
-				<FeaturesBoxLocations features={INCLUDED_FEATURES} />
+				{/* Map Column */}
+				<div className="flex flex-col gap-9 w-full h-full">
+					<div className="relative hidden md:block">
+						<iframe
+							src={mapSrc}
+							width="100%"
+							height="600"
+							style={{ border: 0 }}
+							allowFullScreen
+							loading="lazy"
+							referrerPolicy="no-referrer-when-downgrade"
+							title={`Map of ${state}`}
+							className="w-full min-h-[214px] h-[600px]"
+						/>
+
+						{mapOverlayLocation && (
+							<div className="absolute top-6 left-6 bg-white rounded-[16px] shadow-xl border border-[#EAECF0] max-w-[260px] overflow-hidden">
+								<div className="relative w-full h-[150px]">
+									<Image
+										src={normalizeImageSrc(mapOverlayLocation.image)}
+										alt={`Virtual office in ${mapOverlayLocation.city}`}
+										fill
+										className="object-cover"
+									/>
+								</div>
+								<div className="flex flex-col gap-2 p-4">
+									<div className="flex flex-col gap-1">
+										<span className="text-[16px] font-semibold text-[#101828] leading-[24px]">
+											{mapOverlayLocation.city}
+										</span>
+										<p className="text-[13px] text-[#475467] leading-[18px]">
+											{mapOverlayLocation.name ?? mapOverlayLocation.address}
+										</p>
+									</div>
+									<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full w-fit">
+										<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
+											Premium
+										</span>
+										<span className="text-[#067647] capitalize">location</span>
+									</div>
+								</div>
+							</div>
+						)}
+					</div>
+
+					<FeaturesBoxLocations features={INCLUDED_FEATURES} />
+				</div>
 			</div>
-		</div>
-		<style jsx>{`
+			<style jsx>{`
 			.location-scroll-container::-webkit-scrollbar {
 				display: none;
 			}

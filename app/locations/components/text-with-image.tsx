@@ -4,7 +4,7 @@ import React from 'react'
 export const TextWithImage = ({ reversed = false, title, body, image }: { reversed?: boolean, title: string, body: string, image: string }) => {
     return (
         <section className={`max-w-screen-xl mx-auto pt-[30px] pb-[30px]`}>
-            <div className={`lg:px-[32px] px-[16px] flex flex-col lg:gap-[64px] gap-[32px] ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
+            <div className={`lg:px-[32px] px-[16px] flex flex-col lg:gap-[64px] gap-[32px] ${reversed ? 'md:flex-row-reverse' : 'md:flex-row'} ${reversed ? 'lg:flex-row-reverse' : 'lg:flex-row'}`}>
                 <div className='flex flex-col gap-[24px] w-full'>
                     <span className='font-inter font-semibold lg:text-[36px] text-[30px] leading-[120%] tracking-[-2%] text-[#101828]'>{title}</span>
                     <p className='font-inter font-normal lg:text-[20px] text-[18px] leading-[140%] tracking-[0] text-[#535862]'>
@@ -12,7 +12,7 @@ export const TextWithImage = ({ reversed = false, title, body, image }: { revers
                     </p>
                 </div>
 
-                <div className='w-full max-w-[560px] bg-[#F2F4F7] p-[32px]'>
+                <div className='w-full max-w-[560px] bg-[#F2F4F7] p-[16px] lg:p-[32px]'>
                     <div className='max-w-[496px] w-full overflow-hidden relative lg:min-h-[312px] min-h-[236px] h-full'>
                         <Image
                             src={image}
