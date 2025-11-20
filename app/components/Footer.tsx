@@ -1,10 +1,71 @@
 'use client';
+import { useState } from "react";
 import Link from "next/link";
 import { Input } from "@/app/components/ui/input";
 import { Button } from "@/app/components/ui/button";
 import { MailIcon } from "lucide-react";
+import { useLoading } from "@/app/components/GlobalLoadingOverlay";
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [errorMessage, setErrorMessage] = useState('');
+  const { showLoading, hideLoading } = useLoading();
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!email || !email.includes('@')) {
+      setSubmitStatus('error');
+      setErrorMessage('Please enter a valid email address');
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setErrorMessage('');
+    showLoading();
+
+    try {
+      // Determine the base URL - use staging URL for localhost, relative URL for staging/production
+      const isLocalhost = typeof window !== 'undefined' && (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1');
+      const baseUrl = isLocalhost ? 'https://njs.opusvirtualoffices.com' : '';
+
+      const response = await fetch(`${baseUrl}/wp-json/opus/v1/forms/submit/25`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          input_3: email
+        }),
+      });
+
+      // Check if response is JSON
+      const contentType = response.headers.get('content-type');
+      if (!contentType || !contentType.includes('application/json')) {
+        throw new Error('Invalid response from server');
+      }
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitStatus('success');
+        setEmail('');
+      } else {
+        setSubmitStatus('error');
+        setErrorMessage(data.message || 'Failed to subscribe. Please try again.');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setErrorMessage('Failed to subscribe. Please try again.');
+      console.error('Error submitting newsletter form:', error);
+    } finally {
+      setIsSubmitting(false);
+      hideLoading();
+    }
+  };
   const popularLocations = [
     { name: "Atlanta", href: "/virtual-office/georgia/atlanta/location-684/" },
     { name: "Chicago", href: "/virtual-office/illinois/chicago/location-1430/" },
@@ -68,7 +129,7 @@ export function Footer() {
                   />
                 </div>
                 <div className="bg-[#015a75] rounded-[4.5px] h-[45px] w-[50px] flex items-center justify-center">
-                  <span className="text-white text-[30px] font-bold font-['Impact']" data-testid="text-bbb-rating">
+                  <span className="text-white text-[30px] font-bold" data-testid="text-bbb-rating">
                     A+
                   </span>
                 </div>
@@ -92,13 +153,6 @@ export function Footer() {
                 </a>
               </div>
 
-              {/* Credit Cards Accepted */}
-              <img
-                src="/Credit-cards-accepted.svg"
-                alt="Credit cards accepted"
-                className="h-[32px] w-auto self-start"
-                data-testid="img-credit-cards"
-              />
             </div>
 
             {/* Links Section - Desktop Only */}
@@ -306,25 +360,43 @@ export function Footer() {
             </div>
 
             {/* Newsletter Form */}
-            <div className="flex flex-col lg:flex-row gap-4 lg:w-[400px]">
+            <form onSubmit={handleNewsletterSubmit} className="flex flex-col lg:flex-row gap-4 lg:w-[400px]">
               <div className="flex-1">
                 <div className="h-[50px] bg-white border border-[#d5d7da] rounded-lg px-3.5 py-2.5 flex items-center gap-2">
                   <MailIcon className="w-5 h-5 text-[#a4a7ae]" />
                   <Input
                     type="email"
+                    name="input_3"
+                    id="input_25_3"
                     placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    disabled={isSubmitting}
                     className="flex-1 border-0 shadow-none p-0 h-auto text-[#717680] text-base focus-visible:ring-0 focus-visible:ring-offset-0"
                     data-testid="input-newsletter-email"
                   />
                 </div>
+                {submitStatus === 'success' && (
+                  <p className="text-green-400 text-sm mt-2">
+                    Successfully subscribed!
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-red-400 text-sm mt-2">
+                    {errorMessage}
+                  </p>
+                )}
               </div>
               <Button
-                className="h-[50px] gap-1.5 px-[18px] py-3 w-full lg:w-auto bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)]"
+                type="submit"
+                disabled={isSubmitting}
+                className="h-[50px] gap-1.5 px-[18px] py-3 w-full lg:w-auto bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)] disabled:opacity-50 disabled:cursor-not-allowed"
                 data-testid="button-subscribe"
               >
-                Subscribe
+                {isSubmitting ? 'Subscribing...' : 'Subscribe'}
               </Button>
-            </div>
+            </form>
           </div>
 
           {/* Bottom Section */}

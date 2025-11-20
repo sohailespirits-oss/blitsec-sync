@@ -35,6 +35,7 @@ interface LocationSearchBarProps {
   initialResults?: LocationItem[];
   fetchResults?: (query: string) => Promise<LocationItem[]>;
   onSelect?: (item: LocationItem) => void;
+  onSearchChange?: (query: string) => void;
   placeholder?: string;
   label?: string;
 }
@@ -60,6 +61,7 @@ export function ActionSearchBar({
   initialResults = [],
   fetchResults,
   onSelect,
+  onSearchChange,
   placeholder = "Search for Zip, State, or City",
   label,
 }: LocationSearchBarProps) {
@@ -70,6 +72,13 @@ export function ActionSearchBar({
   const [results, setResults] = useState<LocationItem[]>(initialResults);
   const [selectedIndex, setSelectedIndex] = useState<number>(-1);
   const [showDistanceSelector, setShowDistanceSelector] = useState(false);
+
+  // Call onSearchChange when query changes
+  useEffect(() => {
+    if (onSearchChange) {
+      onSearchChange(query);
+    }
+  }, [query, onSearchChange]);
 
   const debouncedQuery = useDebounce(query, 250);
 
@@ -216,7 +225,7 @@ export function ActionSearchBar({
                 onKeyDown={onKeyDown}
                 onFocus={() => setIsFocused(true)}
                 onBlur={() => setTimeout(() => setIsFocused(false), 150)}
-                className="pl-10 pr-3.5 py-3 h-[50px] text-base bg-white rounded-lg border border-[#cfd4dc] shadow-shadows-shadow-xs focus-visible:ring-offset-0 [font-family:'Inter',Helvetica] font-normal text-gray-500"
+                className="pl-10 pr-3.5 py-3 h-[50px] text-base bg-white rounded-lg border border-[#cfd4dc] shadow-shadows-shadow-xs focus-visible:ring-offset-0 font-normal text-gray-500"
                 autoComplete="off"
                 data-testid="input-location-search"
               />

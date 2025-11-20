@@ -20,11 +20,9 @@
         ]
     },
     "features": {
-        "showMailX": 0
+        "showMailX": 1
     },
     "addressOnlyOptionAvailable": 1,
     "addressOnlyUrl": "\/business-address\/florida\/boca-raton\/location-776\/",
-    "signupUrl": "\/signup\/?locid=776",
-    "nearbypopular":1,
-    "nearbypremium":1
+    "signupUrl": "\/signup\/?locid=776"
 }

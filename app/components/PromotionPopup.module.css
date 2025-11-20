@@ -10,15 +10,31 @@
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+/* Mobile adjustments */
+@media (max-width: 640px) {
+  .modal {
+    padding-top: 40px;
+  }
+}
+
 .modalContent {
   position: relative;
   background-color: #fefefe;
   margin: auto;
   padding: 0;
   max-width: 500px;
+  width: 90%;
   max-height: 80vh;
-  overflow-y: hidden;
+  overflow-y: auto;
   border: 5px solid #53aafc;
+}
+
+@media (max-width: 640px) {
+  .modalContent {
+    width: 95%;
+    max-height: 85vh;
+    border-width: 3px;
+  }
 }
 
 .hidden {
@@ -57,6 +73,13 @@
   padding: 20px 0px;
   color: black;
   font-weight: bolder;
+}
+
+@media (max-width: 640px) {
+  .step1 .head {
+    font-size: 18px;
+    padding: 15px 10px;
+  }
 }
 
 .step1 ul {
@@ -134,6 +157,12 @@
   margin-top: 0;
 }
 
+@media (max-width: 640px) {
+  .step2 p {
+    font-size: 14px;
+  }
+}
+
 .errorMessage {
   color: red;
   font-size: 16px;
@@ -181,6 +210,33 @@
 .step3 {
   display: block;
   padding: 40px 20px;
+}
+
+@media (max-width: 640px) {
+  .step3 {
+    padding: 30px 15px;
+  }
+}
+
+/* Global head styling for step 3 */
+.head {
+  padding: 20px;
+  text-align: center;
+  font-size: 32px;
+  padding-top: 0px;
+  line-height: 36px;
+  font-family: "Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+  color: #333;
+  margin-top: 30px;
+}
+
+@media (max-width: 640px) {
+  .head {
+    font-size: 24px;
+    line-height: 28px;
+    padding: 15px 10px;
+    margin-top: 20px;
+  }
 }
 
 .videoContainer {

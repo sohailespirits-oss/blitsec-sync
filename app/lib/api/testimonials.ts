@@ -1,24 +1,22 @@
 /**
  * Testimonials API Service
- * Connects to WordPress REST API for testimonials/reviews
+ * Connects to WordPress REST API for testimonials
  */
 
 // WordPress API Response Types
-export interface WordPressReviewACF {
-  rating: number;
-  reviewer_name: string;
-  review_text: string;
-  review_date?: string;
-  reviewer_image?: {
-    url: string;
-    alt: string;
-  };
-  show_on_homepage: boolean;
-}
-
 export interface WordPressReview {
   id: number;
-  acf: WordPressReviewACF;
+  client_name: string;
+  client_review: string;
+  stars: number;
+  review_by: string;
+  show_on_general: string;
+}
+
+export interface WordPressReviewResponse {
+  success: boolean;
+  count: number;
+  data: WordPressReview[];
 }
 
 // Transformed Testimonial Type for Component
@@ -35,33 +33,27 @@ export interface Testimonial {
  */
 export async function fetchTestimonials(limit: number = 4): Promise<Testimonial[]> {
   try {
-    const isLocalhost = typeof window !== 'undefined' && window.location.host === 'localhost:5000';
-    const baseUrl = isLocalhost
-      ? 'https://njs.opusvirtualoffices.com'
-      : (typeof window !== 'undefined' ? window.location.origin : '');
+    // Use internal Next.js API route that reads from filesystem
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
 
-    const response = await fetch(
-      `${baseUrl}/wp-json/opus/v1/reviews/homepage?per_page=${limit}`,
-      {
-        method: 'GET',
-        next: { revalidate: 300 } // Cache for 5 minutes
-      }
-    );
+    const response = await fetch(`${baseUrl}/api/json/reviews4`, {
+      method: 'GET',
+    });
 
     if (!response.ok) {
       throw new Error(`API request failed: ${response.status} ${response.statusText}`);
     }
 
-    const responseData: WordPressReview[] = await response.json();
+    const responseData: WordPressReviewResponse = await response.json();
 
-    // Check if the API call returned data
-    if (!Array.isArray(responseData)) {
-      console.warn('API returned invalid response format');
+    // Check if the API call was successful and has data
+    if (!responseData.success || !responseData.data) {
+      console.warn('API returned unsuccessful response or no data');
       return [];
     }
 
     // Transform API response to component format
-    return transformReviews(responseData);
+    return transformReviews(responseData.data);
   } catch (error) {
     console.error('[Testimonials API] Fetch error:', error);
     throw error;
@@ -72,12 +64,10 @@ export async function fetchTestimonials(limit: number = 4): Promise<Testimonial[
  * Transform WordPress API reviews to component format
  */
 function transformReviews(reviews: WordPressReview[]): Testimonial[] {
-  return reviews
-    .filter((review) => review.acf && review.acf.show_on_homepage)
-    .map((review) => ({
-      id: review.id,
-      reviewerName: review.acf.reviewer_name?.trim() || 'Anonymous',
-      reviewText: review.acf.review_text?.trim() || '',
-      rating: review.acf.rating || 5,
-    }));
+  return reviews.map((review) => ({
+    id: review.id,
+    reviewerName: review.client_name.trim() || 'Anonymous',
+    reviewText: review.client_review.trim(),
+    rating: review.stars,
+  }));
 }

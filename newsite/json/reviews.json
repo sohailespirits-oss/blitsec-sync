@@ -1,0 +1,17 @@
+{
+    "success": true,
+    "page": "reviews",
+    "page_type": "simple",
+    "seo": {
+        "title": "Opus Virtual Office Reviews",
+        "meta_description": "Opus Virtual Office Reviews from real customers. Visit our reviews page to learn how a Virtual Office has helped many businesses.",
+        "canonical": "https://njs.opusvirtualoffices.com/reviews/",
+        "og": {
+            "title": "Opus Virtual Office Reviews",
+            "description": "Opus Virtual Office Reviews from real customers. Visit our reviews page to learn how a Virtual Office has helped many businesses.",
+            "url": "https://njs.opusvirtualoffices.com/reviews/",
+            "type": "website",
+            "image": "https://njs.opusvirtualoffices.com/newsite/wp-content/themes/ThemeDec23/assets/images/opus-logo-main.svg"
+        }
+    }
+}

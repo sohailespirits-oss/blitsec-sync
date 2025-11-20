@@ -51,13 +51,13 @@ export function TopPremiumSlider() {
   }));
 
   return (
-    <section className="py-12 bg-white">
-      <div className="max-w-[1280px] mx-auto px-6 lg:px-8 relative">
-        <div className="flex flex-col gap-2 mb-8">
-          <h2 className="text-[#181D27] text-[36px] leading-[44px] font-semibold tracking-[-0.72px] font-['Inter',sans-serif]">
+    <section className="py-0 bg-white">
+      <div className="max-w-[1280px] mx-auto px-4 lg:px-8 relative">
+        <div className="flex flex-col gap-[16px] lg:gap-[32px] mb-12 lg:mb-16">
+          <h2 className="text-[#181D27] text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
             Top Premium Locations
           </h2>
-          <p className="text-[#535862] text-xl leading-[30px] font-['Inter',sans-serif]">
+          <p className="text-[#535862] text-lg leading-[28px]">
             Browse our most popular prestigious virtual office locations throughout the USA.
           </p>
         </div>
@@ -100,7 +100,7 @@ export function TopPremiumSlider() {
                 key={location.id}
                 href={href}
                 prefetch={false}
-                className="location-card w-[360px] min-w-[360px] h-[480px] rounded-[12px] relative flex-shrink-0 snap-start group bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.08)]"
+                className="location-card w-[287px] min-w-[287px] h-[480px] rounded-[12px] relative flex-shrink-0 snap-start group bg-white shadow-[0px_1px_4px_rgba(0,0,0,0.08)] lg:w-[360px] lg:min-w-[360px]"
                 data-location-card
               >
                 <div className="w-full h-full rounded-[12px] overflow-hidden relative">
@@ -121,7 +121,7 @@ export function TopPremiumSlider() {
                   <div className="absolute inset-0 flex items-end pb-4 px-4">
                     <div className="backdrop-blur-md backdrop-filter bg-[rgba(255,255,255,0.3)] relative rounded-[16px] w-full">
                       <div className="absolute inset-0 border border-[rgba(255,255,255,0.3)] rounded-[16px] pointer-events-none" />
-                      <div className="flex flex-col gap-2 p-5 relative text-white font-['Inter',sans-serif]">
+                      <div className="flex flex-col gap-2 p-5 relative text-white">
                         <h3 className="text-2xl font-semibold leading-[32px]">
                           {location.city}{location.state_abbr ? `, ${location.state_abbr}` : ''}
                         </h3>

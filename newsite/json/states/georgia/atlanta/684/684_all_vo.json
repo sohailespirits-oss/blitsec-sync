@@ -1,0 +1,86 @@
+{
+    "success": true,
+    "location_id": 684,
+    "mode": "virtual-office",
+    "data": {
+        "header": {
+            "city": "Atlanta",
+            "state": "GA",
+            "price": null,
+            "address": {
+                "line1": "3379 Peachtree Road NE (Buckhead)",
+                "suite": "Suite 655",
+                "city": "Atlanta",
+                "state": "GA",
+                "zip": "30326",
+                "phone": "(404) 974-9900"
+            },
+            "images": {
+                "hero": [
+                    "/wp-content-mgr/wp-content/uploads/Atlanta-Virtual-Office-Space-3379-Peachtree-Road-NE.webp",
+                    "/wp-content-mgr/wp-content/uploads/Atlanta-Virtual-Office-Conference-Room.webp",
+                    "/wp-content-mgr/wp-content/uploads/Small-Meeting-Room-in-Atlanta-Virtual-Office.webp"
+                ]
+            },
+            "features": {
+                "showMailX": 1
+            },
+            "addressOnlyOptionAvailable": 1,
+            "addressOnlyUrl": "/business-address/georgia/atlanta/location-684/",
+            "signupUrl": "/signup/?locid=684"
+        },
+        "overview": {
+            "heading": "ATLANTA VIRTUAL OFFICE",
+            "body": "Embrace the enchantment of southern hospitality with a virtual office in Atlanta from Opus Virtual Offices. Located in the affluent Buckhead district of Atlanta, your new or existing business will have the tools needed to succeed. 3379 Peachtree is a Class A building that features a private parking garage, on-site management and security, as well as 5church Restaurant, an upscale eatery located on the first floor where you and your clients can converse over a classic steak dinner. 3379 Peachtree is located adjacent to the Lenox Square Mall, a luxury shopping destination home to dozens of elite shops and restaurants. The office is bordered by two 4-star hotels that can provide your clients with incredible amenities should they stay there.",
+            "map": {
+                "lat": 33.8481789,
+                "lng": -84.36589809,
+                "zoom": 14,
+                "city": "Atlanta"
+            },
+            "pointsOfInterest": []
+        },
+        "faqs": [
+            {
+                "question": "Can I receive mail under my company name and personal name?",
+                "answer": "Yes, you can receive mail under both once your account has been activated."
+            },
+            {
+                "question": "Do you use an automated phone service or a receptionist to answer?",
+                "answer": "We offer a live, personalized receptionist to transfer your calls during business hours Monday to Friday. Calls made after hours will be met with a professional voicemail."
+            },
+            {
+                "question": "Can I have a virtual office in Atlanta, Georgia even if I don’t reside there?",
+                "answer": "Yes, and it is a fantastic way to expand your presence to new clients. It will build trust with residents by having your business in the heart of Atlanta. You can also adapt to better meet your clients’ unique needs within Georgia. "
+            },
+            {
+                "question": "What do you mean by “all-inclusive services”?  ",
+                "answer": "Our Atlanta virtual office offerings include all features listed at the same monthly cost, regardless of the location you choose. Please note that mail centers and some premium locations may not include all options. If you would like additional information, you can compare Opus to our competitors or contact us.  "
+            }
+        ],
+        "sections": [
+            {
+                "title": "WHY OPUS?",
+                "body": "Opting for a virtual office in Atlanta through Opus VO gives you the exclusive advantage of a live receptionist committed to offering personalized, top-tier client service. Every point of client contact is carefully designed to resonate with your unique business objectives, supported by our wide range of administrative services. These amenities include a corporate mailing address, digital mail sorting, company phone and fax number, state-of-the-art call-forwarding options, and beyond. Our efficient administrative staff will manage your day-to-day tasks, freeing you to concentrate on your company’s strategic growth and success.    ",
+                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/coral-springs.jpg"
+            },
+            {
+                "title": "CHOOSE OUR ATLANTA VIRTUAL OFFICE",
+                "body": "Opus VO at 3379 Peachtree Road NE (Buckhead), Suite 655 Atlanta, GA 30326 Atlanta’s appeal extends beyond its concrete attractions. Home to dozens of picturesque parks, including Piedmont Park and Centennial Olympic Park, residents and visitors alike can enjoy the peaceful serenity the open green spaces offer. Known as the business capital of the Southeast, Atlanta hosts numerous Fortune 500 companies and serves as a major economic driver with its flourishing industries, including logistics, film, and technology. Atlanta’s position as a transportation hub is unparalleled. With the world’s busiest airport, Hartsfield-Jackson, and its extensive highway and light rail networks, businesses in Atlanta have exceptional access to both domestic and international markets.",
+                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/botaraton-covered.png"
+            }
+        ],
+        "seo": {
+            "title": "Virtual Office in atlanta - 3379 Peachtree Road NE (Buckhead) | $99/Month",
+            "meta_description": "Get the ultimate office solution for your business with our georgia, atlanta virtual office located at 3379 Peachtree Road NE (Buckhead). Grow your business now!",
+            "canonical": "https://www.opusvirtualoffices.com/virtual-office/georgia/atlanta/location-684/",
+            "og": {
+                "title": "Virtual Office in atlanta - 3379 Peachtree Road NE (Buckhead) | $99/Month",
+                "description": "Get the ultimate office solution for your business with our georgia, atlanta virtual office located at 3379 Peachtree Road NE (Buckhead). Grow your business now!",
+                "url": "https://www.opusvirtualoffices.com/virtual-office/georgia/atlanta/location-684/",
+                "type": "website",
+                "image": "https://njs.opusvirtualoffices.com/wp-content-mgr/wp-content/uploads/Atlanta-Virtual-Office-Space-3379-Peachtree-Road-NE.webp"
+            }
+        }
+    }
+}

@@ -13,19 +13,21 @@ export function StatesList() {
   return (
     <>
       {/* State Selection Section */}
-      <section className="py-10 bg-white">
+      <section className="bg-white pt-0 pb-5">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
               {/* United States */}
               <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    United States - Select Your State
+                <div className="flex flex-col gap-5 max-w-[768px] mb-5 lg:mb-10">
+                  <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+                    <span>United States -</span>
+                    <br className="lg:hidden" />
+                    <span> Select Your State</span>
                   </h2>
                 </div>
 
-                <div className="flex flex-wrap items-start gap-6">
+                <div className="flex flex-wrap items-start gap-[20px] lg:gap-6">
                   {statesLoading ? (
                     // Loading skeleton
                     [...Array(50)].map((_, index) => (
@@ -35,11 +37,11 @@ export function StatesList() {
                     usaData?.states.map((state) => (
                       <Link
                         key={state.state_id}
-                        href={`/state-search/${state.state_name.toLowerCase().replace(/\s+/g, '-')}`}
+                        href={`/virtual-office/${state.state_name.toLowerCase().replace(/\s+/g, '-')}`}
                         prefetch={false}
                         className="flex items-center gap-2"
                       >
-                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
+                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-[#181d27] transition-colors">
                           {state.state_name}
                         </span>
                       </Link>
@@ -53,14 +55,16 @@ export function StatesList() {
       </section>
 
       {/* Canada Section */}
-      <section className="py-10 bg-white">
+      <section className="bg-white py-5">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
               <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    Canada - Select Your Province
+                <div className="flex flex-col gap-5 max-w-[768px] mb-5 lg:mb-10">
+                  <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+                    <span>Canada -</span>
+                    <br className="lg:hidden" />
+                    <span> Select Your Province</span>
                   </h2>
                 </div>
 
@@ -92,14 +96,16 @@ export function StatesList() {
       </section>
 
       {/* Puerto Rico Section */}
-      <section className="py-10 bg-white">
+      <section className="bg-white pt-5 pb-0">
         <div className="w-full max-w-[1440px] mx-auto">
           <div className="max-w-[1280px] mx-auto px-8">
             <div className="flex flex-col gap-8">
               <div>
-                <div className="flex flex-col gap-5 max-w-[768px] mb-8">
-                  <h2 className="text-gray-900 text-[36px] leading-[44px] font-semibold tracking-[-0.72px]">
-                    Puerto Rico - Select Your City
+                <div className="flex flex-col gap-5 max-w-[768px] mb-5 lg:mb-10">
+                  <h2 className="text-gray-900 text-[30px] leading-[38px] font-semibold tracking-[-0.6px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]">
+                    <span>Puerto Rico -</span>
+                    <br className="lg:hidden" />
+                    <span> Select Your City</span>
                   </h2>
                 </div>
 

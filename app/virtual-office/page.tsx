@@ -8,6 +8,9 @@ import { Reviews } from "@/app/components/Reviews";
 import { StatesList } from "@/app/components/StatesList";
 import { TopPremiumSlider } from "@/app/components/TopPremiumSlider";
 import { SearchWithAction } from "@/app/components/SearchWithAction";
+import { FeaturesBoxLocations } from "@/app/components/FeaturesBoxLocations";
+import { SectionSpacer } from "@/app/components/SectionSpacer";
+import Image from "next/image";
 
 const FEATURES = [
   "Prestigious Business Address",
@@ -20,61 +23,55 @@ const FEATURES = [
 
 export default function VirtualOfficePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white pt-[72px] lg:pt-[104px]">
       <Navbar />
 
       {/* Hero Section */}
-      <section className="bg-white pt-[96px] lg:pt-[128px] pb-8">
-        <div className="max-w-[1280px] mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,640px)_1fr] gap-12 lg:gap-[50px]">
+      <section className="relative bg-white pt-6 sm:pt-8 md:pt-10 pb-0 overflow-visible">
+        <div className="absolute inset-0 opacity-40 pointer-events-none overflow-hidden" aria-hidden="true">
+          <Image
+            src="/dots.svg"
+            alt=""
+            fill
+            priority
+            className="object-cover"
+          />
+        </div>
+        <div className="relative max-w-[1280px] mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,768px)_1fr] gap-3 lg:gap-[32px]">
             {/* Left Column - Heading and Search */}
-            <div className="flex flex-col gap-10">
+            <div className="flex flex-col lg:gap-10 lg:max-w-[768px]">
               <div className="flex flex-col gap-6">
-                <h1 className="text-[34px] leading-[44px] font-normal tracking-tight text-[#101828]">
-                  <span>Find Your Virtual Office Location:</span>
-                  <br />
-                  <span className="font-semibold text-[#0086C9]">650+</span>
+                <h1 className="text-[24px] leading-[32px] font-normal tracking-tight text-[#101828] lg:text-[48px] lg:leading-[60px]">
+                  <span>Find Your Virtual Office Location: </span>
+                  <span className="font-bold text-[#0BA5EC]">650+</span>
                   <span> Locations Await – Seamless Virtual Office Solutions at </span>
-                  <span className="font-semibold text-[#17B26A]">$99/</span>
-                  <span>month</span>
+                  <span className="font-bold tracking-[-0.72px] text-[#17B26A]">$99/</span>
+                  <span className="text-[#181D27]">month</span>
                 </h1>
               </div>
 
-              <SearchWithAction className="mt-4" />
+              <SearchWithAction className="mt-5 lg:mt-6" />
             </div>
 
             {/* Right Column - Features List */}
-            <div className="flex flex-col gap-[12px] items-start max-w-[480px] pb-[13px] pl-4">
-              <div className="flex py-3 justify-center items-center gap-[6px] rounded-lg">
-                <div className="flex px-[2px] justify-center items-center">
-                  <span className="text-[#475467] text-[16px] font-semibold leading-[24px]">
-                    <span className="font-normal">When We Say</span>
-                    <span>{` All-Inclusive, `}<br /></span>
-                    <span className="font-normal">We Mean </span>ALL-INCLUSIVE:
-                  </span>
-                </div>
-              </div>
-
-              {FEATURES.map((feature, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <svg width="32" height="32" viewBox="0 0 32 32" fill="none" className="w-8 h-8">
-                    <rect width="32" height="32" rx="16" fill="#E0F2FE"/>
-                    <path fillRule="evenodd" clipRule="evenodd" d="M22.7952 9.85337L13.2485 19.0667L10.7152 16.36C10.2485 15.92 9.51522 15.8934 8.98188 16.2667C8.46188 16.6534 8.31522 17.3334 8.63522 17.88L11.6352 22.76C11.9285 23.2134 12.4352 23.4934 13.0085 23.4934C13.5552 23.4934 14.0752 23.2134 14.3685 22.76C14.8485 22.1334 24.0085 11.2134 24.0085 11.2134C25.2085 9.98671 23.7552 8.90671 22.7952 9.84004V9.85337Z" fill="#36BFFA"/>
-                  </svg>
-                  <div className="flex flex-col pt-[2px]">
-                    <span className="text-[#475467] text-[18px] leading-[28px]">{feature}</span>
-                  </div>
-                </div>
-              ))}
+            <div className="w-full max-w-[416px] mt-3 lg:mt-0 lg:pl-4">
+              <FeaturesBoxLocations features={FEATURES} />
             </div>
           </div>
         </div>
       </section>
 
+      <SectionSpacer />
+
       {/* State Selection Sections - Loaded from API */}
       <StatesList />
 
+      <SectionSpacer />
+
       <TopPremiumSlider />
+
+      <SectionSpacer />
 
       {/* Most Popular Cities */}
       <PopularLocations
@@ -84,11 +81,17 @@ export default function VirtualOfficePage() {
         align="center"
       />
 
+      <SectionSpacer />
+
       {/* Reviews Section */}
       <Reviews />
 
+      <SectionSpacer />
+
       {/* CTA Section */}
       <EbookBanner />
+
+      <SectionSpacer />
 
       <Footer />
     </div>

@@ -106,3 +106,4 @@ export const Repeater = ({ items, cityName, locId, price = 99 }: RepeaterProps) 
         </>
     );
 }
+

@@ -11,8 +11,7 @@ interface CallToActionProps {
 }
 
 const man_holding_tablet = "/man-holding-tablet.webp";
-const bg_cta = "/vos-cta-bg-dsk.webp";
-const bg_cta_mobile = "/vos-mobile.webp";
+
 function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
     const signupUrl = `/signup/?btn=4&locid=${locId}`;
 
@@ -23,7 +22,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                 .free-ebook-main.wrapper-ebook-main {
                     align-items: center;
                     border-radius: 16px;
-                    background: url(${bg_cta}) center center / cover no-repeat, #fff;
+                    background: url(/vos-cta-bg-dsk.webp) center center / cover no-repeat, #fff;
                     box-shadow: 0 4px 8px -2px rgba(16, 24, 40, 0.10), 0 2px 4px -2px rgba(16, 24, 40, 0.06);
                 }
                 .free-ebook-main.wrapper-ebook-main .ebook-left {
@@ -66,16 +65,10 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     width: auto;
                     max-width: 500px;
                 }
-                    @media (min-width:768px) and (max-width: 1023px) {
-                    .free-ebook-main.wrapper-ebook-main .ebook-right-img {
-                    padding-top: 0;
-                    display: none;
-                }
-            }
                 @media (max-width: 767px) {
                     .free-ebook-main.wrapper-ebook-main {
                         border-radius: 16px;
-                        background: url(${bg_cta_mobile}) center center / cover no-repeat, #fff;
+                        background: url(/vos-mobile.webp) center center / cover no-repeat, #fff;
                         box-shadow: 0px 4px 8px -2px rgba(16, 24, 40, 0.10), 0px 2px 4px -2px rgba(16, 24, 40, 0.06);
                     }
                     .free-ebook-main.wrapper-ebook-main .ebook-left {
@@ -101,28 +94,26 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     .heading-ebook p {
                         text-align: center;
                     }
-                    .free-ebook-main.wrapper-ebook-main .ebook-left-one{
-                    padding-right: 0 !important;}
                 }
             `
             }} />
-            <div className="max-w-screen-xl w-full mx-auto pb-[30px] lg:pb-[40px] px-4 sm:px-6 md:px-8">
+            <div className="max-w-screen-xl mx-auto py-[30px] px-4 sm:px-6 md:px-8">
                 <div className="free-ebook-main wrapper-ebook-main flex flex-col md:flex-row">
                     {/* Left side - Content */}
                     <div className="ebook-left">
                         <div className="ebook-left-one">
                             <div className="heading-ebook flex flex-col gap-[12px]">
-                                <h2 className="font-semibold text-[#101828] lg:text-[36px] text-[30px] leading-[44px] tracking-[-0.72px] pr-[12px]">
-                                    Establish your business presence in <span className='capitalize'>{cityName}</span>
+                                <h2 className="font-semibold text-[#101828] lg:text-[36px] text-[30px] leading-[120%] tracking-[-0.72px]">
+                                    Establish your business presence in {cityName}
                                 </h2>
-                                <p className="font-normal lg:text-[20px] text-[18px] leading-[30px] tracking-[0] text-[#535862]">
+                                <p className="font-normal lg:text-[20px] text-[18px] leading-[140%] tracking-[0] text-[#535862]">
                                     All-Inclusive Virtual Office Services for <strong>Only ${price}</strong>
                                 </p>
                             </div>
                             <div className="loc-wrapper-ebook-btn">
                                 <Link
                                     href={signupUrl}
-                                    className="btn-brand-blue bg-[#36BFFA] hover:bg-[#026AA2] text-white rounded-lg transition-colors"
+                                    className="btn-brand-blue bg-[#0086C9] hover:bg-[#026AA2] text-white rounded-lg transition-colors"
                                 >
                                     Get started with this location
                                 </Link>
@@ -133,7 +124,7 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                     {/* Right side - Image */}
                     <div className="ebook-right-img flex items-center justify-center">
                         <Image
-                            src="https://www.opusvirtualoffices.com/newsite/wp-content/themes/ThemeDec23/assets/images/vos-cta-img.webp"
+                            src="/vos-cta-img.webp"
                             alt="Call to Action"
                             width={500}
                             height={500}

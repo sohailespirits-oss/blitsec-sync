@@ -9,7 +9,6 @@
 }
 
 .popup {
-  font-family: 'Inter', sans-serif;
   position: fixed;
   inset: 0;
   z-index: 9999;
@@ -132,7 +131,6 @@
 }
 
 .description {
-  font-family: 'Inter', sans-serif;
   font-weight: 400;
   position: relative;
   flex-shrink: 0;
@@ -155,7 +153,6 @@
 }
 
 .tagline {
-  font-family: 'Inter', sans-serif;
   font-weight: 600;
   position: relative;
   flex-shrink: 0;
@@ -223,7 +220,6 @@
 }
 
 .promoText {
-  font-family: 'Inter', sans-serif;
   font-weight: 600;
   position: relative;
   flex-shrink: 0;

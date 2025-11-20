@@ -24,7 +24,7 @@ export const FeaturesBox = ({ features }: FeaturesBoxProps) => {
               loading="eager"
             />
             <div className="flex flex-col w-full items-start pt-0.5 pb-0 px-0">
-              <p className="[font-family:'Inter',Helvetica] font-normal text-gray-600 text-base sm:text-sm md:text-base tracking-[0] leading-normal">
+              <p className="font-normal text-gray-600 text-[18px] tracking-[0] leading-normal">
                 {feature}
               </p>
             </div>

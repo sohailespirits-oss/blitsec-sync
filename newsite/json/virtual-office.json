@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "page": "virtual-office",
+    "seo": {
+        "title": "Find a Virtual Office Location Near You | From $99/Month",
+        "meta_description": "Search our nationwide directory of virtual office locations. Choose from over 650 cities starting at just $99/month.",
+        "canonical": "https://njs.opusvirtualoffices.com/virtual-office/",
+        "og": {
+            "title": "Find a Virtual Office Location Near You | From $99/Month",
+            "description": "Search our nationwide directory of virtual office locations. Choose from over 650 cities starting at just $99/month.",
+            "url": "https://njs.opusvirtualoffices.com/virtual-office/",
+            "type": "website",
+            "image": "https://njs.opusvirtualoffices.com/newsite/wp-content/themes/ThemeDec23/assets/images/opus-logo-main.svg"
+        }
+    }
+}

@@ -26,14 +26,10 @@ export interface StatesResponse {
  * Fetch all states and provinces grouped by country
  */
 export async function fetchStates(): Promise<StatesResponse> {
-  const isLocalhost = typeof window !== 'undefined' && window.location.host === 'localhost:5000';
-  const baseUrl = isLocalhost
-    ? 'https://njs.opusvirtualoffices.com'
-    : (typeof window !== 'undefined' ? window.location.origin : '');
+  // Use internal Next.js API route that reads from filesystem
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
 
-  const response = await fetch(`${baseUrl}/jsonapi/all-states`, {
-    next: { revalidate: 3600 } // Cache for 1 hour (states rarely change)
-  });
+  const response = await fetch(`${baseUrl}/api/json/all-states`);
 
   if (!response.ok) {
     throw new Error(`Failed to fetch states: ${response.statusText}`);

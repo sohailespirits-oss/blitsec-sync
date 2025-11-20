@@ -1,7 +1,9 @@
 'use client';
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
+import { Button } from '@/app/components/ui/button';
+import { FeaturesBox } from '@/app/components/FeaturesBox';
 import Link from "next/link";
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 import Image from 'next/image';
@@ -135,10 +137,10 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
     };
 
     return (
-        <section className="flex flex-col items-center w-full bg-basewhite">
-            <div className="flex flex-col w-full items-center gap-4 sm:gap-6 md:gap-8 px-0 py-6 sm:py-8 md:pb-10 pt-[100px] sm:pt-[100px] md:pt-[140px]">
-                <div className='flex flex-col lg:flex-row w-full lg:gap-[32px] gap-[8px] px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto'>
-                    <div className='flex flex-col py-[12px] gap-[8px] w-full'>
+        <section className="flex flex-col items-center w-full bg-basewhite pt-[72px] lg:pt-[104px]">
+            <div className="flex flex-col w-full items-center gap-4 sm:gap-4 md:gap-4 px-0 py-6 sm:py-8 md:pb-10">
+                <div className='flex flex-col lg:flex-row w-full lg:gap-[40px] gap-[8px] px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto'>
+                    <div className='flex flex-col py-0 gap-[8px] w-full pb-[12px]'>
                         <div className='flex flex-row items-center gap-[8px]'>
                             <span className='font-inter font-semibold text-[14px] leading-[100%] text-[#717680]'>Locations</span>
                             <ChevronRight className='w-[16px] h-[16px] min-w-[16px] min-h-[16px] text-[]' />
@@ -365,17 +367,17 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
                                             hover: { opacity: 1 }
                                         }}
                                     >
-                                        <p className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-xs sm:text-sm text-center tracking-[0] leading-normal whitespace-nowrap">
+                                        <p className="font-medium text-[#ffffff] text-xs sm:text-sm text-center tracking-[0] leading-normal whitespace-nowrap">
                                             ALL-INCLUSIVE
                                         </p>
                                     </motion.div>
 
                                     {/* Mobile version - always visible */}
                                     <div className="lg:hidden absolute inset-0 flex flex-col items-center justify-center gap-1">
-                                        <p className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-4xl">
+                                        <p className="font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-4xl">
                                             $99/mo
                                         </p>
-                                        <p className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-xs">
+                                        <p className="font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-xs">
                                             No Hidden Fees
                                         </p>
                                     </div>
@@ -392,7 +394,7 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
                                         transition={{ duration: 0.3 }}
                                     >
                                         <motion.p
-                                            className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px]"
+                                            className="font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px]"
                                             variants={{
                                                 rest: { y: 0 },
                                                 hover: { y: 4 }
@@ -402,7 +404,7 @@ function LocationsHero({ data }: { data: LocationHeaderData }) {
                                             $99/mo
                                         </motion.p>
                                         <motion.p
-                                            className="[font-family:'Inter',Helvetica] font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-sm"
+                                            className="font-medium text-[#ffffff] text-center tracking-[0] leading-normal whitespace-nowrap text-sm"
                                             variants={{
                                                 rest: { opacity: 0, height: "0px", y: 0 },
                                                 hover: { opacity: 1, height: "auto", y: -4 }
