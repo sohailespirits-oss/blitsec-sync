@@ -96,6 +96,60 @@ export async function generateMetadata({ params }: { params: Promise<LocationPag
   return metadata;
 }
 
+// Generate LocalBusiness schema from location data
+function generateLocalBusinessSchema(headerData: any, overviewData: any, state: string, city: string, locationId: string) {
+  const address = headerData.address || {};
+  const images = headerData.images?.hero || [];
+  const map = overviewData.map || {};
+
+  // Format images with full URL
+  const formattedImages = images.map((img: string) => {
+    if (img.startsWith('http')) return img;
+    return `https://www.opusvirtualoffices.com${img.startsWith('/') ? img : `/${img}`}`;
+  });
+
+  // Format street address
+  const streetAddress = address.suite
+    ? `${address.line1}, ${address.suite}`
+    : address.line1;
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Opus Virtual Offices",
+    "image": formattedImages,
+    "@id": `https://www.opusvirtualoffices.com/virtual-office/${state}/${city}/location-${locationId}/`,
+    "url": `https://www.opusvirtualoffices.com/virtual-office/${state}/${city}/location-${locationId}/`,
+    "telephone": address.phone || "",
+    "priceRange": "$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": streetAddress,
+      "addressLocality": address.city,
+      "addressRegion": address.state,
+      "postalCode": address.zip,
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": String(map.lat || ""),
+      "longitude": String(map.lng || "")
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:30:00",
+      "closes": "17:30:00"
+    }
+  };
+}
+
 function getInteractiveCards(addressOnlyUrl?: string) {
   return [
     {
@@ -166,8 +220,16 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
     : undefined;
   const interactiveCards = getInteractiveCards(addressOnlyUrl);
 
+  // Generate LocalBusiness schema
+  const localBusinessSchema = generateLocalBusinessSchema(headerData, overviewData, state, city, locId);
+
   return (
-    <div className="flex font-inter min-h-screen flex-col items-center bg-white justify-center w-full pt-[72px] lg:pt-[104px]">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <div className="flex font-inter min-h-screen flex-col items-center bg-white justify-center w-full pt-[72px] lg:pt-[104px]">
       <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
         <LocationBreadcrumb
           city={formatDisplayName(city ?? "")}
@@ -201,5 +263,6 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
       </main>
       <Footer />
     </div>
+    </>
   );
 }

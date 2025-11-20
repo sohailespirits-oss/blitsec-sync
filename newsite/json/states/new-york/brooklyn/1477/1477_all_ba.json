@@ -27,7 +27,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/new-york/brooklyn/location-1477/",
-            "signupUrl": "/signup/?locid=1477"
+            "signupUrl": "/signup/?locid=1477",
+            "openingHours": {
+                "opens": "08:30:00",
+                "closes": "17:30:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "A VIRTUAL OFFICE IN BROOKLYN",

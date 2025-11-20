@@ -28,7 +28,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/california/beverly-hills/location-936/",
-            "signupUrl": "/signup/?locid=936"
+            "signupUrl": "/signup/?locid=936",
+            "openingHours": {
+                "opens": "08:00:00",
+                "closes": "17:00:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "BEVERLY HILLS VIRTUAL OFFICE",

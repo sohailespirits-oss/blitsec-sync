@@ -28,7 +28,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/delaware/wilmington/location-942/",
-            "signupUrl": "/signup/?locid=942"
+            "signupUrl": "/signup/?locid=942",
+            "openingHours": {
+                "opens": "08:30:00",
+                "closes": "17:30:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "Delaware Virtual Office",

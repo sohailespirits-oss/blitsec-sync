@@ -27,7 +27,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/california/los-angeles/location-1362/",
-            "signupUrl": "/signup/?locid=1362"
+            "signupUrl": "/signup/?locid=1362",
+            "openingHours": {
+                "opens": "08:00:00",
+                "closes": "17:00:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "LOS ANGELES VIRTUAL OFFICE",

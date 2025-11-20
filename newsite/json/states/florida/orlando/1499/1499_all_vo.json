@@ -28,7 +28,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/florida/orlando/location-1499/",
-            "signupUrl": "/signup/?locid=1499"
+            "signupUrl": "/signup/?locid=1499",
+            "openingHours": {
+                "opens": "08:30:00",
+                "closes": "17:30:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "ORLANDO VIRTUAL OFFICE",

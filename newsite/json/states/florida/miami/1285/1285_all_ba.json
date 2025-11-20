@@ -32,7 +32,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/florida/miami/location-1285/",
-            "signupUrl": "/signup/?locid=1285"
+            "signupUrl": "/signup/?locid=1285",
+            "openingHours": {
+                "opens": "08:30:00",
+                "closes": "17:30:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "GET A PRESTIGIOUS MIAMI BUSINESS ADDRESS AND RECEPTIONIST SERVICE",

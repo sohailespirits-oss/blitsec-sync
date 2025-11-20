@@ -29,7 +29,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/texas/houston/location-1323/",
-            "signupUrl": "/signup/?locid=1323"
+            "signupUrl": "/signup/?locid=1323",
+            "openingHours": {
+                "opens": "09:00:00",
+                "closes": "18:00:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "Houston Virtual Offices",

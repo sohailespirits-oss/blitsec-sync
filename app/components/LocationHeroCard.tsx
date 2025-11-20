@@ -95,12 +95,24 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
             />
           </div>
         ) :
-          <div className="flex w-[42%] h-[214px] md:h-[400px] justify-center items-center self-stretch overflow-hidden relative lg:w-full md:w-full">
-
+          <motion.div
+            className="flex w-[42%] h-[214px] md:h-[400px] justify-center items-center self-stretch overflow-hidden relative lg:w-full md:w-full touch-pan-y"
+            drag={heroImages.length > 1 ? "x" : false}
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              const swipeThreshold = 50;
+              if (info.offset.x < -swipeThreshold) {
+                handleNext();
+              } else if (info.offset.x > swipeThreshold) {
+                handlePrev();
+              }
+            }}
+          >
             <Image
               src={getImageUrl(heroImages[currentImageIndex])}
               alt={`${data.city} virtual office`}
-              className="object-cover w-full h-[214px] sm:w-[150px] lg:w-[400px] sm:h-[360px] lg:h-[400px]"
+              className="object-cover w-full h-[214px] sm:w-[150px] lg:w-[400px] sm:h-[360px] lg:h-[400px] pointer-events-none"
               fill
               unoptimized
             />
@@ -135,7 +147,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
                 </div>
               </>
             )}
-          </div>
+          </motion.div>
         }
         <div className="flex flex-col px-[12px] pt-[12px] pb-[12px] lg:px-[32px] flex-1 min-w-[200px] sm:min-w-[200px] md:min-w-[200px] lg:min-w-[480px] w-full justify-center items-start gap-[12px] md:gap-[8px] self-stretch sm:border-t-[0px] border-white/30 bg-[#36BFFA] backdrop-blur-lg">
           <div className="flex flex-row items-center w-full justify-between gap-[16px]">

@@ -28,7 +28,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/new-york/new-york/location-1450/",
-            "signupUrl": "/signup/?locid=1450"
+            "signupUrl": "/signup/?locid=1450",
+            "openingHours": {
+                "opens": "08:30:00",
+                "closes": "17:30:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "VIRTUAL OFFICE IN NEW YORK",

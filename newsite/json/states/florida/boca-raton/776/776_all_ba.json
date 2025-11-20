@@ -29,7 +29,18 @@
             },
             "addressOnlyOptionAvailable": 1,
             "addressOnlyUrl": "/business-address/florida/boca-raton/location-776/",
-            "signupUrl": "/signup/?locid=776"
+            "signupUrl": "/signup/?locid=776",
+            "openingHours": {
+                "opens": "08:30:00",
+                "closes": "17:30:00",
+                "daysOfWeek": [
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ]
+            }
         },
         "overview": {
             "heading": "BOCA RATON VIRTUAL OFFICES",

@@ -26,7 +26,7 @@ export default function LocationBreadcrumb({ city, state, citySlug, stateSlug }:
           <Link href={`/virtual-office/${stateSlug}/${citySlug}`} prefetch={false} className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0] text-[#026AA2] capitalize">{cityLabel}</Link>
         </div>
         <span className="font-inter text-[#101828] text-[20px] leading-[30px] sm:leading-[120%] font-medium lg:text-[36px] tracking-[0.72]">
-          Virtual office in <span className="font-bold text-[#36BFFA] capitalize">{cityLabel}</span>
+          Virtual office in <span className="font-medium text-[#36BFFA] capitalize">{cityLabel}</span>
         </span>
 
         <span className="font-inter font-normal lg:text-[16px] text-[12px] text-[#475467] leading-[18px]">
