@@ -1,0 +1,87 @@
+{
+    "success": true,
+    "location_id": 1499,
+    "mode": "business-address",
+    "data": {
+        "header": {
+            "city": "Orlando",
+            "state": "FL",
+            "price": null,
+            "address": {
+                "line1": "200 E Robinson Street",
+                "suite": "Suite 1120",
+                "city": "Orlando",
+                "state": "FL",
+                "zip": "32801",
+                "phone": "(407) 559-2000"
+            },
+            "images": {
+                "hero": [
+                    "/wp-content-mgr/wp-content/uploads/Opus-Virtual-Office-Orlando-200-E-Robinson-Street-Towering-Office-Building.webp",
+                    "/wp-content-mgr/wp-content/uploads/Opus-Virtual-Office-Orlando-200-E-Robinson-Street-Contemporary-Reception.webp",
+                    "/wp-content-mgr/wp-content/uploads/Opus-Virtual-Office-Orlando-200-E-Robinson-Street-Glass-Conference-Room.webp",
+                    "/wp-content-mgr/wp-content/uploads/Opus-Virtual-Office-Orlando-200-E-Robinson-Street-Lakeside-View.webp"
+                ]
+            },
+            "features": {
+                "showMailX": 1
+            },
+            "addressOnlyOptionAvailable": 1,
+            "addressOnlyUrl": "/business-address/florida/orlando/location-1499/",
+            "signupUrl": "/signup/?locid=1499"
+        },
+        "overview": {
+            "heading": "ORLANDO VIRTUAL OFFICE",
+            "body": "Dive into the magic of the City Beautiful with an Orlando virtual office from Opus Virtual Offices. While Orlando is known as the vacation capital of the world, it’s much more than that. Home to many manufacturing, bio tech, aerospace, and healthcare firms, Orlando has been recognized as one of the best large cities in the US to start a business. Located right on the northwest edge of the Lake Eola waterfront, 200 East Robinson Street is the ideal, picturesque place to set up your next virtual office. Nestled in the heart of downtown Orlando, 200 East Robinson Street features a Fifth Third Bank branch, fitness center, a neighborhood café, and shower facilities for those days when the Orlando heat becomes overwhelming.",
+            "map": {
+                "lat": 28.5453809,
+                "lng": -81.375407,
+                "zoom": 14,
+                "city": "Orlando"
+            },
+            "pointsOfInterest": []
+        },
+        "faqs": [
+            {
+                "question": "Can I receive mail under my company name and personal name?",
+                "answer": "Yes, you can receive mail under both once your account has been activated."
+            },
+            {
+                "question": "Do you use an automated phone service or a receptionist to answer?",
+                "answer": "We offer a live, personalized receptionist to transfer your calls during business hours Monday to Friday. Calls made after hours will be met with a professional voicemail."
+            },
+            {
+                "question": "Can I have a virtual office in Orlando, Florida even if I don’t reside there?",
+                "answer": "Yes, and it is a fantastic way to expand your presence to new clients. It will build trust with residents by having your business in the heart of Orlando. You can also adapt to better meet your clients’ unique needs within Florida. "
+            },
+            {
+                "question": "What do you mean by “all-inclusive services”?  ",
+                "answer": "Our Orlando virtual office offerings include all features listed at the same monthly cost, regardless of the location you choose. Please note that mail centers and some premium locations may not include all options. If you would like additional information, you can compare Opus to our competitors or contact us.  "
+            }
+        ],
+        "sections": [
+            {
+                "title": "WHY OPUS?",
+                "body": "Opting for a virtual office in Orlando through Opus VO gives you the exclusive advantage of a live receptionist committed to offering personalized, top-tier client service. Every point of client contact is carefully designed to resonate with your unique business objectives, supported by our wide range of administrative services. These amenities include a corporate mailing address, digital mail sorting, company phone and fax number, state-of-the-art call-forwarding options, and beyond. Our efficient administrative staff will manage your day-to-day tasks, freeing you to concentrate on your company’s strategic growth and success. Opus VO, Orlando @ 200 E Robinson Street, Suite 1120 Orlando, FL 32801",
+                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/coral-springs.jpg"
+            },
+            {
+                "title": "CHOOSE ORLANDO",
+                "body": "Orlando is more than just a theme park hotspot, it’s a thriving international multicultural destination with endless opportunities. Orlando’s rich cultural scene includes the Dr. Phillips Center for the Performing Arts and Orlando Art Museum, home to some of the world’s most famous paintings. Surrounded by Michelin star restaurants and enticing natural wonders, Orlando is the perfect destination for new businesses and those looking to expand. Orlando is a city of wonders, where every corner offers a touch of magic. Whether it’s the thrill of adventure or the calm of nature, Orlando is as diverse as it is enchanting.",
+                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/botaraton-covered.png"
+            }
+        ],
+        "seo": {
+            "title": "Prestigious Business Address 200 E Robinson Street orlando | $59/month",
+            "meta_description": "Impress clients with a virtual office at 200 E Robinson Street orlando enjoy a prime location mail handling digital alerts and privacy for only $59/month",
+            "canonical": "https://www.opusvirtualoffices.com/business-address/florida/orlando/location-1499/",
+            "og": {
+                "title": "Prestigious Business Address 200 E Robinson Street orlando | $59/month",
+                "description": "Impress clients with a virtual office at 200 E Robinson Street orlando enjoy a prime location mail handling digital alerts and privacy for only $59/month",
+                "url": "https://www.opusvirtualoffices.com/business-address/florida/orlando/location-1499/",
+                "type": "website",
+                "image": "https://njs.opusvirtualoffices.com/wp-content-mgr/wp-content/uploads/Opus-Virtual-Office-Orlando-200-E-Robinson-Street-Towering-Office-Building.webp"
+            }
+        }
+    }
+}

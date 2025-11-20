@@ -89,5 +89,9 @@ export async function fetchPopularSlider(): Promise<PopularSliderPayload> {
 
   const data = (await response.json()) as PopularSliderResponse;
 
-  return normalizeResponse(data, baseUrl);
+  // Use WordPress domain for images on localhost
+  const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
+  const imageOrigin = isLocalhost ? 'https://njs.opusvirtualoffices.com' : baseUrl;
+
+  return normalizeResponse(data, imageOrigin);
 }
