@@ -1,7 +1,15 @@
 import Link from 'next/link'
 import React from 'react'
 
-export const HeroCta = () => {
+interface HeroCtaProps {
+    locId?: string;
+}
+
+export const HeroCta = ({ locId }: HeroCtaProps) => {
+    const signupUrl = locId
+        ? `/signup/?btn=912&locid=${locId}`
+        : '/signup/?btn=912';
+
     return (
         <section className='max-w-screen-xl mx-auto pb-[30px] lg:pb-[40px] pt-[30px] lg:pt-[40px]'>
             <div className='lg:px-[32px] px-[16px] flex flex-col gap-[32px] justify-center items-center text-center'>
@@ -11,7 +19,8 @@ export const HeroCta = () => {
                 </div>
 
                 <Link
-                    href="#"
+                    href={signupUrl}
+                    prefetch={false}
                     className='py-[18px] px-[20px] w-[] items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white
                             font-inter font-semibold text-[18px] leading-[100%] tracking-[0] hover:bg-[#026AA2] transition-colors'>
                     Select This Location

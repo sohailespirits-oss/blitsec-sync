@@ -9,6 +9,14 @@ import { Menu } from "lucide-react";
 export function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
+
+  // Extract location ID from URL if on a location page
+  const locationMatch = pathname.match(/\/virtual-office\/[^/]+\/[^/]+\/location-(\d+)/);
+  const locationId = locationMatch ? locationMatch[1] : null;
+  const signupUrl = locationId
+    ? `/signup/?btn=901&locid=${locationId}`
+    : '/signup/?btn=901';
+
   return (
     <nav 
       className="fixed top-0 left-0 right-0 w-full bg-white border-b border-gray-200 shadow-sm z-50" 
@@ -88,7 +96,7 @@ export function Navbar() {
                     Log in
                   </Button>
                 </Link>
-                <Link href="/signup/?btn=901" prefetch={false}>
+                <Link href={signupUrl} prefetch={false}>
                   <Button
                     className="h-auto gap-1.5 px-[18px] py-3 bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)]"
                     data-testid="button-signup"
@@ -125,7 +133,7 @@ export function Navbar() {
 
           {/* Right Actions */}
           <div className="flex items-center gap-2">
-            <Link href="/signup/?btn=901" prefetch={false}>
+            <Link href={signupUrl} prefetch={false}>
               <Button
                 className="h-auto gap-1.5 px-3 py-2 bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)]"
                 data-testid="button-signup-mobile"
@@ -212,7 +220,7 @@ export function Navbar() {
 
                   {/* Signup Button */}
                   <div className="px-4">
-                    <Link href="/signup/?btn=901" prefetch={false} className="block" onClick={() => setIsMenuOpen(false)}>
+                    <Link href={signupUrl} prefetch={false} className="block" onClick={() => setIsMenuOpen(false)}>
                       <Button
                         className="w-full h-auto gap-1.5 px-4 py-3 bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)]"
                         data-testid="button-signup-mobile-menu"

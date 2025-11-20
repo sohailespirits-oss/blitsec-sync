@@ -1,9 +1,12 @@
 'use client';
 
-import { useMemo, useRef, useState, useCallback } from 'react';
+import { useRef, useState, useCallback } from 'react';
 import Link from 'next/link';
 import type { PopularSliderLocation } from '@/app/lib/api/popularSlider';
-import { usePopularSlider } from '@/app/lib/api/usePopularSlider';
+
+interface TopPremiumSliderProps {
+  locations?: PopularSliderLocation[];
+}
 
 function normalizePath(link: string) {
   if (!link) return '/virtual-office/';
@@ -20,10 +23,9 @@ function normalizePath(link: string) {
 
 const CARD_GAP = 20;
 
-export function TopPremiumSlider() {
+export function TopPremiumSlider({ locations = [] }: TopPremiumSliderProps) {
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { data, isLoading } = usePopularSlider();
-  const sliderLocations = useMemo(() => data?.data.top_premium ?? [], [data]);
+  const sliderLocations = locations;
   const [failedImages, setFailedImages] = useState<Record<string, boolean>>({});
 
   const handleScroll = useCallback((direction: 'left' | 'right') => {

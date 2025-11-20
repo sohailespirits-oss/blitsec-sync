@@ -6,7 +6,18 @@ import { Button } from "@/app/components/ui/button";
 import { Card, CardContent } from "@/app/components/ui/card";
 import { Separator } from "@/app/components/ui/separator";
 import { motion } from "framer-motion";
-import { useTestimonials } from "@/app/lib/api/useTestimonials";
+
+// Testimonial type for props
+export interface ReviewItem {
+  id: number;
+  reviewerName: string;
+  reviewText: string;
+  rating: number;
+}
+
+interface ReviewsProps {
+  testimonials?: ReviewItem[];
+}
 
 const fadeInUp = {
   initial: {
@@ -145,9 +156,9 @@ function ReviewCard({ review, isExpanded, onToggle }: {
   );
 }
 
-export function Reviews() {
+export function Reviews({ testimonials = [] }: ReviewsProps) {
   const [expandedReviews, setExpandedReviews] = useState<Set<number>>(new Set());
-  const { data: reviews = [], isLoading: reviewsLoading, error, isError } = useTestimonials(4);
+  const reviews = testimonials;
 
   const toggleReview = (reviewId: number) => {
     setExpandedReviews(prev => {
@@ -190,26 +201,7 @@ export function Reviews() {
 
       <div className="flex max-w-screen-xl items-center gap-[60px] px-4 sm:px-6 md:px-8 py-0 w-full">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 w-full items-stretch">
-          {isError ? (
-            // Error display
-            <div className="col-span-full text-center p-8">
-              <p className="text-red-600 font-semibold">Error loading reviews</p>
-              <p className="text-gray-600 text-sm mt-2">{error?.message || 'Unknown error'}</p>
-            </div>
-          ) : reviewsLoading ? (
-            // Loading skeleton
-            [...Array(4)].map((_, index) => (
-              <motion.div key={index} variants={fadeInUp}>
-                <Card className="items-start justify-center gap-3 p-3 bg-gray-50 rounded-lg border-[1.5px] border-solid border-[#eaecf0] h-[200px] animate-pulse">
-                  <CardContent className="flex flex-col gap-3 p-0 w-full">
-                    <div className="h-12 bg-gray-200 rounded"></div>
-                    <div className="h-1 bg-gray-200 rounded w-full"></div>
-                    <div className="h-20 bg-gray-200 rounded"></div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))
-          ) : reviews.length === 0 ? (
+          {reviews.length === 0 ? (
             // No reviews
             <div className="col-span-full text-center p-8">
               <p className="text-gray-600">No reviews available</p>

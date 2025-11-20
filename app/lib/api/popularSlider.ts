@@ -2,8 +2,6 @@
  * API service for fetching popular Opus-owned locations including top premium slider data.
  */
 
-'use server';
-
 import { readFile } from 'fs/promises';
 import path from 'path';
 

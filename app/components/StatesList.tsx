@@ -1,10 +1,12 @@
 'use client';
 import Link from "next/link";
-import { useStates } from "@/app/lib/api/useStates";
+import { type StatesResponse } from "@/app/lib/api/states";
 
-export function StatesList() {
-  const { data: statesData, isLoading: statesLoading } = useStates();
+interface StatesListProps {
+  statesData?: StatesResponse;
+}
 
+export function StatesList({ statesData }: StatesListProps) {
   // Extract countries from API data
   const usaData = statesData?.data.find(country => country.country_abbr === 'US');
   const canadaData = statesData?.data.find(country => country.country_abbr === 'CA');
@@ -28,25 +30,18 @@ export function StatesList() {
                 </div>
 
                 <div className="flex flex-wrap items-start gap-[20px] lg:gap-6">
-                  {statesLoading ? (
-                    // Loading skeleton
-                    [...Array(50)].map((_, index) => (
-                      <div key={index} className="h-6 w-24 bg-gray-200 rounded animate-pulse"></div>
-                    ))
-                  ) : (
-                    usaData?.states.map((state) => (
-                      <Link
-                        key={state.state_id}
-                        href={`/virtual-office/${state.state_name.toLowerCase().replace(/\s+/g, '-')}`}
-                        prefetch={false}
-                        className="flex items-center gap-2"
-                      >
-                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-[#181d27] transition-colors">
-                          {state.state_name}
-                        </span>
-                      </Link>
-                    ))
-                  )}
+                  {usaData?.states.map((state) => (
+                    <Link
+                      key={state.state_id}
+                      href={`/virtual-office/${state.state_name.toLowerCase().replace(/\s+/g, '-')}`}
+                      prefetch={false}
+                      className="flex items-center gap-2"
+                    >
+                      <span className="text-gray-600 text-base font-semibold leading-6 hover:text-[#181d27] transition-colors">
+                        {state.state_name}
+                      </span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
@@ -69,25 +64,18 @@ export function StatesList() {
                 </div>
 
                 <div className="flex flex-wrap items-start gap-5">
-                  {statesLoading ? (
-                    // Loading skeleton
-                    [...Array(6)].map((_, index) => (
-                      <div key={index} className="h-6 w-32 bg-gray-200 rounded animate-pulse"></div>
-                    ))
-                  ) : (
-                    canadaData?.states.map((province) => (
-                      <Link
-                        key={province.state_id}
-                        href={`/virtual-office/canada/${province.state_name.toLowerCase().replace(/\s+/g, '-')}`}
-                        prefetch={false}
-                        className="flex items-center gap-2"
-                      >
-                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
-                          {province.state_name}
-                        </span>
-                      </Link>
-                    ))
-                  )}
+                  {canadaData?.states.map((province) => (
+                    <Link
+                      key={province.state_id}
+                      href={`/virtual-office/canada/${province.state_name.toLowerCase().replace(/\s+/g, '-')}`}
+                      prefetch={false}
+                      className="flex items-center gap-2"
+                    >
+                      <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
+                        {province.state_name}
+                      </span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>
@@ -110,23 +98,18 @@ export function StatesList() {
                 </div>
 
                 <div className="flex flex-wrap items-start gap-5">
-                  {statesLoading ? (
-                    // Loading skeleton
-                    <div className="h-6 w-24 bg-gray-200 rounded animate-pulse"></div>
-                  ) : (
-                    puertoRicoData?.states.map((city) => (
-                      <Link
-                        key={city.state_id}
-                        href={`/virtual-office/puerto-rico/${city.state_name.toLowerCase().replace(/\s+/g, '-')}`}
-                        prefetch={false}
-                        className="flex items-center gap-2"
-                      >
-                        <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
-                          {city.state_name}
-                        </span>
-                      </Link>
-                    ))
-                  )}
+                  {puertoRicoData?.states.map((city) => (
+                    <Link
+                      key={city.state_id}
+                      href={`/virtual-office/puerto-rico/${city.state_name.toLowerCase().replace(/\s+/g, '-')}`}
+                      prefetch={false}
+                      className="flex items-center gap-2"
+                    >
+                      <span className="text-gray-600 text-base font-semibold leading-6 hover:text-blue-light400 transition-colors">
+                        {city.state_name}
+                      </span>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </div>

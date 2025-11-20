@@ -16,11 +16,17 @@ type InteractiveCard = {
 type InteractiveCardsGridProps = {
   interactiveCards: InteractiveCard[];
   onDemoClick?: () => void;
+  locId?: string;
 };
 const promoVideo = "/Opus VO - 45 Sec Promo - 1920x1080_1761681440103.mp4";
 const playerCover = "/player-cover_1761748637474.webp";
-export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: InteractiveCardsGridProps) {
+export function InteractiveCardsGrid({ interactiveCards, onDemoClick, locId }: InteractiveCardsGridProps) {
   const [isVideoDialogOpen, setIsVideoDialogOpen] = useState(false);
+
+  // Build signup URL with btn=902 and locId if available
+  const signupUrl = locId
+    ? `/signup/?btn=902&locid=${locId}`
+    : '/signup/?btn=902';
 
   return (
     <div className="flex flex-col items-start justify-center gap-2 w-full mt-[12px] lg:mt-[40px]">
@@ -85,7 +91,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
             className="flex w-full items-start h-[130px]"
             data-testid="card-pricing"
           >
-            <Link href="/signup/?btn=902" prefetch={false} className="flex flex-1 h-full">
+            <Link href={signupUrl} prefetch={false} className="flex flex-1 h-full">
               <motion.div
                 className="flex items-end gap-2 bg-[linear-gradient(180deg,rgba(54,191,250,1)_0%,rgba(3,137,209,1)_100%),linear-gradient(0deg,rgba(54,191,250,1)_0%,rgba(54,191,250,1)_100%)] flex-1 h-full rounded-xl overflow-hidden shadow-shadows-shadow-lg relative cursor-pointer group"
                 initial="rest"

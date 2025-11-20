@@ -26,6 +26,16 @@ type LocationHeroData = {
   features: { showMailX?: number };
 };
 
+// Add btn=911 to signupUrl if not already present
+function getSignupUrlWithBtn(signupUrl: string): string {
+  if (!signupUrl) return '#';
+  const url = new URL(signupUrl, 'https://example.com');
+  if (!url.searchParams.has('btn')) {
+    url.searchParams.set('btn', '911');
+  }
+  return url.pathname + url.search;
+}
+
 const baseFeatures = [
   "Prestigious Business Address",
   "Professional Live Call Answering",
@@ -171,7 +181,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
           </div>
 
           <Link
-            href={data.signupUrl || "#"}
+            href={getSignupUrlWithBtn(data.signupUrl)}
             className="lg:hidden text-nowrap flex py-[8px] px-[12px] w-full items-center text-[#414651] justify-center text-center rounded-[8px] bg-white font-inter font-semibold text-[14px] leading-[100%] hover:bg-[#026AA2] transition-colors border border-[#D5D7DA]"
           >
             Select this location
@@ -188,7 +198,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
 
 
         <Link
-          href={data.signupUrl || "#"}
+          href={getSignupUrlWithBtn(data.signupUrl)}
           className="lg:flex hidden h-[60px] md:py-[22px] px-[32px] w-full items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white font-inter font-semibold text-[18px] leading-[100%] hover:bg-[#026AA2] transition-colors"
         >
           Select This Location

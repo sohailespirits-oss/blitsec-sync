@@ -3,6 +3,7 @@ import path from 'path';
 import type { Metadata } from 'next';
 import LocationBreadcrumb from '@/app/components/LocationBreadcrumb';
 import LocationHeroCard from '@/app/components/LocationHeroCard';
+import { fetchTestimonials } from '@/app/lib/api/testimonials';
 const receptionistCardBg = "/receptionist-card-bg_1761593285326.webp";
 const cashHandsHoldingBg = "/cash-hands-holding_1761593304143.webp";
 const multipleProfessionalsBg = "/multiple-professionals_1761593320843.webp";
@@ -17,6 +18,15 @@ import { Reviews } from '@/app/components/Reviews';
 import PremiumSection from '@/app/components/PremiumSection';
 import Padding from '@/app/components/ui/Padding';
 import { Footer } from '@/app/components/Footer';
+import { OverviewSection } from '@/app/components/OverviewSection';
+
+// Helper function to format city/state names for display (replace hyphens with spaces)
+function formatDisplayName(slug: string): string {
+  return slug
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
 
 // Helper function to read location JSON data
 async function getLocationData(state: string, city: string, locationId: string) {
@@ -86,40 +96,42 @@ export async function generateMetadata({ params }: { params: Promise<LocationPag
   return metadata;
 }
 
-const interactiveCards = [
-  {
-    bgClass:
-      "bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%),linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%)]",
-    bgImage: receptionistCardBg,
-    text: "Click to view demo",
-    hasButton: true,
-    href: undefined,
-  },
-  {
-    bgClass:
-      "bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%)]",
-    bgImage: cashHandsHoldingBg,
-    text: "Bundle & Save",
-    hasButton: false,
-    href: "/cost-comparison/",
-  },
-  {
-    bgClass:
-      "bg-[linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%)]",
-    bgImage: multipleProfessionalsBg,
-    text: "Is a virtual office for me?",
-    hasButton: false,
-    href: "/is-a-virtual-office-for-me/",
-  },
-  {
-    bgClass:
-      "bg-[linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%)]",
-    bgImage: businessAddressBg,
-    text: "Address Only",
-    hasButton: false,
-    href: "/prestigious-business-address/",
-  },
-];
+function getInteractiveCards(addressOnlyUrl?: string) {
+  return [
+    {
+      bgClass:
+        "bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%),linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%)]",
+      bgImage: receptionistCardBg,
+      text: "Click to view demo",
+      hasButton: true,
+      href: undefined,
+    },
+    {
+      bgClass:
+        "bg-[linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%)]",
+      bgImage: cashHandsHoldingBg,
+      text: "Bundle & Save",
+      hasButton: false,
+      href: "/cost-comparison/",
+    },
+    {
+      bgClass:
+        "bg-[linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%)]",
+      bgImage: multipleProfessionalsBg,
+      text: "Is a virtual office for me?",
+      hasButton: false,
+      href: "/is-a-virtual-office-for-me/",
+    },
+    {
+      bgClass:
+        "bg-[linear-gradient(0deg,rgba(0,0,0,0.5)_0%,rgba(0,0,0,0.5)_100%),linear-gradient(180deg,rgba(0,0,0,0)_0%,rgba(119,119,119,1)_100%)]",
+      bgImage: businessAddressBg,
+      text: "Address Only",
+      hasButton: false,
+      href: addressOnlyUrl || "/prestigious-business-address/",
+    },
+  ];
+}
 
 export default async function LocationPage({ params }: { params: Promise<LocationPageParams> }) {
   const { state, city, location } = await params;
@@ -135,6 +147,9 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
     return <div>Location not found</div>;
   }
 
+  // Fetch testimonials for reviews section
+  const testimonials = await fetchTestimonials(4);
+
   // Extract data from the JSON response
   const headerData = locationData.data?.header || {};
   const faq = locationData.data?.faqs || [];
@@ -145,17 +160,29 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
   const isPremiumNearby = headerData.nearbypremium === 1;
   const ismailbox = headerData.nearbypopular === 1;
 
+  // Get address only URL if available
+  const addressOnlyUrl = headerData.addressOnlyOptionAvailable === 1
+    ? headerData.addressOnlyUrl
+    : undefined;
+  const interactiveCards = getInteractiveCards(addressOnlyUrl);
+
   return (
     <div className="flex font-inter min-h-screen flex-col items-center bg-white justify-center w-full pt-[72px] lg:pt-[104px]">
       <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
-        <LocationBreadcrumb city={city ?? ""} state={state ?? ""} />
+        <LocationBreadcrumb
+          city={formatDisplayName(city ?? "")}
+          state={formatDisplayName(state ?? "")}
+          citySlug={city}
+          stateSlug={state}
+        />
         <LocationHeroCard data={headerData} ismailbox={ismailbox} />
-        <InteractiveCardsGrid interactiveCards={interactiveCards} />
+        <OverviewSection data={overviewData} />
+        <InteractiveCardsGrid interactiveCards={interactiveCards} locId={locId} />
         {isPremiumNearby && (
           <PremiumSection href='/' />
         )}
         <div className='lg:pb-[0px] w-full'>
-          <HeroCta />
+          <HeroCta locId={locId} />
         </div>
         <RepeaterSection
           items={repeaterData as RepeaterItem[]}
@@ -166,7 +193,7 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
         />
         <FaqSection data={faq} />
         {!isPremiumNearby && (
-          <Reviews />
+          <Reviews testimonials={testimonials} />
         )}
         <div className='w-full py-[30px] sm:py-[30px] md:py-[40px] lg:py-[40px]'>
         <EbookBanner />

@@ -1,14 +1,17 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { ChevronRight } from "lucide-react";
 
 type BreadcrumbProps = {
   city: string;
   state: string;
+  citySlug: string;
+  stateSlug: string;
 };
 
-export default function LocationBreadcrumb({ city, state }: BreadcrumbProps) {
+export default function LocationBreadcrumb({ city, state, citySlug, stateSlug }: BreadcrumbProps) {
   const cityLabel = city || "";
   const stateLabel = state || "";
 
@@ -16,11 +19,11 @@ export default function LocationBreadcrumb({ city, state }: BreadcrumbProps) {
     <div className="flex flex-col lg:flex-row w-full lg:gap-[32px] px-4 sm:px-6 md:px-8 max-w-screen-xl mx-auto mb-[8px] sm:mb-4 items-start lg:items-center justify-between mt-30 md:flex-row">
       <div className="flex w-full lg:w-[50%] flex-col sm:py-[12px] lg:py-[0] py-[20px] gap-[8px] max-w-[762px] md:w-[50%]">
        <div className="flex flex-row items-center gap-[6px] lg:gap-[8px]">
-          <span className="font-inter  font-semibold text-[14px] leading-[20px] text-[#717680]">Locations</span>
+          <Link href="/virtual-office/" prefetch={false} className="font-inter font-semibold text-[14px] leading-[20px] text-[#717680] hover:text-[#026AA2]">Locations</Link>
           <ChevronRight className="w-[16px] h-[16px] min-w-[16px] min-h-[16px] text-[#A4A7AE]" />
-          <span className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0] text-[#717680] capitalize">{stateLabel}</span>
+          <Link href={`/virtual-office/${stateSlug}`} prefetch={false} className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0] text-[#717680] hover:text-[#026AA2] capitalize">{stateLabel}</Link>
           <ChevronRight className="w-[16px] h-[16px] min-w-[16px] min-h-[16px] text-[#A4A7AE]" />
-          <span className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0] text-[#026AA2] capitalize">{cityLabel}</span>
+          <Link href={`/virtual-office/${stateSlug}/${citySlug}`} prefetch={false} className="font-inter font-semibold text-[14px] leading-[20px] tracking-[0] text-[#026AA2] capitalize">{cityLabel}</Link>
         </div>
         <span className="font-inter text-[#101828] text-[20px] leading-[30px] sm:leading-[120%] font-medium lg:text-[36px] tracking-[0.72]">
           Virtual office in <span className="font-bold text-[#36BFFA] capitalize">{cityLabel}</span>

@@ -1,5 +1,3 @@
-'use client';
-
 import { Navbar } from "@/app/components/Navbar";
 import { Footer } from "@/app/components/Footer";
 import { PopularLocations } from "@/app/components/PopularLocations";
@@ -11,6 +9,9 @@ import { SearchWithAction } from "@/app/components/SearchWithAction";
 import { FeaturesBoxLocations } from "@/app/components/FeaturesBoxLocations";
 import { SectionSpacer } from "@/app/components/SectionSpacer";
 import Image from "next/image";
+import { fetchStates } from "@/app/lib/api/states";
+import { fetchPopularSlider } from "@/app/lib/api/popularSlider";
+import { fetchTestimonials } from "@/app/lib/api/testimonials";
 
 const FEATURES = [
   "Prestigious Business Address",
@@ -21,7 +22,14 @@ const FEATURES = [
   "Voicemail/Fax Converted to Email"
 ];
 
-export default function VirtualOfficePage() {
+export default async function VirtualOfficePage() {
+  // Fetch all data server-side
+  const [statesData, popularSliderData, testimonials] = await Promise.all([
+    fetchStates(),
+    fetchPopularSlider(),
+    fetchTestimonials(4),
+  ]);
+
   return (
     <div className="min-h-screen bg-white pt-[72px] lg:pt-[104px]">
       <Navbar />
@@ -65,11 +73,11 @@ export default function VirtualOfficePage() {
       <SectionSpacer />
 
       {/* State Selection Sections - Loaded from API */}
-      <StatesList />
+      <StatesList statesData={statesData} />
 
       <SectionSpacer />
 
-      <TopPremiumSlider />
+      <TopPremiumSlider locations={popularSliderData.data.top_premium} />
 
       <SectionSpacer />
 
@@ -84,7 +92,7 @@ export default function VirtualOfficePage() {
       <SectionSpacer />
 
       {/* Reviews Section */}
-      <Reviews />
+      <Reviews testimonials={testimonials} />
 
       <SectionSpacer />
 
