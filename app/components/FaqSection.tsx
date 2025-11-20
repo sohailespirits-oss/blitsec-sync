@@ -22,7 +22,7 @@ export function FaqSection({ data = [] }: FaqSectionProps) {
   };
 
   return (
-    <section className="flex pt-[0px] flex-col w-full max-w-[1280px] sm:px-8 py-0 justify-center items-center gap-6 md:gap-8 px-[16px] lg:px-[32px] lg:pt-[0px] pb-[0px] lg:pb-[0px]">
+    <section className="flex pt-[0px] flex-col w-full max-w-[1280px] sm:px-8 py-0 justify-center items-center gap-6 md:gap-8 px-[16px] lg:px-[32px] lg:pt-[0px] pb-[30px] md:pb-[40px] lg:pb-[40px]">
       <div className="flex flex-col lg:flex-row gap-[24px] lg:gap-[64px] w-full">
         {/* Left side */}
         <div className="w-full flex flex-col gap-[16px] lg:gap-[20px]">
