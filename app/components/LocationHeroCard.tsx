@@ -189,7 +189,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
 
         <Link
           href={data.signupUrl || "#"}
-          className="lg:flex  tracking-[100%] hidden h-[60px] md:py-[22px] px-[32px] w-full items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white font-inter font-semibold text-[18px] leading-[100%] hover:bg-[#026AA2] transition-colors"
+          className="lg:flex hidden h-[60px] md:py-[22px] px-[32px] w-full items-center justify-center text-center rounded-[8px] bg-[#36BFFA] text-white font-inter font-semibold text-[18px] leading-[100%] hover:bg-[#026AA2] transition-colors"
         >
           Select This Location
         </Link>
