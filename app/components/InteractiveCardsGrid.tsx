@@ -120,7 +120,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
 
                 {/* Desktop version - hover animation */}
                 <motion.div
-                  className="hidden lg:flex absolute top-[24px] left-0 right-0 bottom-[42px] flex-col items-center justify-center"
+                  className="hidden lg:flex absolute top-[34px] left-0 right-0 bottom-[42px] flex-col items-center justify-center"
                   variants={{
                     rest: { gap: 1, },
                     hover: { gap: 12 }
@@ -130,7 +130,7 @@ export function InteractiveCardsGrid({ interactiveCards, onDemoClick }: Interact
                   transition={{ duration: 0.3 }}
                 >
                   <motion.p
-                    className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] whitespace-nowrap text-[48px]"
+                    className="[font-family:'Inter',Helvetica] font-bold text-[#ffffff] text-center tracking-[-0.96px] lg:leading-[60px] whitespace-nowrap text-[48px]"
                     variants={{
                       rest: { y: 0 },
                       hover: { y: 4 }

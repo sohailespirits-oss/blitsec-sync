@@ -63,12 +63,17 @@
             {
                 "title": "WHY OPUS?",
                 "body": "Opting for a virtual office in New York City through Opus VO gives you the exclusive advantage of a live receptionist committed to offering personalized, top-tier client service. Every point of client contact is carefully designed to resonate with your unique business objectives, supported by our wide range of administrative services. These amenities include a corporate mailing address, digital mail sorting, company phone and fax number, state-of-the-art call-forwarding options, and beyond. Our efficient administrative staff will manage your day-to-day tasks, freeing you to concentrate on your company’s strategic growth and success. Opus VO N.Y. @ 26 Broadway, Suite 934, New York, NY 10004 ",
-                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/coral-springs.jpg"
+                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/coral-springs.jpg",
+                "layout": "image_text",
+                "imageAlignment": "right"
+
             },
             {
                 "title": "CHOOSE NEW YORK CITY",
                 "body": "Start spreading the news, because New York City is the business epicenter of the world. Every industry in the world has a place in New York and there’s no reason your business shouldn’t be included. Your office, conveniently located near the Bowling Green Subway station, gives you access to all of New York City if you wish to take your client to a trendy restaurant or a local spot off the beaten path. Explore the sweeping landscape of Central Park or take in an award-winning Broadway show, because in New York, dull moments don’t exist. With its impressive and striking architecture, along with the luminous spectacle of its skyscrapers, Opus VO’s New York location is the perfect place to set up your meeting.",
-                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/botaraton-covered.png"
+                "image": "/newsite/wp-content/themes/ThemeDec23/assets/images/botaraton-covered.png",
+                "layout": "image_text",
+                "imageAlignment": "left"
             }
         ],
         "seo": {

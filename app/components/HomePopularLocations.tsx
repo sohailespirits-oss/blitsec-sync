@@ -118,7 +118,7 @@ export function HomePopularLocations({
 
         {showViewAllLink && (
           <div className="max-w-screen-xl justify-center gap-2 px-0 py-0 w-full flex flex-col items-center">
-            <Link href="https://www.opusvirtualoffices.com/virtual-office/" prefetch={false}>
+            <Link href="/virtual-office/" prefetch={true}>
               <p className="font-normal text-gray-600 text-base sm:text-lg md:text-xl tracking-[0] leading-relaxed text-center hover:text-blue-light400 transition-colors cursor-pointer">
                 <span className="font-text-xl-regular [font-style:var(--text-xl-regular-font-style)] tracking-[var(--text-xl-regular-letter-spacing)] text-[length:var(--text-xl-regular-font-size)] font-semibold">
                   View All Locations

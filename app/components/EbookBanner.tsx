@@ -95,7 +95,7 @@ export function EbookBanner() {
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
       >
-        <div className="flex flex-col lg:flex-row items-start justify-between gap-6 sm:gap-8 p-6 sm:p-8 md:px-10 lg:px-16 md:py-5 flex-1 rounded-2xl overflow-hidden shadow-shadows-shadow-md bg-cover bg-center relative" style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to bottom, rgba(255, 255, 255, 0.67), rgba(255, 255, 255, 0.67)), url(${bgCtaPromoImg})` }}>
+        <div className="flex flex-col lg:flex-row items-start py-[40px] justify-between gap-6 sm:gap-8 p-6 sm:p-8 md:px-10 lg:px-16 md:py-5 flex-1 rounded-2xl overflow-hidden shadow-shadows-shadow-md bg-cover bg-center relative" style={{ backgroundImage: `linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(to bottom, rgba(255, 255, 255, 0.67), rgba(255, 255, 255, 0.67)), url(${bgCtaPromoImg})` }}>
           <div className="flex flex-col items-start justify-center gap-4 sm:gap-5 flex-1 w-full lg:w-auto max-w-[730px]">
             <div className="flex flex-col gap-4 sm:gap-5 w-full">
               <Badge
@@ -109,7 +109,7 @@ export function EbookBanner() {
                 6-Steps for Starting a Business
               </h2>
 
-              <p className="font-normal text-gray-900 text-base sm:text-lg md:text-xl tracking-[0] leading-relaxed">
+              <p className="font-normal text-gray-900 text-[20px] sm:text-[20px] md:text-xl tracking-[0] leading-[30px]">
                 Your Complete Guide to Building a Successful Business<br></br>
                 Foundation with Confidence
               </p>
@@ -118,7 +118,7 @@ export function EbookBanner() {
             <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row max-w-[600px] w-full items-start gap-3 sm:gap-4">
               <div className="flex flex-col items-start gap-1.5 flex-1 w-full">
                 <div className="flex flex-col items-start gap-1.5 w-full">
-                  <div className="flex items-center gap-2 px-3.5 py-3 w-full bg-[#ffffff] rounded-lg border border-solid shadow-[0px_1px_2px_#0a0c120d]">
+                  <div className="flex items-center gap-2 px-3.5 py-3 w-full bg-[#ffffff] rounded-lg h-[48px] border border-solid shadow-[0px_1px_2px_#0a0c120d]">
                     <MailIcon className="w-5 h-5 text-gray-500" />
                     <Input
                       type="email"
@@ -157,7 +157,7 @@ export function EbookBanner() {
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="h-auto inline-flex items-center justify-center gap-1.5 px-[18px] py-3 w-full sm:w-auto bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)] disabled:opacity-50 disabled:cursor-not-allowed"
+                className="h-[48px] inline-flex items-center justify-center gap-1.5 px-[18px] py-3 w-full sm:w-auto bg-blue-light400 hover:bg-blue-light700 transition-colors rounded-lg border border-solid border-[#36bff9] hover:border-blue-light700 shadow-shadows-shadow-xs font-text-sm-text-md-semibold font-[number:var(--text-sm-text-md-semibold-font-weight)] text-basewhite text-[length:var(--text-sm-text-md-semibold-font-size)] tracking-[var(--text-sm-text-md-semibold-letter-spacing)] leading-[var(--text-sm-text-md-semibold-line-height)] [font-style:var(--text-sm-text-md-semibold-font-style)] disabled:opacity-50 disabled:cursor-not-allowed"
                 data-testid="button-get-ebook"
               >
                 {isSubmitting ? 'Submitting...' : 'Get your Ebook'}

@@ -2,6 +2,11 @@
  * API service for fetching popular Opus-owned locations including top premium slider data.
  */
 
+'use server';
+
+import { readFile } from 'fs/promises';
+import path from 'path';
+
 export interface PopularSliderLocation {
   id: string;
   name: string;
@@ -77,21 +82,12 @@ function normalizeResponse(
  * Fetch enhanced slider payload (with_flagged=true ensures images + top premium data).
  */
 export async function fetchPopularSlider(): Promise<PopularSliderPayload> {
-  // Use internal Next.js API route that reads from filesystem
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+  const jsonFilePath = path.join(process.cwd(), 'newsite', 'json', 'toppremium.json');
+  const fileContent = await readFile(jsonFilePath, 'utf-8');
+  const data = JSON.parse(fileContent) as PopularSliderResponse;
 
-  const apiUrl = `${baseUrl}/api/json/toppremium`;
-  const response = await fetch(apiUrl);
-
-  if (!response.ok) {
-    throw new Error(`Failed to fetch popular slider data: ${response.statusText}`);
-  }
-
-  const data = (await response.json()) as PopularSliderResponse;
-
-  // Use WordPress domain for images on localhost
-  const isLocalhost = typeof window !== 'undefined' && window.location.hostname === 'localhost';
-  const imageOrigin = isLocalhost ? 'https://njs.opusvirtualoffices.com' : baseUrl;
+  // Use production domain for images
+  const imageOrigin = 'https://njs.opusvirtualoffices.com';
 
   return normalizeResponse(data, imageOrigin);
 }
