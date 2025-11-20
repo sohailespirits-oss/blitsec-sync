@@ -146,29 +146,33 @@ export default async function LocationPage({ params }: { params: Promise<Locatio
   const ismailbox = headerData.nearbypopular === 1;
 
   return (
-    <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
-      <LocationBreadcrumb city={city ?? ""} state={state ?? ""} />
-      <LocationHeroCard data={headerData} ismailbox={ismailbox} />
-      <InteractiveCardsGrid interactiveCards={interactiveCards} />
-      {isPremiumNearby && (
-        <PremiumSection href='/' />
-      )}
-      <div className='pt-[20px] pb-[0px] lg:pt-[0px] lg:pb-[0px] w-full'>
-        <HeroCta />
-      </div>
-      <RepeaterSection
-        items={repeaterData as RepeaterItem[]}
-        overviewData={overviewData}
-        cityName={city}
-        locId={locId}
-        price={headerData.price}
-      />
-      <FaqSection data={faq} />
-      {!isPremiumNearby && (
-        <Reviews />
-      )}
-      <EbookBanner />
+    <div className="flex font-inter min-h-screen flex-col items-center bg-white justify-center w-full pt-[72px] lg:pt-[104px]">
+      <main className="flex font-inter min-h-screen flex-col items-center bg-white justify-center lg:pt-[40px]">
+        <LocationBreadcrumb city={city ?? ""} state={state ?? ""} />
+        <LocationHeroCard data={headerData} ismailbox={ismailbox} />
+        <InteractiveCardsGrid interactiveCards={interactiveCards} />
+        {isPremiumNearby && (
+          <PremiumSection href='/' />
+        )}
+        <div className='lg:pb-[0px] w-full'>
+          <HeroCta />
+        </div>
+        <RepeaterSection
+          items={repeaterData as RepeaterItem[]}
+          overviewData={overviewData}
+          cityName={city}
+          locId={locId}
+          price={headerData.price}
+        />
+        <FaqSection data={faq} />
+        {!isPremiumNearby && (
+          <Reviews />
+        )}
+        <div className='w-full py-[30px] sm:py-[30px] md:py-[40px] lg:py-[40px]'>
+        <EbookBanner />
+        </div>
+      </main>
       <Footer />
-    </main>
+    </div>
   );
 }

@@ -127,7 +127,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
             )}
           </div>
         }
-        <div className="flex flex-col px-[12px] pt-[12px] pb-[12px] lg:px-[32px] flex-1 min-w-[200px] sm:min-w-[200px] md:min-w-[200px] lg:min-w-[480px] w-full justify-center items-start gap-[12px] md:gap-[8px] self-stretch  border-t border-white/30 bg-[#36BFFA] backdrop-blur-lg">
+        <div className="flex flex-col px-[12px] pt-[12px] pb-[12px] lg:px-[32px] flex-1 min-w-[200px] sm:min-w-[200px] md:min-w-[200px] lg:min-w-[480px] w-full justify-center items-start gap-[12px] md:gap-[8px] self-stretch sm:border-t-[0px] border-white/30 bg-[#36BFFA] backdrop-blur-lg">
           <div className="flex flex-row items-center w-full justify-between gap-[16px]">
             <span className="font-inter font-semibold lg:text-[36px] text-[14px] leading-[20px] tracking-normal lg:tracking-[-0.72px] text-white lg:leading-[44px]">
               {data.city}, {data.state}
@@ -139,7 +139,7 @@ export default function LocationHeroCard({ data, ismailbox }: { data: LocationHe
             </div>
           </div>
 
-          <div className="flex lg:flex-row flex-col items-center w-full justify-between gap-[2px]">
+          <div className="flex lg:flex-row flex-col items-center w-full justify-between gap-[0px] sm:gap-[0px] md:gap-[2px] lg:gap-[2px]">
             <span className="font-inter pr-[20px] lg:font-semibold font-normal lg:text-[18px] text-[12px] text-white leading-[18px] lg:leading-[28px] w-full whitespace-pre-line max-w-[472px] lg:pb-[0px] pb-[12px]">
               {formatAddress(data.address)}
               {data.address.phone ? `\n${data.address.phone}` : ""}
