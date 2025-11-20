@@ -162,9 +162,9 @@ export function Reviews() {
   };
 
   return (
-    <section className="w-full items-center gap-6 sm:gap-8 px-0 py-0 sm:py-0 bg-[#ffffff] flex flex-col">
+    <section className="w-full items-center gap-6 sm:gap-8 px-0 sm:py-0 bg-[#ffffff] flex flex-col pt-[30px] lg:pt-[30px]">
       <motion.div
-        className="flex flex-col items-start gap-6 sm:gap-8 max-w-screen-xl w-full px-4 sm:px-6 md:px-8 py-0"
+        className="flex flex-col items-start gap-6 sm:gap-8 max-w-screen-xl w-full px-4 sm:px-6 md:px-8"
         initial="initial"
         whileInView="animate"
         viewport={{ once: true }}

@@ -87,7 +87,7 @@ export function RepeaterSection({ overviewData, items, cityName, locId, price = 
           };
 
           return (
-            <div key={`image-text-${index}`} className={`${index == 0 ? 'pt-[30px] lg:pt-[40px]' : 'none'} w-full`}>
+            <div key={`image-text-${index}`} className={`${index == 0 ? 'pt-[30px] lg:pt-[0px]' : 'none'} w-full`}>
               <TextWithImage
                 title={item.title}
                 body={item.body}
