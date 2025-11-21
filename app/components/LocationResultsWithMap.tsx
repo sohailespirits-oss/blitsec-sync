@@ -136,8 +136,7 @@ export default function LocationResultsWithMap({
 					const longitude = toNumber(location.point_y);
 					if (latitude === undefined || longitude === undefined) return undefined;
 					return { lat: latitude, lng: longitude };
-				})
-				.filter((coords): coords is { lat: number; lng: number } => Boolean(coords));
+				}).filter((coords): coords is { lat: number; lng: number } => Boolean(coords));
 		},
 		[activeLocation, popularLocations, additionalLocations],
 	);

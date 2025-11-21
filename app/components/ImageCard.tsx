@@ -1,5 +1,4 @@
 import Image from 'next/image';
-
 interface ImageCardProps {
 	opusowned?: number;
 	premium?: number;
@@ -22,9 +21,6 @@ export default function ImageCard(props: ImageCardProps) {
 		subAddress,
 		isHighlight = false,
 	} = props;
-
-
-	console.log("premium:", premium);
 
 	return (
 		<>
