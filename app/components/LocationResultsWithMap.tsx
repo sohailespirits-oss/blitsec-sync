@@ -126,35 +126,39 @@ export default function LocationResultsWithMap({
 		toNumber(defaultLocation?.point_y);
 	const mapZoom = map?.zoom ?? 12;
 
-	// Aggregate markers from both popular and additional lists so all pins appear.
+	// When hovering, show only that marker; otherwise show all available pins.
 	const markerCoordinates = useMemo(
-		() =>
-			[...popularLocations, ...additionalLocations]
+		() => {
+			const source = activeLocation ? [activeLocation] : [...popularLocations, ...additionalLocations];
+			return source
 				.map((location) => {
 					const latitude = toNumber(location.point_x);
 					const longitude = toNumber(location.point_y);
 					if (latitude === undefined || longitude === undefined) return undefined;
 					return { lat: latitude, lng: longitude };
 				})
-				.filter((coords): coords is { lat: number; lng: number } => Boolean(coords)),
-		[popularLocations, additionalLocations],
+				.filter((coords): coords is { lat: number; lng: number } => Boolean(coords));
+		},
+		[activeLocation, popularLocations, additionalLocations],
 	);
-
-	const markerQuery = markerCoordinates
-		.map(({ lat: markerLat, lng: markerLng }) => `loc:${markerLat},${markerLng}`)
-		.join(" | ");
 
 	const fallbackSearch =
 		lat !== undefined && lng !== undefined
 			? `${lat},${lng}`
 			: `${state} virtual office locations`;
 
-	// Use a single q param combining all marker coordinates so Google Maps shows all pins.
-	const mapQuery = markerQuery || fallbackSearch;
-	const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=${mapZoom}&output=embed`;
+	// Use multiple q params so Google Maps renders all pins.
+	const markerQueries = markerCoordinates.map(
+		({ lat: markerLat, lng: markerLng }) => `q=${encodeURIComponent(`loc:${markerLat},${markerLng}`)}`
+	);
+	const mapQueryParams = markerQueries.length
+		? markerQueries.join("&")
+		: `q=${encodeURIComponent(fallbackSearch)}`;
+
+	const mapSrc = `https://www.google.com/maps?${mapQueryParams}&z=${mapZoom}&output=embed`;
 
 	// Cache-busting key so iframe updates when markers change or hover changes center.
-	const mapKey = `${markerCoordinates.length}-${activeLocation?.id ?? "none"}-${lat ?? "na"}-${lng ?? "na"}-${mapQuery}`;
+	const mapKey = `${markerCoordinates.length}-${activeLocation?.id ?? "none"}-${lat ?? "na"}-${lng ?? "na"}-${mapQueryParams}`;
 
 	const mapOverlayLocation = activeLocation;
 
