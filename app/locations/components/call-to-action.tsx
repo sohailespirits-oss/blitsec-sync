@@ -12,8 +12,17 @@ interface CallToActionProps {
 
 const man_holding_tablet = "/man-holding-tablet.webp";
 
+// Helper function to capitalize city name (handles multi-word cities)
+function capitalizeCityName(city: string): string {
+    return city
+        .split('-')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join('-');
+}
+
 function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
     const signupUrl = `/signup/?btn=4&locid=${locId}`;
+    const formattedCityName = capitalizeCityName(cityName);
 
     return (
         <>
@@ -104,10 +113,10 @@ function CallToAction({ cityName, locId, price = 99 }: CallToActionProps) {
                         <div className="ebook-left-one">
                             <div className="heading-ebook flex flex-col gap-[12px]">
                                 <h2 className="font-semibold text-[#101828] lg:text-[36px] text-[30px] leading-[120%] tracking-[-0.72px]">
-                                    Establish your business presence in {cityName}
+                                    Establish your business presence in {formattedCityName}
                                 </h2>
                                 <p className="font-normal lg:text-[20px] text-[18px] leading-[140%] tracking-[0] text-[#535862]">
-                                    All-Inclusive Virtual Office Services for <strong>Only ${price}</strong>
+                                    All-Inclusive Virtual Office Services for <strong>Only $99</strong>
                                 </p>
                             </div>
                             <div className="loc-wrapper-ebook-btn">
