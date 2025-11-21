@@ -10,6 +10,7 @@ const PrivacyIcon = '/assets/profile-card-icon.svg';
 import { GetYourOfficeSection } from "../components/prestigious-business/GetYourOfficeSection";
 import { FAQSection } from "../components/prestigious-business/FAQSection";
 import faqData from "@/newsite/json/faq.json";
+import { Footer } from "../components/Footer";
 const FeatureIconOne = '/assets/featured-round-icon1.svg';
 const FeatureIconTwo = '/assets/featured-round-icon2.svg';
 const FeatureIconThree = '/assets/featured-round-icon3.svg';
@@ -236,6 +237,9 @@ export default function PrestigiousBusinessAddress() {
 
         {/* FAQ Section */}
         <FAQSection data={faqData.faqs || []} />
+
+        {/* Footer */}
+        <Footer />
 
       </div>
     </div>

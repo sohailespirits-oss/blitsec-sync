@@ -8,49 +8,49 @@ const cities = [
     name: "Atlanta",
     state: "GA",
     image: "/atlanta.webp",
-    href: "/virtual-office/atlanta-georgia/",
+    href: "/business-address/georgia/atlanta/location-684/",
   },
   {
     name: "Chicago",
     state: "IL",
     image: "/chicago.webp",
-    href: "/virtual-office/chicago-illinois/",
+    href: "/business-address/illinois/chicago/location-1430/",
   },
   {
     name: "Dallas",
     state: "TX",
     image: "/dallas.webp",
-    href: "/virtual-office/dallas-texas/",
+    href: "/business-address/texas/dallas/location-1255/",
   },
   {
     name: "Houston",
     state: "TX",
     image: "/houston.webp",
-    href: "/virtual-office/houston-texas/",
+    href: "/business-address/texas/houston/location-1323/",
   },
   {
     name: "Los Angeles",
     state: "CA",
     image: "/los-angeles.webp",
-    href: "/virtual-office/los-angeles-california/",
+    href: "/business-address/california/los-angeles/location-1362/",
   },
   {
     name: "Miami",
     state: "FL",
     image: "/miami.webp",
-    href: "/virtual-office/miami-florida/",
+    href: "/business-address/florida/miami/location-1285/",
   },
   {
     name: "New York",
     state: "NY",
     image: "/new-york.webp",
-    href: "/virtual-office/new-york-new-york/",
+    href: "/business-address/new-york/new-york/location-1450/",
   },
   {
     name: "Tampa",
     state: "FL",
     image: "/tampa.webp",
-    href: "/virtual-office/tampa-florida/",
+    href: "/business-address/florida/tampa/location-885/",
   },
 ];
 
@@ -76,16 +76,16 @@ export function MostPopularCities() {
             {cities.map((city, index) => (
               <Link
                 key={index}
-                href="#"
+                href={city.href}
                 prefetch={false}
                 className="flex flex-col md:gap-[16px] lg:gap-[24px] group cursor-pointer overflow-hidden relative "
               >
-                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden h-[160px] lg:h-[200px] ">
+                <div className="relative w-full aspect-[4/3] rounded-lg overflow-hidden h-[160px] lg:h-[200px] transition-transform duration-300 hover:scale-105">
                   <Image
                     src={city.image}
                     alt={`${city.name}, ${city.state} skyline`}
                     fill
-                    className="object-cover transition-transform rounded-lg duration-300 group-hover:scale-105 h-[200px]! bg-[linear-gradient(180deg,rgba(0,0,0,0)_76.25%,#000000_100%)] md:bg-none"
+                    className="object-cover h-[200px]! bg-[linear-gradient(180deg,rgba(0,0,0,0)_76.25%,#000000_100%)] md:bg-none"
                     sizes="(max-width: 640px) 50vw, (max-width: 1024px) 25vw, 25vw"
                   />
                 </div>
