@@ -19,8 +19,8 @@ export default function CitySearch({ data }: CitySearchProps) {
     const { state, city, locations, map } = data;
     console.log("Breadcrumb final:", [
         { label: "Locations" },
-        { label: state, href: `/state-search/${state}` },
-        { label: city, href: `/state-search/${state}/${city.toLowerCase().replace(/\s+/g, "-")}` }
+        { label: state, href: `/virtual-office/${state}` },
+        { label: city, href: `/virtual-office/${state}/${city.toLowerCase().replace(/\s+/g, "-")}` }
     ]);
 
 

@@ -18,7 +18,7 @@ export default function PopularCities({ state, cities }: PopularCitiesProps) {
         {cities.map((city, idx) => (
           <Link
             key={idx}
-            href={`/state-search/${state}/${city.toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/virtual-office/${state}/${city.toLowerCase().replace(/\s+/g, "-")}`}
             className="flex items-center px-[12px] py-[4px] rounded-[16px] h-[28px] border-[1.5px] border-[#475467] text-[#344054] text-[14px] font-medium leading-[20px]"
           >
             {city}

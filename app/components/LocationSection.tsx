@@ -45,7 +45,7 @@ export default function LocationSection({
                         <Breadcrumb
                             items={[
                                 { label: "Locations" },
-                                { label: state, href: `/state-search/${state}` },
+                                { label: state, href: `/virtual-office/${state}` },
                                 ...(city ? [{ label: city }] : [])
                             ]}
                         />
