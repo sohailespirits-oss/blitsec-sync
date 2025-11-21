@@ -1,11 +1,20 @@
 import Link from "next/link";
 
-interface PopularCitiesProps {
-  state: string;
-  cities: string[];
+interface City {
+  id: string;
+  name: string;
+  popular: string;
 }
 
-export default function PopularCities({ state, cities }: PopularCitiesProps) {
+interface PopularCitiesProps {
+  state: string;
+  stateSlug?: string;
+  cities: City[];
+}
+
+export default function PopularCities({ state, stateSlug, cities }: PopularCitiesProps) {
+  const resolvedStateSlug = stateSlug || state?.toLowerCase()?.replace(/\s+/g, "-");
+
   return (
     <div className="flex flex-col gap-[24px] py-[20px] lg:py-[32px]">
       {/* Heading */}
@@ -18,15 +27,15 @@ export default function PopularCities({ state, cities }: PopularCitiesProps) {
         {cities.map((city, idx) => (
           <Link
             key={idx}
-            href={`/virtual-office/${state}/${city.toLowerCase().replace(/\s+/g, "-")}`}
+            href={`/virtual-office/${resolvedStateSlug}/${city.name?.toLowerCase().replace(/\s+/g, "-")}`}
             className="flex items-center px-[12px] py-[4px] rounded-[16px] h-[28px] border-[1.5px] border-[#475467] text-[#344054] text-[14px] font-medium leading-[20px]"
           >
-            {city}
+            {city.name}
           </Link>
+
 
         ))}
       </div>
-
     </div>
   );
 }

@@ -3,8 +3,13 @@
 import { useState, useRef, useEffect } from "react";
 import { MapPin, ChevronDown } from "lucide-react";
 
+interface City {
+  id: string;
+  name: string;
+  popular: string; // or number if you convert it
+}
 interface CitySelectDropdownProps {
-  options: string[];
+  options: City[];
   placeholder?: string;
   value?: string;
   onChange?: (value: string) => void;
@@ -88,9 +93,9 @@ export default function CitySelectDropdown({
 
           {options.map((city) => (
             <li
-              key={city}
+              key={city.id}
               onClick={() => {
-                onChange?.(city);
+                onChange?.(city.name);
                 setOpen(false);
               }}
               className="
@@ -98,7 +103,7 @@ export default function CitySelectDropdown({
                 hover:bg-gray-100 rounded-lg
               "
             >
-              {city}
+              {city.name}
             </li>
           ))}
         </ul>

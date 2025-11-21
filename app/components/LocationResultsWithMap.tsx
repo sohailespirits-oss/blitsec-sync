@@ -12,6 +12,8 @@ export type LocationResult = {
 	address?: string;
 	abbr?: string;
 	showpopular?: string;
+	opusowned?: number;
+	premium?: number;
 	point_x?: string;
 	point_y?: string;
 	image?: string;
@@ -23,8 +25,8 @@ export type LocationMap = {
 	lng?: number;
 	zoom?: number;
 };
-
 export interface LocationResultsWithMapProps {
+	city?: string;
 	state: string;
 	locations?: LocationResult[];
 	map?: LocationMap;
@@ -46,10 +48,21 @@ const toNumber = (value?: string | number) => {
 	return Number.isFinite(parsed) ? parsed : undefined;
 };
 
-const normalizeImageSrc = (src?: string) => {
-	if (!src) return '/locations/default.webp';
-	if (src.startsWith('http')) return src;
-	return `https://www.opusvirtualoffices.com${src}`;
+const normalizeImageSrc = (src?: any) => {
+	if (!src) return "/locations/default.webp";
+
+	// OBJECT with image: { url: "/img.jpg" }
+	if (typeof src === "object") {
+		if (src.url) src = src.url;
+		else if (Array.isArray(src) && src.length > 0) src = src[0];
+		else return "/locations/default.webp";
+	}
+
+	const value = String(src);
+
+	if (value.startsWith("http")) return value;
+
+	return `https://www.opusvirtualoffices.com${value}`;
 };
 
 const SectionHeading = ({ children }: { children: ReactNode }) => (
@@ -59,19 +72,22 @@ const SectionHeading = ({ children }: { children: ReactNode }) => (
 );
 
 export default function LocationResultsWithMap({
+	city,
 	state,
 	locations = [],
 	map,
 }: LocationResultsWithMapProps) {
 	const popularLocations = useMemo(
-		() => locations.filter((location) => location.showpopular === '1'),
-		[locations],
-	);
-	const additionalLocations = useMemo(
-		() => locations.filter((location) => location.showpopular !== '1'),
+		() => locations.filter((location) => location.opusowned === 1),
 		[locations],
 	);
 
+	const additionalLocations = useMemo(
+		() => locations.filter((location) => location.opusowned !== 1),
+		[locations],
+	);
+
+	console.log("locations:", locations);
 	const firstLocationWithCoords = useMemo(
 		() =>
 			popularLocations.find(
@@ -83,19 +99,6 @@ export default function LocationResultsWithMap({
 	const defaultLocation = useMemo(
 		() => popularLocations[0] ?? additionalLocations[0],
 		[popularLocations, additionalLocations],
-	);
-
-	const locationCoordinates = useMemo(
-		() =>
-			locations
-				.map((location) => {
-					const latitude = toNumber(location.point_x);
-					const longitude = toNumber(location.point_y);
-					if (latitude === undefined || longitude === undefined) return undefined;
-					return { lat: latitude, lng: longitude };
-				})
-				.filter((coords): coords is { lat: number; lng: number } => Boolean(coords)),
-		[locations],
 	);
 
 	const [activeLocation, setActiveLocation] = useState<LocationResult | undefined>(
@@ -122,19 +125,36 @@ export default function LocationResultsWithMap({
 		toNumber(firstLocationWithCoords?.point_y) ??
 		toNumber(defaultLocation?.point_y);
 	const mapZoom = map?.zoom ?? 12;
-	const markerQueries = locationCoordinates.map(
-		({ lat: markerLat, lng: markerLng }) => `loc:${markerLat},${markerLng}`,
+
+	// Aggregate markers from both popular and additional lists so all pins appear.
+	const markerCoordinates = useMemo(
+		() =>
+			[...popularLocations, ...additionalLocations]
+				.map((location) => {
+					const latitude = toNumber(location.point_x);
+					const longitude = toNumber(location.point_y);
+					if (latitude === undefined || longitude === undefined) return undefined;
+					return { lat: latitude, lng: longitude };
+				})
+				.filter((coords): coords is { lat: number; lng: number } => Boolean(coords)),
+		[popularLocations, additionalLocations],
 	);
+
+	const markerQuery = markerCoordinates
+		.map(({ lat: markerLat, lng: markerLng }) => `loc:${markerLat},${markerLng}`)
+		.join(" | ");
+
 	const fallbackSearch =
 		lat !== undefined && lng !== undefined
 			? `${lat},${lng}`
 			: `${state} virtual office locations`;
-	const mapQueryParams = markerQueries.length
-		? markerQueries
-			.map((marker) => `q=${encodeURIComponent(marker)}`)
-			.join('&')
-		: `q=${encodeURIComponent(fallbackSearch)}`;
-	const mapSrc = `https://www.google.com/maps?${mapQueryParams}&z=${mapZoom}&output=embed`;
+
+	// Use a single q param combining all marker coordinates so Google Maps shows all pins.
+	const mapQuery = markerQuery || fallbackSearch;
+	const mapSrc = `https://www.google.com/maps?q=${encodeURIComponent(mapQuery)}&z=${mapZoom}&output=embed`;
+
+	// Cache-busting key so iframe updates when markers change or hover changes center.
+	const mapKey = `${markerCoordinates.length}-${activeLocation?.id ?? "none"}-${lat ?? "na"}-${lng ?? "na"}-${mapQuery}`;
 
 	const mapOverlayLocation = activeLocation;
 
@@ -151,7 +171,7 @@ export default function LocationResultsWithMap({
 						{popularLocations.length > 0 && (
 							<>
 								<SectionHeading>
-									Most Popular Virtual Office Location in {state}
+									{city ? `Most Popular Virtual Office Location in ${city}` : `Most Popular Virtual Office Location in ${state}`}
 								</SectionHeading>
 								{popularLocations.map((location) => (
 									<div
@@ -160,6 +180,7 @@ export default function LocationResultsWithMap({
 										className="w-full h-auto lg:h-[184px]"
 									>
 										<ImageCard
+											premium={location.premium}
 											imageSrc={normalizeImageSrc(location.image)}
 											imageAlt={`Virtual office in ${location.city}, ${state}`}
 											cityName={`${location.city}${location.abbr ? `, ${location.abbr}` : ''}`}
@@ -175,7 +196,7 @@ export default function LocationResultsWithMap({
 						{additionalLocations.length > 0 && (
 							<>
 								<SectionHeading>
-									Additional Virtual Office Locations in {state}
+									{city ? `Additional Virtual Office Locations in ${city}` : `Additional Virtual Office Locations in ${state}`}
 								</SectionHeading>
 								{additionalLocations.map((location) => (
 									<div
@@ -184,6 +205,7 @@ export default function LocationResultsWithMap({
 										className="w-full h-auto lg:h-[184px]"
 									>
 										<ImageCard
+											premium={location.premium}
 											imageSrc={normalizeImageSrc(location.image)}
 											imageAlt={`Virtual office in ${location.city}, ${state}`}
 											cityName={`${location.city}${location.abbr ? `, ${location.abbr}` : ''}`}
@@ -201,6 +223,7 @@ export default function LocationResultsWithMap({
 				<div className="flex flex-col gap-9 w-full h-full">
 					<div className="relative hidden md:block">
 						<iframe
+							key={mapKey}
 							src={mapSrc}
 							width="100%"
 							height="600"
@@ -209,7 +232,7 @@ export default function LocationResultsWithMap({
 							loading="lazy"
 							referrerPolicy="no-referrer-when-downgrade"
 							title={`Map of ${state}`}
-							className="w-full min-h-[214px] h-[600px]"
+							className="w-full min-h-[214px] h-[600px] transition-opacity duration-200"
 						/>
 
 						{mapOverlayLocation && (
@@ -231,12 +254,14 @@ export default function LocationResultsWithMap({
 											{mapOverlayLocation.name ?? mapOverlayLocation.address}
 										</p>
 									</div>
-									<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full w-fit">
-										<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
-											Premium
-										</span>
-										<span className="text-[#067647] capitalize">location</span>
-									</div>
+									{mapOverlayLocation.premium === 1 && (
+										<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full w-fit">
+											<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
+												Premium
+											</span>
+											<span className="text-[#067647] capitalize">location</span>
+										</div>
+									)}
 								</div>
 							</div>
 						)}

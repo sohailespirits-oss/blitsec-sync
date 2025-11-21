@@ -1,56 +1,59 @@
-import CitySearchData from "@/api-responses/city-search-result.json";
 import CitySearch from "@/app/components/CitySearch";
+import FloridaData from "../../../../newsite/json/states/florida/florida_locations_vo.json";
+import { LocationResult } from "@/app/components/LocationResultsWithMap";
 
-type Params = {
-  state: string;
-  city: string;
-};
+function normalizeLocation(raw: any): LocationResult {
+  return {
+    id: String(raw.id),
+    city: raw.city,
+    name: raw.location_name ?? raw.name,
+    address: raw.address,
+    abbr: raw.state_abbr,
+    showpopular: String(raw.showpopular ?? ""),
+    premium: raw.premium,
+    opusowned: raw.opusowned,
+    point_x: String(raw.point_x ?? ""),
+    point_y: String(raw.point_y ?? ""),
+    image: typeof raw.image === "object" ? raw.image.url : raw.image,
+    link: raw.url,
+  };
+}
 
 export default async function CityPage({
   params,
 }: {
-  params: { state: string; city: string };
+  params: Promise<{ state: string; city: string }>;
 }) {
   const { state, city } = await params;
 
-  // Format city slug => human readable
-  const readableCity = city
-    .replace(/-/g, " ")                     // los-angeles → los angeles
-    .replace(/\b\w/g, (char) => char.toUpperCase()); // → Los Angeles
-
-  // ALSO format state for display
+  const readableCity = city.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
   const readableState = state.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
 
-  // Find matching city from JSON (match lowercase only)
-  const cityLocation = CitySearchData.result.locations.find(
-    (loc) => loc.city.toLowerCase() === readableCity.toLowerCase()
+  const allCityLocations = FloridaData.data.filter(
+    (loc: any) => loc.city.toLowerCase() === readableCity.toLowerCase()
   );
 
-  if (!cityLocation) {
-    return (
-      <div className="p-10 text-center text-red-500">
-        City "{readableCity}" not found. Please go back.
-      </div>
-    );
+  if (!allCityLocations.length) {
+    return <div className="p-10 text-center text-red-500">City "{readableCity}" not found.</div>;
   }
 
-  // Build map data
-  const map =
-    cityLocation.point_x && cityLocation.point_y
-      ? {
-        lat: Number(cityLocation.point_x),
-        lng: Number(cityLocation.point_y),
-      }
-      : undefined;
+  const firstLocation = allCityLocations[0];
+  const rawImg = firstLocation.image;
+  const img = typeof rawImg === "object" ? rawImg.url : rawImg;
 
-  // Send fully enriched data to your CitySearch component
+  const map =
+    firstLocation.point_x && firstLocation.point_y
+      ? { lat: Number(firstLocation.point_x), lng: Number(firstLocation.point_y) }
+      : undefined;
+console.log("allCityLocations:",allCityLocations);
+
   return (
     <CitySearch
       data={{
         state: readableState,
         city: readableCity,
-        image: cityLocation.image || "/default.jpg",
-        locations: [cityLocation],
+        image: img || "/default.jpg",
+        locations: allCityLocations.map(normalizeLocation),
         map,
       }}
     />

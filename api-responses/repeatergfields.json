@@ -27,7 +27,7 @@
         "imageAlignment": "left"
     },
     {
-        "layout": "cta_block",
+        "layout": "cta_block"
     },
     {
         "title": "Orlando Mail Handling & Virtual Mailbox Services",
@@ -44,6 +44,6 @@
         "imageAlignment": "right"
     },
     {
-        "layout": "cta_block",
+        "layout": "cta_block"
     }
 ]

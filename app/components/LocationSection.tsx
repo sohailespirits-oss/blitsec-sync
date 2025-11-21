@@ -13,11 +13,17 @@ import headerData from '@/api-responses/location-page/header.json';
 import { EbookBanner } from "./EbookBanner";
 import { Footer } from "./Footer";
 
+interface City {
+    id: string;
+    name: string;
+    popular: string;
+}
 interface LocationSectionProps {
     state: string;
+    stateSlug?: string;
     city: string;
-    cities: string[];
-    dropdownOptions: string[];
+    cities: City[];
+    dropdownOptions: City[];
     onCityChange: (value: string) => void;
     locations?: LocationResult[];
     map?: LocationMap;
@@ -25,6 +31,7 @@ interface LocationSectionProps {
 
 export default function LocationSection({
     state,
+    stateSlug,
     city,
     cities,
     dropdownOptions,
@@ -32,9 +39,12 @@ export default function LocationSection({
     locations = [],
     map,
 }: LocationSectionProps) {
-
+    const slugToTitle = (value: string) =>
+        value.replace(/-/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+    const resolvedStateSlug = stateSlug || (state ? state.toLowerCase().replace(/\s+/g, "-") : "");
+    const resolvedStateName = state || (stateSlug ? slugToTitle(stateSlug) : "");
     const locId = headerData.signupUrl.match(/locid=(\d+)/)?.[1] || '776';
-    console.log("city:", city);
+    console.log("state:", state);
 
     return (
         <section className="flex w-full max-w-fill flex-col items-center">
@@ -45,7 +55,7 @@ export default function LocationSection({
                         <Breadcrumb
                             items={[
                                 { label: "Locations" },
-                                { label: state, href: `/virtual-office/${state}` },
+                                { label: resolvedStateName, href: `/virtual-office/${resolvedStateSlug}` },
                                 ...(city ? [{ label: city }] : [])
                             ]}
                         />
@@ -54,19 +64,13 @@ export default function LocationSection({
                     {/* Heading */}
                     <div className="w-full max-w-screen-xl flex flex-col gap-4">
                         <h1
-                            className="
-    font-inter text-[#101828] font-semibold
-    text-[24px] leading-[32px] tracking-[-0.48px]
-    lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]
-  "
+                            className="font-inter text-[#101828] font-semibold text-[24px] leading-[32px] tracking-[-0.48px] lg:text-[36px] lg:leading-[44px] lg:tracking-[-0.72px]"
                         >
                             {city
-                                ? `Virtual office in ${city}`               // city page
-                                : `Virtual office Locations in ${state}` // state page
+                                ? `Virtual office in ${city}`
+                                : `Virtual office Locations in ${resolvedStateName}`
                             }
                         </h1>
-
-
                     </div>
                     <Padding mobile="24px" desktop="24px" />
                     {/* Dropdown */}
@@ -79,15 +83,18 @@ export default function LocationSection({
                     </div>
                     <Padding mobile="24px" desktop="27px" />
                     {/* Cities Section */}
-                    <div className="w-full max-w-screen-xl flex flex-col gap-4">
-                        <PopularCities state={state} cities={cities} />
-                    </div>
+                    {!city && (
+                        <div className="w-full max-w-screen-xl flex flex-col gap-4">
+                            <PopularCities state={resolvedStateName} stateSlug={resolvedStateSlug} cities={cities} />
+                        </div>
+                    )}
                 </div>
                 {locations.length > 0 && (
                     <>
                         <Padding mobile="24px" desktop="27px" />
                         <LocationResultsWithMap
-                            state={state}
+                            city={city}
+                            state={resolvedStateName}
                             locations={locations}
                             map={map}
                         />

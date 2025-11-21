@@ -1,6 +1,8 @@
 import Image from 'next/image';
 
 interface ImageCardProps {
+	opusowned?: number;
+	premium?: number;
 	imageSrc?: string;
 	imageAlt?: string;
 	cityName: string;
@@ -11,6 +13,8 @@ interface ImageCardProps {
 
 export default function ImageCard(props: ImageCardProps) {
 	const {
+		premium = 0,
+		opusowned = 0,
 		imageSrc = '',
 		imageAlt = '',
 		cityName,
@@ -18,6 +22,10 @@ export default function ImageCard(props: ImageCardProps) {
 		subAddress,
 		isHighlight = false,
 	} = props;
+
+
+	console.log("premium:", premium);
+
 	return (
 		<>
 			{isHighlight ? (
@@ -30,14 +38,16 @@ export default function ImageCard(props: ImageCardProps) {
 							height={184}
 							className="w-full lg:max-w-[239px] h-full object-cover rounded-tl-[8px] rounded-tr-[8px] lg:rounded-tr-[0px] rounded-bl-[0px] lg:rounded-bl-[8px] text-transparent"
 						/>
-						<div className="absolute top-3 left-3 bg-[#F16527] border-[1px] flex items-center gap-2 border-[#E79A78] py-1 pr-2 pl-1 rounded-[12px]">
-							<span className="px-[10px] py-[2px] rounded-[9px] bg-white capitalize text-[16px] text-[#252B37] text-center text-base font-medium leading-6">
-								most
-							</span>
-							<span className="font-bold text-white text-[16px] leading-[24px] capitalize">
-								popular
-							</span>
-						</div>
+						{(premium === 1 && opusowned === 0) && (
+							<div className="absolute top-3 left-3 bg-[#F16527] border-[1px] flex items-center gap-2 border-[#E79A78] py-1 pr-2 pl-1 rounded-[12px]">
+								<span className="px-[10px] py-[2px] rounded-[9px] bg-white capitalize text-[16px] text-[#252B37] text-center text-base font-medium leading-6">
+									most
+								</span>
+								<span className="font-bold text-white text-[16px] leading-[24px] capitalize">
+									popular
+								</span>
+							</div>
+						)}
 					</div>
 
 					<div className="flex-1 flex flex-col items-start p-6 gap-[20px] justify-between">
@@ -46,13 +56,14 @@ export default function ImageCard(props: ImageCardProps) {
 								<span className="text-black font-inter text-[18px] font-bold leading-[28px] whitespace-nowrap max-w-[174px] overflow-hidden text-ellipsis">
 									{cityName}
 								</span>
-
-								<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full">
-									<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
-										Premium
-									</span>
-									<span className="text-[#067647] capitalize">location</span>
-								</div>
+								{(premium === 1 && opusowned === 0) && (
+									<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full">
+										<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
+											Premium
+										</span>
+										<span className="text-[#067647] capitalize">location</span>
+									</div>
+								)}
 							</div>
 
 							<div className='max-w-[305px]'>
@@ -107,13 +118,14 @@ export default function ImageCard(props: ImageCardProps) {
 								<span className="text-black font-inter text-[18px] font-bold leading-[28px] whitespace-nowrap max-w-[59%] lg:max-w-[174px] overflow-hidden text-ellipsis">
 									{cityName}
 								</span>
-
-								<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full sm:w-[138px]">
-									<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
-										Premium
-									</span>
-									<span className="text-[#067647] capitalize">location</span>
-								</div>
+								{(premium === 1 && opusowned === 0) && (
+									<div className="bg-[#ECFDF3] border flex gap-2 items-center border-[#ABEFC6] py-1 pr-2 pl-1 text-[10px] rounded-full sm:w-[138px]">
+										<span className="border border-[#ABEFC6] px-2 py-[2px] rounded-full bg-white text-[#067647] leading-[18px] capitalize">
+											Premium
+										</span>
+										<span className="text-[#067647] capitalize">location</span>
+									</div>
+								)}
 							</div>
 							<div className='max-w-[305px]'>
 								<p className="text-[14px] font-normal text-[#000] leading-5 truncate">
